@@ -7,6 +7,7 @@ import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.*;
 import net.minecraft.block.BlockBush;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -40,11 +41,11 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			//was height 0.001
-			super(new BiomeProperties("Jurassic Mudflats").setBaseHeight(0F).setHeightVariation(0F).setTemperature(1.25F).setRainfall(0.4F));
+			super(new BiomeProperties("Jurassic Mudbanks").setBaseHeight(0F).setHeightVariation(0F).setTemperature(1.25F).setRainfall(0.4F));
 			setRegistryName("lepidodendron:jurassic_mudflats");
-			topBlock = BlockCoarseSiltyDirt.block.getDefaultState();
-			fillerBlock = BlockBrownstone.block.getDefaultState();
-			decorator.treesPerChunk = -999;
+			topBlock = BlockCarboniferousMud.block.getDefaultState();
+			fillerBlock = BlockCoarseSiltyDirt.block.getDefaultState();
+			decorator.treesPerChunk = 1;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
 			decorator.mushroomsPerChunk = 0;
@@ -60,6 +61,7 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 		}
 
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
+		protected static final WorldGenPachypterisProper PACHYPTERIS_TREE = new WorldGenPachypterisProper(false);
 
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
@@ -71,9 +73,8 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenSelaginella SELAGINELLA_GENERATOR = new WorldGenSelaginella();
 		protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
 		protected static final WorldGenTreeLog LOG_GENERATOR = new WorldGenTreeLog(BlockCzekanowskiaLog.block);
-		protected static final WorldGenGravelPatch SAND_PATCH_GENERATOR = new WorldGenGravelPatch(BlockCoarseSiltyDirt.block, 8);
-
-		protected static final WorldGenCzekanowskia CZEKANOWSKIA_GENERATOR = new WorldGenCzekanowskia();
+		protected static final WorldGenGravelPatch SAND_PATCH_GENERATOR = new WorldGenGravelPatch(BlockCoarseSiltyDirt.block, 4);
+		protected static final WorldGenGravelPatch SAND_PATCH_GENERATOR_1 = new WorldGenGravelPatch(Blocks.SAND, 4);
 
 		protected static final WorldGenWaterSideSandyPrehistoricGround WATERSIDE_DIRT_GENERATOR = new WorldGenWaterSideSandyPrehistoricGround();
 		protected static final WorldGenWatersideMud WATERSIDE_MUD_GENERATOR = new WorldGenWatersideMud();
@@ -82,9 +83,13 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenRedSandyDirt DIRT_GENERATOR = new WorldGenRedSandyDirt();
 		protected static final WorldGenDriedMud MUD_GENERATOR = new WorldGenDriedMud();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
+		protected static final WorldGenSpaciinodum SPACIINODUM_GENERATOR = new WorldGenSpaciinodum();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
+			if (rand.nextInt(4) == 0) {
+				return PACHYPTERIS_TREE;
+			}
 			return NULL_TREE;
 		}
 
@@ -104,13 +109,16 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-			for (int i = 0; i < 3; ++i)
 			{
-				int j = rand.nextInt(16) + 8;
-				int k = rand.nextInt(16) + 8;
-				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				CZEKANOWSKIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+				for (int j1 = 0; j1 < 5; ++j1)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					this.SAND_PATCH_GENERATOR_1.generate(worldIn, rand, pos.add(j, l, k));
+				}
 			}
+
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS)) {
 				int i = rand.nextInt(2);
@@ -126,7 +134,7 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 10; ++i)
+				for (int i = 0; i < 24; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -167,7 +175,7 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					LEAVES_GENERATOR.generate((BlockBush) BlockPhoenicopsisSapling.block, BlockPhoenicopsisLeaves.block.getDefaultState(), BlockPhoenicopsisLog.block.getDefaultState().withProperty(BlockPhoenicopsisLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 68, 90);
+					LEAVES_GENERATOR.generate((BlockBush) BlockCzekanowskiaSapling.block, BlockCzekanowskiaLeaves.block.getDefaultState(), BlockCzekanowskiaLog.block.getDefaultState().withProperty(BlockCzekanowskiaLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 68, 90);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -206,6 +214,16 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 					WATER_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 18; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SPACIINODUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 156; ++i)
 				{
@@ -230,7 +248,7 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 
 		@Override
 		public EnumBiomeTypeJurassic getBiomeType() {
-			return EnumBiomeTypeJurassic.Mudflats;
+			return EnumBiomeTypeJurassic.River;
 		}
 
 	}

@@ -5,6 +5,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.pnjurassic.world.biome.jurassic.BiomeJurassicMire;
+import net.pnjurassic.world.biome.jurassic.BiomeJurassicMireHelper;
 import net.pnjurassic.world.biome.jurassic.BiomeJurassicMudflats;
 import net.pnjurassic.world.biome.jurassic.BiomeJurassicMudflatsHelper;
 
@@ -14,11 +16,21 @@ public class GenLayerDiversifyJurassicMudflats extends GenLayer {
     public int JURASSIC_MUDFLATS_ID =  Biome.getIdForBiome(JURASSIC_MUDFLATS);
     public Biome JURASSIC_MUDFLATS_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_helper"));
     public int JURASSIC_MUDFLATS_HELPER_ID =  Biome.getIdForBiome(JURASSIC_MUDFLATS_HELPER);
+    public Biome JURASSIC_MIRE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire"));
+    public int JURASSIC_MIRE_ID =  Biome.getIdForBiome(JURASSIC_MIRE);
+    public Biome JURASSIC_MIRE_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire_helper"));
+    public int JURASSIC_MIRE_HELPER_ID =  Biome.getIdForBiome(JURASSIC_MIRE_HELPER);
 
     private final int MudflatsBiomes[] = new int[] {
-        JURASSIC_MUDFLATS_ID,
-        JURASSIC_MUDFLATS_ID,
-        JURASSIC_MUDFLATS_HELPER_ID
+            JURASSIC_MUDFLATS_ID,
+            JURASSIC_MUDFLATS_ID,
+            JURASSIC_MUDFLATS_HELPER_ID
+    };
+
+    private final int MireBiomes[] = new int[] {
+            JURASSIC_MIRE_ID,
+            JURASSIC_MIRE_ID,
+            JURASSIC_MIRE_HELPER_ID
     };
 
     public GenLayerDiversifyJurassicMudflats(long seed, GenLayer genlayer) {
@@ -44,6 +56,9 @@ public class GenLayerDiversifyJurassicMudflats extends GenLayer {
                     if (Biome.getBiome(center) == BiomeJurassicMudflats.biome
                         || Biome.getBiome(center) == BiomeJurassicMudflatsHelper.biome)
                         output[i] = MudflatsBiomes[nextInt(MudflatsBiomes.length)];
+                    else if (Biome.getBiome(center) == BiomeJurassicMire.biome
+                            || Biome.getBiome(center) == BiomeJurassicMireHelper.biome)
+                        output[i] = MireBiomes[nextInt(MireBiomes.length)];
                     else output[i] = center;
                 } else output[i] = center;
             }

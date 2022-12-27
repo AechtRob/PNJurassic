@@ -36,9 +36,23 @@ public class GenLayerJurassicRiverBanks extends GenLayer
     public int JURASSIC_MUDFLATS_HELPER_ID =  Biome.getIdForBiome(JURASSIC_MUDFLATS_HELPER);
     public  Biome JURASSIC_GARRIGUE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_garrigue"));
     public  int JURASSIC_GARRIGUE_ID =  Biome.getIdForBiome(JURASSIC_GARRIGUE);
+    public Biome JURASSIC_MIRE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire"));
+    public int JURASSIC_MIRE_ID =  Biome.getIdForBiome(JURASSIC_MIRE);
+    public Biome JURASSIC_MIRE_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire_helper"));
+    public int JURASSIC_MIRE_HELPER_ID =  Biome.getIdForBiome(JURASSIC_MIRE_HELPER);
+    public Biome JURASSIC_ESTUARY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary"));
+    public int JURASSIC_ESTUARY_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY);
+    public Biome JURASSIC_ESTUARY_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_helper"));
+    public int JURASSIC_ESTUARY_HELPER_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY_HELPER);
 
     public  Biome JURASSIC_RIVERBANK = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_riverbank"));
     public  int JURASSIC_RIVERBANK_ID =  Biome.getIdForBiome(JURASSIC_RIVERBANK);
+
+    public Biome JURASSIC_REDWOOD_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_hills"));
+    public int JURASSIC_REDWOOD_HILLS_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_HILLS);
+
+    public Biome JURASSIC_REDWOOD_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_mountains"));
+    public int JURASSIC_REDWOOD_MOUNTAINS_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_MOUNTAINS);
 
     public GenLayerJurassicRiverBanks(long seed, GenLayer genLayer)
     {
@@ -99,9 +113,16 @@ public class GenLayerJurassicRiverBanks extends GenLayer
 }
 
     private boolean hasNoBanks(int biomeID) {
-        if (biomeID == JURASSIC_REDWOOD_FOREST_ID || biomeID == JURASSIC_MUDFLATS_ID
-            || biomeID == JURASSIC_MUDFLATS_HELPER_ID
-            || biomeID == JURASSIC_GARRIGUE_ID) {
+        if (biomeID == JURASSIC_REDWOOD_FOREST_ID
+                || biomeID == JURASSIC_REDWOOD_HILLS_ID
+                || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
+                || biomeID == JURASSIC_MUDFLATS_ID
+                || biomeID == JURASSIC_MUDFLATS_HELPER_ID
+                || biomeID == JURASSIC_GARRIGUE_ID
+                || biomeID == JURASSIC_MIRE_HELPER_ID
+                || biomeID == JURASSIC_MIRE_ID
+                || biomeID == JURASSIC_ESTUARY_ID
+                || biomeID == JURASSIC_ESTUARY_HELPER_ID) {
             return true;
         }
         return false;

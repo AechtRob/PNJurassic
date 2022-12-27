@@ -12,6 +12,9 @@ public class GenLayerJurassicBeach extends GenLayer
     public  int JURASSIC_OCEAN_ID =  Biome.getIdForBiome(JURASSIC_OCEAN);
     public  Biome JURASSIC_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore"));
     public  int JURASSIC_OCEAN_SHORE_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_SHORE);
+    public  Biome JURASSIC_REEF = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_glass_sponge_reef"));
+    public  int JURASSIC_REEF_ID =  Biome.getIdForBiome(JURASSIC_REEF);
+
     public  Biome JURASSIC_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_beach"));
     public  int JURASSIC_BEACH_ID =  Biome.getIdForBiome(JURASSIC_BEACH);
 
@@ -32,6 +35,16 @@ public class GenLayerJurassicBeach extends GenLayer
     public  int JURASSIC_TAIGA_BASALT_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_BASALT);
     public  Biome JURASSIC_BLACK_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_beach_black"));
     public  int JURASSIC_BLACK_BEACH_ID =  Biome.getIdForBiome(JURASSIC_BLACK_BEACH);
+
+    public Biome JURASSIC_REDWOOD_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_mountains"));
+    public int JURASSIC_REDWOOD_MOUNTAINS_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_MOUNTAINS);
+
+
+    public  Biome JURASSIC_ESTUARY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary"));
+    public  int JURASSIC_ESTUARY_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY);
+    public  Biome JURASSIC_ESTUARY_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_helper"));
+    public  int JURASSIC_ESTUARY_HELPER_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY_HELPER);
+
 
     public GenLayerJurassicBeach(long seed, GenLayer genLayer)
     {
@@ -90,7 +103,8 @@ public class GenLayerJurassicBeach extends GenLayer
     }
 
     private boolean isOcean(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID) {
+        if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+            || biomeID == JURASSIC_REEF_ID) {
             return true;
         }
         return false;
@@ -109,6 +123,9 @@ public class GenLayerJurassicBeach extends GenLayer
             ||biomeID == JURASSIC_MUDFLATS_HELPER_ID
             || biomeID == JURASSIC_REDWOOD_FOREST_ID
             || biomeID == JURASSIC_SANDBANKS_ID
+            || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
+            || biomeID == JURASSIC_ESTUARY_ID
+            || biomeID == JURASSIC_ESTUARY_HELPER_ID
         //    || biomeID == TRIASSIC_RIVERBANK_ID
         //    || biomeID == TRIASSIC_VOLCANIC_ISLANDS_ID
         //    || biomeID == TRIASSIC_LOWLANDS_FLOODPLAIN_ID

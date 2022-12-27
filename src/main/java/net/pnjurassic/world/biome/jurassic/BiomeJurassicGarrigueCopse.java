@@ -45,7 +45,7 @@ public class BiomeJurassicGarrigueCopse extends ElementsLepidodendronMod.ModElem
 			setRegistryName("lepidodendron:jurassic_garrigue_copse");
 			topBlock = BlockPrehistoricGroundBasic.block.getDefaultState();
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
-			decorator.treesPerChunk = 8;
+			decorator.treesPerChunk = 12;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
 			decorator.mushroomsPerChunk = 0;
@@ -63,8 +63,9 @@ public class BiomeJurassicGarrigueCopse extends ElementsLepidodendronMod.ModElem
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		protected static final WorldGenPodocarpTree PODOCARP_TREE = new WorldGenPodocarpTree(false);
 		protected static final WorldGenTallAraucariaTree ANCIENT_ARAUCARIA_TREE = new WorldGenTallAraucariaTree(false);
+		protected static final WorldGenCephalotaxusTree CEPHALOTAXUS_TREE = new WorldGenCephalotaxusTree(false);
 
-    	protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
+		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
 		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.<BlockDoublePlant.EnumPlantType>create("variant", BlockDoublePlant.EnumPlantType.class);
 		protected static final WorldGenClaytosmunda CLAYTOSMUNDA_GENERATOR = new WorldGenClaytosmunda();
@@ -103,8 +104,11 @@ public class BiomeJurassicGarrigueCopse extends ElementsLepidodendronMod.ModElem
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
-			if (rand.nextInt(6) == 0) {
+			if (rand.nextInt(10) == 0) {
 				return ANCIENT_ARAUCARIA_TREE;
+			}
+			if (rand.nextInt(3) != 0) {
+				return CEPHALOTAXUS_TREE;
 			}
 			return PODOCARP_TREE;
 
