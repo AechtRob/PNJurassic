@@ -117,6 +117,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 		private static final WorldGenBlockBlob FOREST_ROCK_GENERATOR = new WorldGenBlockBlob(Blocks.MOSSY_COBBLESTONE, 0);
 		protected static final WorldGenTreeLog PARARAUCARIA_LOG_GENERATOR = new WorldGenTreeLog(BlockMonkeyPuzzleAraucariaLog.block);
 		protected static final WorldGenTreeLog COLUMNARIS_LOG_GENERATOR = new WorldGenTreeLog(BlockColumnarisLog.block);
+		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -329,6 +330,14 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					WOOD_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 32; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					CLUBMOSS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.FERN);
