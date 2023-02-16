@@ -47,6 +47,8 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public  int JURASSIC_ATOLLS_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS);
     public  Biome JURASSIC_ATOLLS2 = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_sandbanks_raised"));
     public  int JURASSIC_ATOLLS2_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS2);
+    public  Biome JURASSIC_LAKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lakes"));
+    public  int JURASSIC_LAKES_ID =  Biome.getIdForBiome(JURASSIC_LAKES);
 
     public GenLayerJurassicRiverMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
     {
@@ -79,6 +81,7 @@ public class GenLayerJurassicRiverMix extends GenLayer
                         || aint[i] == JURASSIC_MOUNTAINS_ID
                         || aint[i] == JURASSIC_ATOLLS_ID
                         || aint[i] == JURASSIC_ATOLLS2_ID
+                        || aint[i] == JURASSIC_LAKES_ID
                 )
                 {
                     aint2[i] = aint[i];
@@ -96,7 +99,8 @@ public class GenLayerJurassicRiverMix extends GenLayer
                             || biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Floodplain) {
                             aint2[i] = JURASSIC_CREEK_FLOODPLAIN_ID;
                         }
-                        else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Ginkgo) {
+                        else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Ginkgo
+                            || biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Lake) {
                             aint2[i] = JURASSIC_CREEK_GINKGO_ID;
                         }
                         else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Pasture) {

@@ -611,6 +611,10 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                 && biome == BiomeJurassicGinkgoWoodland.biome && rand.nextInt(12) == 0) {
                             iblockstate = BlockPrehistoricGroundFern.block.getDefaultState();
                         }
+                        if ((biome == BiomeJurassicLakeShore.biome || biome == BiomeJurassicLake.biome)
+                                && rand.nextInt(6) == 0) {
+                            iblockstate = BlockPrehistoricGroundFern.block.getDefaultState();
+                        }
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
                                 && biome == BiomeJurassicFloodplainForested.biome && rand.nextInt(18) == 0) {
                             iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();

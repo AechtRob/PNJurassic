@@ -43,7 +43,7 @@ public class BiomeJurassicMireLakes extends ElementsLepidodendronMod.ModElement 
 
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Jurassic Mire").setBaseHeight(-0.56F).setHeightVariation(0.0F).setTemperature(1.0F).setRainfall(0.5F));
+			super(new BiomeProperties("Jurassic Horsetail Mire").setBaseHeight(-0.56F).setHeightVariation(0.0F).setTemperature(1.0F).setRainfall(0.5F));
 			setRegistryName("lepidodendron:jurassic_mire_lakes");
 			topBlock = BlockCarboniferousMud.block.getDefaultState();
 			fillerBlock = BlockPeat.block.getDefaultState();

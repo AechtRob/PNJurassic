@@ -97,6 +97,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 		protected static final WorldGenSilverTreefernTree SILVER_TREEFERNS = new WorldGenSilverTreefernTree(false);
 		protected static final WorldGenBlackTreefernTree BLACK_TREEFERNS = new WorldGenBlackTreefernTree(false);
 		protected static final WorldGenWalchiaTreeDead DEAD_TREE = new WorldGenWalchiaTreeDead(false);
+		protected static final WorldGenDicroidiumFTree DICROIDIUM_TREE = new WorldGenDicroidiumFTree(false);
 
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
@@ -124,6 +125,9 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 		{
 			if (rand.nextInt(36) == 0) {
 				return DEAD_TREE;
+			}
+			if (rand.nextInt(64) == 0) {
+				return DICROIDIUM_TREE;
 			}
 			int selector = rand.nextInt(16) + 8;
 			switch (selector) {
@@ -213,6 +217,15 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockColumnarisSapling.block, BlockColumnarisLeaves.block.getDefaultState(), BlockColumnarisLog.block.getDefaultState().withProperty(BlockColumnarisLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 1; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockDicroidiumOSapling.block, BlockDicroidiumOLeaves.block.getDefaultState(), BlockDicroidiumOLog.block.getDefaultState().withProperty(BlockDicroidiumOLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 95);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

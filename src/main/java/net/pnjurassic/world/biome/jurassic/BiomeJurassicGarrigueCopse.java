@@ -64,6 +64,7 @@ public class BiomeJurassicGarrigueCopse extends ElementsLepidodendronMod.ModElem
 		protected static final WorldGenPodocarpTree PODOCARP_TREE = new WorldGenPodocarpTree(false);
 		protected static final WorldGenTallAraucariaTree ANCIENT_ARAUCARIA_TREE = new WorldGenTallAraucariaTree(false);
 		protected static final WorldGenCephalotaxusTree CEPHALOTAXUS_TREE = new WorldGenCephalotaxusTree(false);
+		protected static final WorldGenScrubbyPineTree PINE_TREE = new WorldGenScrubbyPineTree(false);
 
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
@@ -110,6 +111,9 @@ public class BiomeJurassicGarrigueCopse extends ElementsLepidodendronMod.ModElem
 			}
 			if (rand.nextInt(3) != 0) {
 				return CEPHALOTAXUS_TREE;
+			}
+			if (rand.nextInt(8) == 0) {
+				return PINE_TREE;
 			}
 			return PODOCARP_TREE;
 
