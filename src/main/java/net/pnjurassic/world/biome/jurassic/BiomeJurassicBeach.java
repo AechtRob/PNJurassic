@@ -96,6 +96,7 @@ public class BiomeJurassicBeach extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenLeafblock LEAFBLOCK_GENERATOR = new WorldGenLeafblock();
 		protected static final WorldGenFurcifolium FURCIFOLIUM_GENERATOR = new WorldGenFurcifolium();
 		protected static final WorldGenFrenelopsis FRENELOPSIS_GENERATOR = new WorldGenFrenelopsis();
+		protected static final WorldGenPrehistoricGroundCoverSandy GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
 
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -147,7 +148,7 @@ public class BiomeJurassicBeach extends ElementsLepidodendronMod.ModElement {
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 10; ++i)
+				for (int i = 0; i < 28; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
