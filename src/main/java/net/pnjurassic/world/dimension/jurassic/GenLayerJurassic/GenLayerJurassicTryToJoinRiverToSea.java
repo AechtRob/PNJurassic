@@ -23,6 +23,10 @@ public class GenLayerJurassicTryToJoinRiverToSea extends GenLayer
 
     public  Biome JURASSIC_SHALLOW_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore"));
     public  int JURASSIC_SHALLOW_OCEAN_ID =  Biome.getIdForBiome(JURASSIC_SHALLOW_OCEAN);
+    public Biome JURASSIC_OCEAN_RAFTS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts"));
+    public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
+    public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
+    public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
 
     public
     GenLayerJurassicTryToJoinRiverToSea(long seed, GenLayer genLayer)

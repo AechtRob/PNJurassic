@@ -43,10 +43,10 @@ public class BiomeJurassicSandbanks extends ElementsLepidodendronMod.ModElement 
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			//was height 0.001
-			super(new BiomeProperties("Jurassic Atolls").setBaseHeight(-0.3F).setHeightVariation(0F).setTemperature(1.9F).setRainDisabled());
+			super(new BiomeProperties("Jurassic Sandy Islands").setBaseHeight(-0.3F).setHeightVariation(0F).setTemperature(1.9F).setRainDisabled());
 			setRegistryName("lepidodendron:jurassic_sandbanks");
 			topBlock = Blocks.SAND.getDefaultState();
-			fillerBlock = Blocks.STONE.getDefaultState();
+			fillerBlock = Blocks.SANDSTONE.getDefaultState();
 			decorator.treesPerChunk = 5;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
@@ -231,7 +231,7 @@ public class BiomeJurassicSandbanks extends ElementsLepidodendronMod.ModElement 
 
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 28; ++i)
+				for (int i = 0; i < 12; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;

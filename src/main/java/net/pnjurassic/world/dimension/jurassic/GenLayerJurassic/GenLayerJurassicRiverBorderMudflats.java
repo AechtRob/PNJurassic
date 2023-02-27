@@ -29,6 +29,10 @@ public class GenLayerJurassicRiverBorderMudflats extends GenLayer
     public int JURASSIC_LAKE_ID =  Biome.getIdForBiome(JURASSIC_LAKE);
     public Biome JURASSIC_LAKE_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lake_shore"));
     public int JURASSIC_LAKE_SHORE_ID =  Biome.getIdForBiome(JURASSIC_LAKE_SHORE);
+    public Biome JURASSIC_OCEAN_RAFTS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts"));
+    public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
+    public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
+    public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
 
     public GenLayerJurassicRiverBorderMudflats(long seed, GenLayer genLayer)
     {
@@ -104,7 +108,9 @@ public class GenLayerJurassicRiverBorderMudflats extends GenLayer
                 || biomeID == JURASSIC_BEACH_ID || biomeID == JURASSIC_BEACH_BLACK_ID
                 || biomeID == JURASSIC_LAKE_ID
                 || biomeID == JURASSIC_LAKE_SHORE_ID
-                || biomeID == JURASSIC_RIVER_ID) {
+                || biomeID == JURASSIC_RIVER_ID
+                || biomeID == JURASSIC_CORAL_ID
+                || biomeID == JURASSIC_OCEAN_RAFTS_ID) {
             return true;
         }
         return false;

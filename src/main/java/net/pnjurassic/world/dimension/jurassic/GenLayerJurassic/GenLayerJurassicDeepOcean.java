@@ -12,7 +12,9 @@ public class GenLayerJurassicDeepOcean extends GenLayer
     public int JURASSIC_OCEAN_ID =  Biome.getIdForBiome(JURASSIC_OCEAN);
     public Biome JURASSIC_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore"));
     public int JURASSIC_OCEAN_SHORE_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_SHORE);
-    
+    public Biome JURASSIC_OCEAN_RAFTS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts"));
+    public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
+
     public GenLayerJurassicDeepOcean(long seed, GenLayer genLayer)
     {
         super(seed);
@@ -48,10 +50,10 @@ public class GenLayerJurassicDeepOcean extends GenLayer
                     int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
                     boolean flag = (
                         (
-                        (l1 == JURASSIC_OCEAN_ID || l1 == JURASSIC_OCEAN_SHORE_ID)
-                        && (i2 == JURASSIC_OCEAN_ID || i2 == JURASSIC_OCEAN_SHORE_ID)
-                        && (j2 == JURASSIC_OCEAN_ID || j2 == JURASSIC_OCEAN_SHORE_ID)
-                        && (k2 == JURASSIC_OCEAN_ID || k2 == JURASSIC_OCEAN_SHORE_ID )
+                        (l1 == JURASSIC_OCEAN_ID || l1 == JURASSIC_OCEAN_SHORE_ID || l1 == JURASSIC_OCEAN_RAFTS_ID)
+                        && (i2 == JURASSIC_OCEAN_ID || i2 == JURASSIC_OCEAN_SHORE_ID || i2 == JURASSIC_OCEAN_RAFTS_ID)
+                        && (j2 == JURASSIC_OCEAN_ID || j2 == JURASSIC_OCEAN_SHORE_ID || j2 == JURASSIC_OCEAN_RAFTS_ID)
+                        && (k2 == JURASSIC_OCEAN_ID || k2 == JURASSIC_OCEAN_SHORE_ID || k2 == JURASSIC_OCEAN_RAFTS_ID  )
                         )
                     );
                     if (flag)

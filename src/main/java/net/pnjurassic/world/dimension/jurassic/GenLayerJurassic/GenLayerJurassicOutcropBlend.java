@@ -25,6 +25,10 @@ public class GenLayerJurassicOutcropBlend extends GenLayer {
     public  int JURASSIC_RIVERBANK_ID =  Biome.getIdForBiome(JURASSIC_RIVERBANK);
     public  Biome JURASSIC_RIVER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_river"));
     public  int JURASSIC_RIVER_ID =  Biome.getIdForBiome(JURASSIC_RIVER);
+    public Biome JURASSIC_OCEAN_RAFTS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts"));
+    public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
+    public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
+    public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
 
     public GenLayerJurassicOutcropBlend(long seed, GenLayer genlayer) {
         super(seed);
@@ -79,6 +83,7 @@ public class GenLayerJurassicOutcropBlend extends GenLayer {
 
     private boolean isExemptForTransition(int biomeID) {
         if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+                || biomeID == JURASSIC_CORAL_ID || biomeID == JURASSIC_OCEAN_RAFTS_ID
                 || biomeID == JURASSIC_BEACH_ID || biomeID == JURASSIC_RIVERBANK_ID
                 || biomeID == JURASSIC_RIVER_ID
                 || biomeID == JURASSIC_ROUGH_HILLS_ID) {

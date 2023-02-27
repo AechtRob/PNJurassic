@@ -9,9 +9,11 @@ public class GenLayerJurassicShallowOcean extends GenLayer
 {
 
     public Biome JURASSIC_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean"));
-    public  int JURASSIC_OCEAN_ID =  Biome.getIdForBiome(JURASSIC_OCEAN);
-    public  Biome JURASSIC_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore"));
-    public  int JURASSIC_OCEAN_SHORE_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_SHORE);
+    public int JURASSIC_OCEAN_ID =  Biome.getIdForBiome(JURASSIC_OCEAN);
+    public Biome JURASSIC_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore"));
+    public int JURASSIC_OCEAN_SHORE_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_SHORE);
+    public Biome JURASSIC_OCEAN_RAFTS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts"));
+    public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
 
     public GenLayerJurassicShallowOcean(long seed, GenLayer genLayer)
     {
@@ -40,7 +42,7 @@ public class GenLayerJurassicShallowOcean extends GenLayer
                 this.initChunkSeed((long)(j1 + p_151626_1_), (long)(i1 + p_151626_2_));
                 int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
-                if (k1 == JURASSIC_OCEAN_ID)
+                if (k1 == JURASSIC_OCEAN_ID || k1 == JURASSIC_OCEAN_RAFTS_ID)
                 {
                     int l1 = aint[j1 + 1 + (i1 + 1 - 1) * k];
                     int i2 = aint[j1 + 1 + 1 + (i1 + 1) * k];
@@ -67,7 +69,8 @@ public class GenLayerJurassicShallowOcean extends GenLayer
 
     private boolean hasDeepSea(int biomeID) {
         if (
-            biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID) {
+            biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+                    || biomeID == JURASSIC_OCEAN_RAFTS_ID) {
             return true;
         }
         return false;

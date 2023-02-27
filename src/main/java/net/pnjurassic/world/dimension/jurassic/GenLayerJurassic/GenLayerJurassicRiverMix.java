@@ -49,6 +49,11 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public  int JURASSIC_ATOLLS2_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS2);
     public  Biome JURASSIC_LAKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lakes"));
     public  int JURASSIC_LAKES_ID =  Biome.getIdForBiome(JURASSIC_LAKES);
+    public Biome JURASSIC_OCEAN_RAFTS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts"));
+    public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
+    public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
+    public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
+
 
     public GenLayerJurassicRiverMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
     {
@@ -77,11 +82,13 @@ public class GenLayerJurassicRiverMix extends GenLayer
                 //Exclude rivers here:
                 if (aint[i] == JURASSIC_OCEAN_SHORE_ID
                         || aint[i] == JURASSIC_OCEAN_ID
+                        || aint[i] == JURASSIC_CORAL_ID
                         || aint[i] == JURASSIC_GLASS_SPONGE_REEF_ID
                         || aint[i] == JURASSIC_MOUNTAINS_ID
                         || aint[i] == JURASSIC_ATOLLS_ID
                         || aint[i] == JURASSIC_ATOLLS2_ID
                         || aint[i] == JURASSIC_LAKES_ID
+                        || aint[i] == JURASSIC_OCEAN_RAFTS_ID
                 )
                 {
                     aint2[i] = aint[i];

@@ -43,10 +43,10 @@ public class BiomeJurassicSandbanksRaised extends ElementsLepidodendronMod.ModEl
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			//was height 0.001
-			super(new BiomeProperties("Jurassic Atolls").setBaseHeight(0.05F).setHeightVariation(0F).setTemperature(1.9F).setRainDisabled());
+			super(new BiomeProperties("Jurassic Sandy Islands").setBaseHeight(0.05F).setHeightVariation(0F).setTemperature(1.9F).setRainDisabled());
 			setRegistryName("lepidodendron:jurassic_sandbanks_raised");
 			topBlock = Blocks.SAND.getDefaultState();
-			fillerBlock = Blocks.STONE.getDefaultState();
+			fillerBlock = Blocks.SANDSTONE.getDefaultState();
 			decorator.treesPerChunk = 5;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
@@ -80,6 +80,7 @@ public class BiomeJurassicSandbanksRaised extends ElementsLepidodendronMod.ModEl
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenShellyReefSubmerged EXPOSED_REEF_GENERATOR = new WorldGenShellyReefSubmerged();
 		protected static final WorldGenCorallineAlgae CORALLINE_GENERATOR = new WorldGenCorallineAlgae();
+		protected static final WorldGenPrehistoricGroundCoverSandy GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -155,7 +156,7 @@ public class BiomeJurassicSandbanksRaised extends ElementsLepidodendronMod.ModEl
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 156; ++i)
+				for (int i = 0; i < 24; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -216,6 +217,16 @@ public class BiomeJurassicSandbanksRaised extends ElementsLepidodendronMod.ModEl
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					ARID_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 12; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					GROUNDCOVER_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			super.decorate(worldIn, rand, pos);
