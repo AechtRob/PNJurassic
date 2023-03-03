@@ -18,7 +18,9 @@ public class GenLayerDiversifyJurassic2 extends GenLayer {
     public int JURASSIC_FLOODPLAIN_FORESTED_ID =  Biome.getIdForBiome(JURASSIC_FLOODPLAIN_FORESTED);
     public Biome JURASSIC_GINKGO_WOODLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_woodland"));
     public int JURASSIC_GINKGO_WOODLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_WOODLAND);
-    public Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_forest"));
+    public Biome JURASSIC_GINKGO_PARKLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_parkland"));
+    public int JURASSIC_GINKGO_PARKLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_PARKLAND);
+    Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_forest"));
     public int JURASSIC_REDWOOD_FOREST_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_FOREST);
     public Biome JURASSIC_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_floodplain"));
     public int JURASSIC_FLOODPLAIN_ID =  Biome.getIdForBiome(JURASSIC_FLOODPLAIN);
@@ -56,7 +58,8 @@ public class GenLayerDiversifyJurassic2 extends GenLayer {
         JURASSIC_MUDFLATS_ID
     };
     private final int GinkgoBiomes[] = new int[] {
-        JURASSIC_GINKGO_WOODLAND_ID
+        JURASSIC_GINKGO_WOODLAND_ID,
+        JURASSIC_GINKGO_PARKLAND_ID
     };
     private final int RedwoodBiomes[] = new int[] {
         JURASSIC_REDWOOD_FOREST_ID

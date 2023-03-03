@@ -39,7 +39,7 @@ public class BiomeJurassicOceanRafts extends ElementsLepidodendronMod.ModElement
 
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Jurassic Deep Ocean RAFTS").setBaseHeight(-1.85F).setHeightVariation(0.21F));
+			super(new BiomeProperties("Jurassic Driftwood Rafts").setBaseHeight(-1.85F).setHeightVariation(0.21F));
 			setRegistryName("lepidodendron:jurassic_ocean_rafts");
 			topBlock = Blocks.SAND.getDefaultState();
 			fillerBlock = Blocks.SAND.getDefaultState();

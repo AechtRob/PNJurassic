@@ -32,6 +32,8 @@ public class GenLayerJurassicRiverBorder extends GenLayer
     public int JURASSIC_FLOODPLAIN_FORESTED_ID =  Biome.getIdForBiome(JURASSIC_FLOODPLAIN_FORESTED);
     public Biome JURASSIC_GINKGO_WOODLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_woodland"));
     public int JURASSIC_GINKGO_WOODLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_WOODLAND);
+    public Biome JURASSIC_GINKGO_PARKLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_parkland"));
+    public int JURASSIC_GINKGO_PARKLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_PARKLAND);
     public Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_forest"));
     public int JURASSIC_REDWOOD_FOREST_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_FOREST);
     public Biome JURASSIC_MUDFLATS_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_helper"));
@@ -231,6 +233,9 @@ public class GenLayerJurassicRiverBorder extends GenLayer
                 || biomeID == JURASSIC_TAIGA_BASALT_ID
                 || biomeID == JURASSIC_FERN_PASTURE_ID
                 || biomeID == JURASSIC_GINKGO_WOODLAND_ID
+                || biomeID == JURASSIC_GINKGO_PARKLAND_ID
+                || biomeID == JURASSIC_LAKE_ID
+                || biomeID == JURASSIC_LAKE_SHORE_ID
         ) {
             return true;
         }
@@ -253,6 +258,9 @@ public class GenLayerJurassicRiverBorder extends GenLayer
             || biomeID == JURASSIC_COPSE_ID
             || biomeID == JURASSIC_BOULDERS_ID
             || biomeID == JURASSIC_GINKGO_WOODLAND_ID
+            || biomeID == JURASSIC_GINKGO_PARKLAND_ID
+            || biomeID == JURASSIC_LAKE_ID
+            || biomeID == JURASSIC_LAKE_SHORE_ID
             || biomeID == JURASSIC_FLOODPLAIN_ID) {
             return true;
         }

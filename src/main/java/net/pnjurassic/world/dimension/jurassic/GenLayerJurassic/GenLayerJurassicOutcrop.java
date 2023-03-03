@@ -5,10 +5,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicFloodplain;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicFloodplainForested;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicGinkgoWoodland;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicRedwoodForest;
+import net.pnjurassic.world.biome.jurassic.*;
 
 public class GenLayerJurassicOutcrop extends GenLayer {
 
@@ -16,6 +13,8 @@ public class GenLayerJurassicOutcrop extends GenLayer {
     public int JURASSIC_FLOODPLAIN_FORESTED_ID =  Biome.getIdForBiome(JURASSIC_FLOODPLAIN_FORESTED);
     public Biome JURASSIC_GINKGO_WOODLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_woodland"));
     public int JURASSIC_GINKGO_WOODLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_WOODLAND);
+    public Biome JURASSIC_GINKGO_PARKLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_parkland"));
+    public int JURASSIC_GINKGO_PARKLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_PARKLAND);
     public Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_forest"));
     public int JURASSIC_REDWOOD_FOREST_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_FOREST);
     public Biome JURASSIC_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_floodplain"));
@@ -57,6 +56,17 @@ public class GenLayerJurassicOutcrop extends GenLayer {
         JURASSIC_GINKGO_WOODLAND_ID,
         JURASSIC_OUTCROP_ID
     };
+    private final int GinkgoParklandBiomes[] = new int[] {
+            JURASSIC_GINKGO_PARKLAND_ID,
+            JURASSIC_GINKGO_PARKLAND_ID,
+            JURASSIC_GINKGO_PARKLAND_ID,
+            JURASSIC_GINKGO_PARKLAND_ID,
+            JURASSIC_GINKGO_PARKLAND_ID,
+            JURASSIC_GINKGO_PARKLAND_ID,
+            JURASSIC_GINKGO_PARKLAND_ID,
+            JURASSIC_GINKGO_PARKLAND_ID,
+            JURASSIC_OUTCROP_ID
+    };
     private final int RedwoodBiomes[] = new int[] {
         JURASSIC_REDWOOD_FOREST_ID,
         JURASSIC_REDWOOD_FOREST_ID,
@@ -95,6 +105,8 @@ public class GenLayerJurassicOutcrop extends GenLayer {
                         output[i] = FloodplainBiomes[nextInt(FloodplainBiomes.length)];
                     else if (Biome.getBiome(center) == BiomeJurassicGinkgoWoodland.biome)
                         output[i] = GinkgoBiomes[nextInt(GinkgoBiomes.length)];
+                    else if (Biome.getBiome(center) == BiomeJurassicGinkgoParkland.biome)
+                        output[i] = GinkgoParklandBiomes[nextInt(GinkgoBiomes.length)];
                     else if (Biome.getBiome(center) == BiomeJurassicRedwoodForest.biome)
                         output[i] = RedwoodBiomes[nextInt(RedwoodBiomes.length)];
                     else output[i] = center;
