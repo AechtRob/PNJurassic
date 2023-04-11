@@ -43,7 +43,7 @@ public class BiomeJurassicSandbanks extends ElementsLepidodendronMod.ModElement 
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			//was height 0.001
-			super(new BiomeProperties("Jurassic Sandy Islands").setBaseHeight(-0.3F).setHeightVariation(0F).setTemperature(1.9F).setRainDisabled());
+			super(new BiomeProperties("Jurassic Sandy Islands").setBaseHeight(-0.3F).setHeightVariation(0F).setTemperature(1.9F));
 			setRegistryName("lepidodendron:jurassic_sandbanks");
 			topBlock = Blocks.SAND.getDefaultState();
 			fillerBlock = Blocks.SANDSTONE.getDefaultState();

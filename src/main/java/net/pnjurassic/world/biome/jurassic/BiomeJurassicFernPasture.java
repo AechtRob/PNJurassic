@@ -39,7 +39,7 @@ public class BiomeJurassicFernPasture extends ElementsLepidodendronMod.ModElemen
 
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Jurassic Fern Pasture").setBaseHeight(0.045F).setHeightVariation(0.02F).setTemperature(0.85F).setRainfall(0.4F));
+			super(new BiomeProperties("Jurassic Fern Pasture").setBaseHeight(0.045F).setHeightVariation(0.02F).setTemperature(1.85F).setRainfall(1.25F));
 			setRegistryName("lepidodendron:jurassic_fern_pasture");
 			topBlock = BlockPrehistoricGroundFern.block.getDefaultState();
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);

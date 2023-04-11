@@ -4,7 +4,7 @@ package net.pnjurassic.world.dimension.jurassic;
 import com.google.common.cache.LoadingCache;
 import net.lepidodendron.ElementsLepidodendronMod;
 import net.lepidodendron.LepidodendronConfig;
-import net.lepidodendron.block.BlockAraucariaPlanks;
+import net.lepidodendron.block.BlockGinkgoPlanks;
 import net.lepidodendron.util.ModTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPortal;
@@ -248,7 +248,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 							boolean flag = k8 < 0;
 							this.world.setBlockState(new BlockPos(k9, k10+1, k11),
 									flag
-											? BlockAraucariaPlanks.block.getDefaultState().getBlock().getDefaultState()
+											? BlockGinkgoPlanks.block.getDefaultState().getBlock().getDefaultState()
 											: Blocks.AIR.getDefaultState());
 						}
 					}
@@ -263,7 +263,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 						int k12 = k6 + (l8 - 1) * i3;
 						boolean flag1 = l8 == 0 || l8 == 3 || l9 == -1 || l9 == 3;
 						this.world.setBlockState(new BlockPos(l10, l11+1, k12),
-								flag1 ? BlockAraucariaPlanks.block.getDefaultState().getBlock().getDefaultState() : iblockstate, 2);
+								flag1 ? BlockGinkgoPlanks.block.getDefaultState().getBlock().getDefaultState() : iblockstate, 2);
 					}
 				}
 				for (int i9 = 0; i9 < 4; ++i9) {
@@ -301,7 +301,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 							boolean flag = l1 < 0;
 							this.world.setBlockState(new BlockPos(i2, j2, k2),
 									flag
-											? BlockAraucariaPlanks.block.getDefaultState().getBlock().getDefaultState()
+											? BlockGinkgoPlanks.block.getDefaultState().getBlock().getDefaultState()
 											: Blocks.AIR.getDefaultState());
 						}
 					}
@@ -606,12 +606,12 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 				for (i = 0; i < 22; ++i) {
 					BlockPos blockpos = p_180120_1_.offset(p_180120_2_, i);
 					if (!this.isEmptyBlock(this.world.getBlockState(blockpos).getBlock())
-							|| this.world.getBlockState(blockpos.down()).getBlock() != BlockAraucariaPlanks.block.getDefaultState().getBlock()) {
+							|| this.world.getBlockState(blockpos.down()).getBlock() != BlockGinkgoPlanks.block.getDefaultState().getBlock()) {
 						break;
 					}
 				}
 				Block block = this.world.getBlockState(p_180120_1_.offset(p_180120_2_, i)).getBlock();
-				return block == BlockAraucariaPlanks.block.getDefaultState().getBlock() ? i : 0;
+				return block == BlockGinkgoPlanks.block.getDefaultState().getBlock() ? i : 0;
 			}
 
 			public int getHeight() {
@@ -635,12 +635,12 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 						}
 						if (i == 0) {
 							block = this.world.getBlockState(blockpos.offset(this.leftDir)).getBlock();
-							if (block != BlockAraucariaPlanks.block.getDefaultState().getBlock()) {
+							if (block != BlockGinkgoPlanks.block.getDefaultState().getBlock()) {
 								break label56;
 							}
 						} else if (i == this.width - 1) {
 							block = this.world.getBlockState(blockpos.offset(this.rightDir)).getBlock();
-							if (block != BlockAraucariaPlanks.block.getDefaultState().getBlock()) {
+							if (block != BlockGinkgoPlanks.block.getDefaultState().getBlock()) {
 								break label56;
 							}
 						}
@@ -648,7 +648,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 				}
 				for (int j = 0; j < this.width; ++j) {
 					if (this.world.getBlockState(this.bottomLeft.offset(this.rightDir, j).up(this.height))
-							.getBlock() != BlockAraucariaPlanks.block.getDefaultState().getBlock()) {
+							.getBlock() != BlockGinkgoPlanks.block.getDefaultState().getBlock()) {
 						this.height = 0;
 						break;
 					}
