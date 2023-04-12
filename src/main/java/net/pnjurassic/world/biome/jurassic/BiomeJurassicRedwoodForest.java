@@ -76,6 +76,7 @@ public class BiomeJurassicRedwoodForest extends ElementsLepidodendronMod.ModElem
 		protected static final WorldGenHoopTree HOOP_TREE = new WorldGenHoopTree(false);
 		protected static final WorldGenCypressTreeWater CYPRESS_TREE = new WorldGenCypressTreeWater(false);
 		protected static final WorldGenBrachyphyllumTree BRACHYPHYLLUM_TREE = new WorldGenBrachyphyllumTree(false);
+		protected static final WorldGenElatocladusTree ELATOCLADUS_TREE = new WorldGenElatocladusTree(false);
 
 		protected static final WorldGenUmaltolepis UMALTOLESPIS_GENERATOR = new WorldGenUmaltolepis();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
@@ -130,17 +131,17 @@ public class BiomeJurassicRedwoodForest extends ElementsLepidodendronMod.ModElem
 			int selector = rand.nextInt(12);
 			switch (selector) {
 				case 0:
-					if (Math.random() > 0.5) {
+					if (Math.random() > 0.4) {
 						return TALL_TREE;
 					}
 					return REDWOOD_TREE;
 				case 1:
-					if (Math.random() > 0.5) {
+					if (Math.random() > 0.8) {
 						return HOOP_TREE;
 					}
-					return REDWOOD_TREE;
+					return ELATOCLADUS_TREE;
 				case 2:
-					return REDWOOD_TREE;
+					return ELATOCLADUS_TREE;
 				case 3:
 					return CUNNINGHAMIA_TREE;
 				case 4:
@@ -154,13 +155,16 @@ public class BiomeJurassicRedwoodForest extends ElementsLepidodendronMod.ModElem
 				case 8:
 					return CEPHALOTAXUS_TREE;
 				case 9:
-					return HOOP_TREE;
+					if (Math.random() > 0.5) {
+						return HOOP_TREE;
+					}
+					return CUNNINGHAMIA_TREE;
 				case 10:
 					return BRACHYPHYLLUM_TREE;
 				case 11:
 					return CYPRESS_TREE;
 			}
-			return REDWOOD_TREE;
+			return ELATOCLADUS_TREE;
 		}
 
 		@Override

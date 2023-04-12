@@ -72,6 +72,7 @@ public class BiomeJurassicRedwoodHills extends ElementsLepidodendronMod.ModEleme
 		protected static final WorldGenAraucaritesTree ARAUCARITES_TREE = new WorldGenAraucaritesTree(false);
 		protected static final WorldGenHoopTree HOOP_TREE = new WorldGenHoopTree(false);
 		protected static final WorldGenBrachyphyllumTree BRACHYPHYLLUM_TREE = new WorldGenBrachyphyllumTree(false);
+		protected static final WorldGenElatocladusTree ELATOCLADUS_TREE = new WorldGenElatocladusTree(false);
 
 		protected static final WorldGenUmaltolepis UMALTOLESPIS_GENERATOR = new WorldGenUmaltolepis();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
@@ -136,7 +137,7 @@ public class BiomeJurassicRedwoodHills extends ElementsLepidodendronMod.ModEleme
 				case 1:
 					return CUNNINGHAMIA_TREE;
 				case 2:
-					return REDWOOD_TREE;
+					return ELATOCLADUS_TREE;
 				case 3:
 					return CUNNINGHAMIA_TREE;
 				case 4:
@@ -152,12 +153,12 @@ public class BiomeJurassicRedwoodHills extends ElementsLepidodendronMod.ModEleme
 						return CEPHALOTAXUS_TREE;
 					}
 					else {
-						return REDWOOD_TREE;
+						return ELATOCLADUS_TREE;
 					}
 				case 9:
 					return CUNNINGHAMIA_TREE;
 				case 10:
-					return REDWOOD_TREE;
+					return ELATOCLADUS_TREE;
 				case 11:
 					return CUNNINGHAMIA_TREE;
 				case 12:
@@ -171,7 +172,10 @@ public class BiomeJurassicRedwoodHills extends ElementsLepidodendronMod.ModEleme
 				case 16:
 					return ARAUCARITES_TREE;
 				case 17:
-					return HOOP_TREE;
+					if (Math.random() > 0.5) {
+						return HOOP_TREE;
+					}
+					return CUNNINGHAMIA_TREE;
 				case 18:
 					return BLACKTREEFERN_GENERATOR;
 				case 19:
@@ -179,7 +183,7 @@ public class BiomeJurassicRedwoodHills extends ElementsLepidodendronMod.ModEleme
 				case 20:
 					return BRACHYPHYLLUM_TREE;
 			}
-			return REDWOOD_TREE;
+			return ELATOCLADUS_TREE;
 		}
 
 		@Override
