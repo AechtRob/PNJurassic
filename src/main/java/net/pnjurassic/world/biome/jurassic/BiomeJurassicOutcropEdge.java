@@ -43,7 +43,7 @@ public class BiomeJurassicOutcropEdge extends ElementsLepidodendronMod.ModElemen
 			setRegistryName("lepidodendron:jurassic_outcrops_edge");
 			topBlock = BlockPrehistoricGroundBasic.block.getDefaultState();
 			fillerBlock = Blocks.STONE.getStateFromMeta(0);
-			decorator.treesPerChunk = -999;
+			decorator.treesPerChunk = 1;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
 			decorator.mushroomsPerChunk = 0;
@@ -76,7 +76,7 @@ public class BiomeJurassicOutcropEdge extends ElementsLepidodendronMod.ModElemen
 		protected static final WorldGenPrehistoricGroundCoverSandy PREHISTORIC_SAND_COVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
 		protected static final WorldGenLeptopteris LEPTOPTERIS_GENERATOR = new WorldGenLeptopteris();
 		protected static final WorldGenCaytoniales CAYTONIALES_GENERATOR = new WorldGenCaytoniales();
-		protected static final WorldGenCycadopterisShoot CYCADOPTERIS_GENERATOR = new WorldGenCycadopterisShoot();
+		protected static final WorldGenDichopterisShoot DICHOPTERIS_GENERATOR_SHOOT = new WorldGenDichopterisShoot();
 
 		protected static final WorldGenDioon DIOON_GENERATOR = new WorldGenDioon();
 
@@ -88,7 +88,13 @@ public class BiomeJurassicOutcropEdge extends ElementsLepidodendronMod.ModElemen
 		protected static final WorldGenPtilophyllumShoot PTILOPHYLLUM_SHOOT_GENERATOR = new WorldGenPtilophyllumShoot();
 		protected static final WorldGenCycadeoidea CYCADEOIDEA_GENERATOR = new WorldGenCycadeoidea();
 
+		protected static final WorldGenDichopteris DICHOPTERIS_TREE = new WorldGenDichopteris(false);
+
+
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
+			if (rand.nextInt(26) == 0) {
+				return DICHOPTERIS_TREE;
+			}
 			return NULL_TREE;
 		}
 
@@ -151,12 +157,12 @@ public class BiomeJurassicOutcropEdge extends ElementsLepidodendronMod.ModElemen
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 18; ++i)
+				for (int i = 0; i < 12; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CYCADOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					DICHOPTERIS_GENERATOR_SHOOT.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
