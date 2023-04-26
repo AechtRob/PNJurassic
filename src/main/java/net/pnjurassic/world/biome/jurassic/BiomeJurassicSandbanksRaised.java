@@ -62,6 +62,7 @@ public class BiomeJurassicSandbanksRaised extends ElementsLepidodendronMod.ModEl
 			this.spawnableCaveCreatureList.clear();
 		}
 
+		protected static final WorldGenHirmeriellaTree HIRMERIELLA_TREE = new WorldGenHirmeriellaTree(false);
 		protected static final WorldGenBrachyphyllumTree BRACHYPHYLLUM_TREE = new WorldGenBrachyphyllumTree(false);
 		protected static final WorldGenSphenobaieraTree SPHENOBAIERA_TREE = new WorldGenSphenobaieraTree(false);
 		protected static final WorldGenCycadopteris CYCADOPTERIS = new WorldGenCycadopteris(false);
@@ -89,6 +90,9 @@ public class BiomeJurassicSandbanksRaised extends ElementsLepidodendronMod.ModEl
 			}
 			else if (rand.nextInt(4) == 0) {
 				return SPHENOBAIERA_TREE;
+			}
+			else if (rand.nextInt(2) == 0) {
+				return HIRMERIELLA_TREE;
 			}
 			return BRACHYPHYLLUM_TREE;
 		}

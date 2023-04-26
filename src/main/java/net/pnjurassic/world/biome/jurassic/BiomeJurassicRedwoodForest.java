@@ -77,6 +77,9 @@ public class BiomeJurassicRedwoodForest extends ElementsLepidodendronMod.ModElem
 		protected static final WorldGenCypressTreeWater CYPRESS_TREE = new WorldGenCypressTreeWater(false);
 		protected static final WorldGenBrachyphyllumTree BRACHYPHYLLUM_TREE = new WorldGenBrachyphyllumTree(false);
 		protected static final WorldGenElatocladusTree ELATOCLADUS_TREE = new WorldGenElatocladusTree(false);
+		protected static final WorldGenHirmeriellaTree HIRMERIELLA_TREE = new WorldGenHirmeriellaTree(false);
+		protected static final WorldGenPagiophyllumTree PAGIOPHYLLUM_TREE = new WorldGenPagiophyllumTree(false);
+		protected static final WorldGenBushyAraucariaTree MONKEYPUZZLE_TREE = new WorldGenBushyAraucariaTree(false);
 
 		protected static final WorldGenUmaltolepis UMALTOLESPIS_GENERATOR = new WorldGenUmaltolepis();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
@@ -134,7 +137,12 @@ public class BiomeJurassicRedwoodForest extends ElementsLepidodendronMod.ModElem
 					if (Math.random() > 0.4) {
 						return TALL_TREE;
 					}
-					return REDWOOD_TREE;
+					if (Math.random() > 0.8) {
+						return REDWOOD_TREE;
+					}
+					else {
+						return PAGIOPHYLLUM_TREE;
+					}
 				case 1:
 					if (Math.random() > 0.8) {
 						return HOOP_TREE;
@@ -143,7 +151,12 @@ public class BiomeJurassicRedwoodForest extends ElementsLepidodendronMod.ModElem
 				case 2:
 					return ELATOCLADUS_TREE;
 				case 3:
-					return CUNNINGHAMIA_TREE;
+					if (Math.random() > 0.8) {
+						return MONKEYPUZZLE_TREE;
+					}
+					else {
+						return CUNNINGHAMIA_TREE;
+					}
 				case 4:
 					return NULL_TREE;
 				case 5:
@@ -155,12 +168,17 @@ public class BiomeJurassicRedwoodForest extends ElementsLepidodendronMod.ModElem
 				case 8:
 					return CEPHALOTAXUS_TREE;
 				case 9:
-					if (Math.random() > 0.5) {
+					if (Math.random() > 0.7) {
 						return HOOP_TREE;
 					}
 					return CUNNINGHAMIA_TREE;
 				case 10:
-					return BRACHYPHYLLUM_TREE;
+					if (Math.random() > 0.5) {
+						return BRACHYPHYLLUM_TREE;
+					}
+					else {
+						return HIRMERIELLA_TREE;
+					}
 				case 11:
 					return CYPRESS_TREE;
 			}

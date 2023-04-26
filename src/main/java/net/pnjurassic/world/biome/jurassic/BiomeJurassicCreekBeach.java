@@ -89,7 +89,7 @@ public class BiomeJurassicCreekBeach extends ElementsLepidodendronMod.ModElement
 			return -15424749;
 		}
 
-		protected static final WorldGenBrachyphyllumTree BRACHYPHYLLUM = new WorldGenBrachyphyllumTree(false);
+		protected static final WorldGenHirmeriellaTree HIRMERIELLA_TREE = new WorldGenHirmeriellaTree(false);
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
 		protected static final WorldGenPrehistoricGroundCoverSandy SANDY_GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
@@ -101,7 +101,7 @@ public class BiomeJurassicCreekBeach extends ElementsLepidodendronMod.ModElement
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
 	    	if (rand.nextInt(10) == 0) {
-				return BRACHYPHYLLUM;
+				return HIRMERIELLA_TREE;
 			}
 	    	return NULL_TREE;
 	    }

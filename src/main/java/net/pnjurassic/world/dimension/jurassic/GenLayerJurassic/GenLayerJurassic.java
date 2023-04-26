@@ -77,6 +77,7 @@ public class GenLayerJurassic {
         biomes = new GenLayerSmooth(705L, biomes);
         biomes = new GenLayerFuzzyZoom(1001L, biomes);
         biomes = new GenLayerDiversifyJurassicMudflats(1137L, biomes);
+
         biomes = new GenLayerSmooth(706L, biomes);
         biomes = new GenLayerJurassicRiverBorder(325L, biomes);
         biomes = new GenLayerJurassicRiverBanks(225L, biomes);
