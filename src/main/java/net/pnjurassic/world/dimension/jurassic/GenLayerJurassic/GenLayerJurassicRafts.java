@@ -21,7 +21,6 @@ public class GenLayerJurassicRafts extends GenLayer {
             JURASSIC_OCEAN_ID,
             JURASSIC_OCEAN_ID,
             JURASSIC_OCEAN_ID,
-            JURASSIC_OCEAN_ID,
             JURASSIC_OCEAN_RAFTS_ID
     };
 
@@ -70,7 +69,8 @@ public class GenLayerJurassicRafts extends GenLayer {
     }
 
     private boolean isOcean(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID) {
+        if (biomeID == JURASSIC_OCEAN_ID
+            || biomeID == JURASSIC_OCEAN_RAFTS_ID) {
             return true;
         }
         return false;

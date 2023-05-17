@@ -754,9 +754,9 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                         iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
                                     }
                                 }
-                                if (Math.random() >= stoneFactor) {
-                                    iblockstate1 = BlockPrehistoricGroundBasic.block.getDefaultState();
-                                }
+                                //if (Math.random() >= stoneFactor) {
+                                //    iblockstate1 = BlockPrehistoricGroundBasic.block.getDefaultState();
+                                //}
                             }
 
                             //If it's over 80 blocks then start to fill in more as stone
@@ -781,9 +781,9 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                     iblockstate1 = Blocks.STONE.getDefaultState();
                                     if (rand.nextInt(8) == 0) {
                                         iblockstate1 = Blocks.COBBLESTONE.getDefaultState();
-                                    } else if (rand.nextInt(8) == 0) {
-                                        iblockstate1 = BlockPrehistoricGroundMossy.block.getDefaultState();
-                                    }
+                                    } //else if (rand.nextInt(8) == 0) {
+                                       // iblockstate1 = BlockPrehistoricGroundMossy.block.getDefaultState();
+                                    //}
                                 }
                             }
                         }
@@ -905,7 +905,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             iblockstate = AIR;
                             iblockstate1 = STONE;
                             if (biome == BiomeJurassicGlassSpongeReef.biome
-                                    && rand.nextInt(4) == 0) {
+                                    && rand.nextInt(8) == 0) {
                                 int s = rand.nextInt(4);
                                 switch (s) {
                                     case 0: default:
