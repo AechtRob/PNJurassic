@@ -24,8 +24,12 @@ public class GenLayerJurassicBeach extends GenLayer
     public int JURASSIC_MUDFLATS_HELPER_ID =  Biome.getIdForBiome(JURASSIC_MUDFLATS_HELPER);
     public Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_forest"));
     public int JURASSIC_REDWOOD_FOREST_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_FOREST);
-    public  Biome JURASSIC_SANDBANKS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_sandbanks"));
+    public  Biome JURASSIC_SANDBANKS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy"));
     public  int JURASSIC_SANDBANKS_ID =  Biome.getIdForBiome(JURASSIC_SANDBANKS);
+    public  Biome JURASSIC_ISLANDS_WHITE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white"));
+    public  int JURASSIC_ISLANDS_WHITE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_WHITE);
+    public  Biome JURASSIC_ISLANDS_WHITE_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white_edge"));
+    public  int JURASSIC_ISLANDS_WHITE_EDGE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_WHITE_EDGE);
 
     public  Biome JURASSIC_TAIGA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga"));
     public  int JURASSIC_TAIGA_ID =  Biome.getIdForBiome(JURASSIC_TAIGA);
@@ -90,6 +94,9 @@ public class GenLayerJurassicBeach extends GenLayer
                             else if (hasBlackBeach(k)) {
                                 aint1[j + i * areaWidth] = JURASSIC_BLACK_BEACH_ID;
                             }
+                            else if (hasWhiteBeach(k)) {
+                                aint1[j + i * areaWidth] = JURASSIC_ISLANDS_WHITE_EDGE_ID;
+                            }
                             else {
                                 aint1[j + i * areaWidth] = JURASSIC_BEACH_ID;
                             }
@@ -127,11 +134,19 @@ public class GenLayerJurassicBeach extends GenLayer
         return false;
     }
 
+    private boolean hasWhiteBeach(int biomeID) {
+        if (biomeID == JURASSIC_ISLANDS_WHITE_ID) {
+            return true;
+        }
+        return false;
+    }
+
     private boolean hasNoBeach(int biomeID) {
         if (biomeID == JURASSIC_MUDFLATS_ID
             ||biomeID == JURASSIC_MUDFLATS_HELPER_ID
             || biomeID == JURASSIC_REDWOOD_FOREST_ID
             || biomeID == JURASSIC_SANDBANKS_ID
+        //    || biomeID == JURASSIC_ISLANDS_WHITE_ID
             || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
             || biomeID == JURASSIC_ESTUARY_ID
             || biomeID == JURASSIC_ESTUARY_HELPER_ID

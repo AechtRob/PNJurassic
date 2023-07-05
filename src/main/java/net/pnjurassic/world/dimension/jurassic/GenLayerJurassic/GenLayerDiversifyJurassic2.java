@@ -1,7 +1,6 @@
 package net.pnjurassic.world.dimension.jurassic.GenLayerJurassic;
 
 import net.lepidodendron.util.EnumBiomeTypePermian;
-import net.lepidodendron.world.biome.jurassic.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
@@ -93,7 +92,7 @@ public class GenLayerDiversifyJurassic2 extends GenLayer {
                         output[i] = FloodplainBiomes[nextInt(FloodplainBiomes.length)];
                     else if (Biome.getBiome(center) == BiomeJurassicGinkgoWoodland.biome)
                         output[i] = GinkgoBiomes[nextInt(GinkgoBiomes.length)];
-                    else if (Biome.getBiome(center) == BiomeJurassicRedwoodForest.biome)
+                    else if (Biome.getBiome(center) == BiomeJurassicConiferousForest.biome)
                         output[i] = RedwoodBiomes[nextInt(RedwoodBiomes.length)];
                     else if (Biome.getBiome(center) == BiomeJurassicSouthernTaiga.biome
                             || Biome.getBiome(center) == BiomeJurassicSouthernTaigaHills.biome)

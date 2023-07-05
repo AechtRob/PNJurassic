@@ -1,6 +1,5 @@
 package net.pnjurassic.world.dimension.jurassic.GenLayerJurassic;
 
-import net.lepidodendron.LepidodendronConfig;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.layer.*;
 
@@ -13,16 +12,18 @@ public class GenLayerJurassic {
 
         GenLayer biomes = new GenLayerJurassicBiomes(1L);
         biomes = new GenLayerFuzzyZoom(2000L, biomes);
-        if (!LepidodendronConfig.doShrinkBiomes) {
+        //if (!LepidodendronConfig.doShrinkBiomes) {
+
+        biomes = new GenLayerJurassicIslandsLarge(55L, biomes);
             biomes = new GenLayerZoom(2001L, biomes);
-        }
+        //}
         biomes = new GenLayerDiversifyJurassic(1000L, biomes);
-        biomes = new GenLayerDiversifyJurassicSandbanks(50L, biomes);
+        biomes = new GenLayerJurassicIslands(50L, biomes);
 
         biomes = new GenLayerZoom(1000L, biomes);
         biomes = new GenLayerDiversifyJurassic2(1001L, biomes);
         biomes = new GenLayerDiversifyJurassicMudflats(1133L, biomes);
-        biomes = new GenLayerDiversifyJurassicSandbanks(50L, biomes);
+        biomes = new GenLayerJurassicIslands(50L, biomes);
 
         biomes = new GenLayerJurassicEstuary1(1008L, biomes);
 
@@ -46,17 +47,18 @@ public class GenLayerJurassic {
 
         biomes = new GenLayerJurassicEstuary2(1000L, biomes);
 
-        biomes = new GenLayerDiversifyJurassicSandbanks3(1333L, biomes);
+        biomes = new GenLayerJurassicIslands2(1333L, biomes);
 
         biomes = new GenLayerDiversifyJurassicMudflats(1135L, biomes);
         biomes = new GenLayerSmooth(700L, biomes);
         biomes = new GenLayerSmooth(701L, biomes);
         biomes = new GenLayerJurassicOutcrop(1088L, biomes);
         biomes = new GenLayerJurassicCoral(439L, biomes);
+        biomes = new GenLayerJurassicIslandLargeInterior(143L, biomes);
         biomes = new GenLayerZoom(1004L, biomes);
 
         biomes = new GenLayerAddMountainsToRedwoodRare(1001L, biomes);
-        biomes = new GenLayerDiversifyJurassicSandbanks3(1333L, biomes);
+        biomes = new GenLayerJurassicIslands2(1333L, biomes);
 
         biomes = new GenLayerJurassicEstuary2(1000L, biomes);
 
@@ -64,7 +66,8 @@ public class GenLayerJurassic {
         biomes = new GenLayerSmooth(703L, biomes);
         biomes = new GenLayerJurassicBoulders(1066L, biomes);
         biomes = new GenLayerDiversifyJurassic3(1001L, biomes);
-        //biomes = new GenLayerJurassicCoral(438L, biomes);
+        biomes = new GenLayerSeperateIslands(1555L, biomes);
+
         biomes = new GenLayerFuzzyZoom(1000L, biomes);
 
         biomes = new GenLayerAddMountainsToRedwood(1001L, biomes);
@@ -76,6 +79,9 @@ public class GenLayerJurassic {
         biomes = new GenLayerDiversifyJurassicMudflats(1136L, biomes);
         biomes = new GenLayerSmooth(705L, biomes);
         biomes = new GenLayerFuzzyZoom(1001L, biomes);
+
+        biomes = new GenLayerSeperateIslands(1655L, biomes);
+
         biomes = new GenLayerDiversifyJurassicMudflats(1137L, biomes);
 
         biomes = new GenLayerSmooth(706L, biomes);

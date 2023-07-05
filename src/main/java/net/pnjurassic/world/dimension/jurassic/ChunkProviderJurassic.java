@@ -2,7 +2,6 @@ package net.pnjurassic.world.dimension.jurassic;
 
 import net.lepidodendron.block.*;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
-import net.lepidodendron.world.gen.WorldGenCarboniferousLakesFlat;
 import net.lepidodendron.world.gen.WorldGenJurassicVolcanos;
 import net.lepidodendron.world.gen.WorldGenPrehistoricLakes;
 import net.minecraft.block.BlockFalling;
@@ -71,7 +70,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                 if (biome == BiomeJurassicBeachBlack.biome || biome == BiomeJurassicBeach.biome
                     || biome == BiomeJurassicMudflats.biome || biome == BiomeJurassicMudflatsHelper.biome
                     || biome == BiomeJurassicRiver.biome || biome == BiomeJurassicRiverbank.biome
-                    || biome == BiomeJurassicSandbanks.biome || biome == BiomeJurassicSandbanksRaised.biome || biome == BiomeJurassicSandbanksSolid.biome) {return;}
+                    || biome == BiomeJurassicSandyIsland.biome || biome == BiomeJurassicSandyIslandForest.biome
+                    || biome == BiomeJurassicSandyIslandHills.biome || biome == BiomeJurassicSandyIslandWhite.biome) {return;}
                 IBlockState state = data.getBlockState(x, y, z);
                 if (state.getBlock() == STONE.getBlock() || state.getBlock() == biome.topBlock.getBlock()
                         || state.getBlock() == biome.fillerBlock.getBlock()) {
@@ -113,9 +113,11 @@ public class ChunkProviderJurassic implements IChunkGenerator {
         this.caveGenerator.generate(this.world, x, z, chunkprimer);
         if (this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicMudflats.biome
             && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicMudflatsHelper.biome
-            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandbanks.biome
-            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandbanksRaised.biome
-            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandbanksSolid.biome) {
+            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIsland.biome
+            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandForest.biome
+            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandHills.biome
+            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandWhite.biome
+            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandWhiteEdge.biome) {
             this.ravineGenerator.generate(this.world, x, z, chunkprimer);
         }
         Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
@@ -170,7 +172,9 @@ public class ChunkProviderJurassic implements IChunkGenerator {
 
         if (this.random.nextInt(chanceLake) == 0
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicOceanShore.biome
-                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicBoulders.biome)
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicBoulders.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicSandyIslandWhite.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicSandyIslandWhiteEdge.biome)
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                 int i1 = this.random.nextInt(16) + 8;
@@ -424,8 +428,13 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                 if (Math.random() > 0.3) {
                                     if (biome == BiomeJurassicSouthernTaiga.biome
                                         || biome == BiomeJurassicSouthernTaigaHills.biome
-                                        || biome == BiomeJurassicSouthernTaigaBasalt.biome) {
+                                        || biome == BiomeJurassicSouthernTaigaBasalt.biome
+                                        || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                         iblockstate1 = BlockCoarseSandyDirtBlack.block.getDefaultState();
+                                    }
+                                    else if (biome == BiomeJurassicSandyIslandWhite.biome
+                                            || biome == BiomeJurassicSandyIslandWhiteEdge.biome) {
+                                        iblockstate1 = BlockCoarseSandyDirtWhite.block.getDefaultState();
                                     }
                                     else {
                                        if (biome == BiomeJurassicBeachBlack.biome) {
@@ -439,8 +448,13 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                     if (biome == BiomeJurassicSouthernTaiga.biome
                                         || biome == BiomeJurassicSouthernTaigaHills.biome
                                         || biome == BiomeJurassicSouthernTaigaBasalt.biome
-                                        || biome == BiomeJurassicBeachBlack.biome) {
+                                        || biome == BiomeJurassicBeachBlack.biome
+                                        || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                         iblockstate1 = BlockSandBlack.block.getDefaultState();
+                                    }
+                                    else if (biome == BiomeJurassicSandyIslandWhite.biome
+                                            || biome == BiomeJurassicSandyIslandWhiteEdge.biome) {
+                                        iblockstate1 = BlockSandWhite.block.getDefaultState();
                                     }
                                     else {
                                         iblockstate1 = Blocks.SAND.getStateFromMeta(0);
@@ -460,8 +474,16 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             } else {
                                 if (biome == BiomeJurassicSouthernTaiga.biome
                                     || biome == BiomeJurassicSouthernTaigaHills.biome
-                                    || biome == BiomeJurassicSouthernTaigaBasalt.biome) {
+                                    || biome == BiomeJurassicSouthernTaigaBasalt.biome
+                                    || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                     iblockstate1 = BlockSandBlackWavy.block.getDefaultState();
+                                }
+                                else if (biome == BiomeJurassicSandyIslandWhite.biome
+                                        || biome == BiomeJurassicSandyIslandWhiteEdge.biome) {
+                                    iblockstate1 = BlockSandWhiteWavy.block.getDefaultState();
+                                    if (Math.random() < 0.2) {
+                                        iblockstate1 = Blocks.GRAVEL.getDefaultState();
+                                    }
                                 }
                                 else {
                                     iblockstate1 = BlockSandWavy.block.getDefaultState();
@@ -540,10 +562,10 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         }
 
 
-                        //Sandbanks terrain:
-                        if (biome == BiomeJurassicSandbanks.biome
-                                || biome == BiomeJurassicSandbanksRaised.biome
-                                || biome == BiomeJurassicSandbanksSolid.biome) {
+                        //Islands terrain:
+                        if (biome == BiomeJurassicSandyIsland.biome
+                                || biome == BiomeJurassicSandyIslandForest.biome
+                                || biome == BiomeJurassicSandyIslandHills.biome) {
                             if (j1 >= i + 6) {
                                 iblockstate = BlockPrehistoricGroundBasic.block.getDefaultState();
                                 if (rand.nextInt(36) == 0) {
@@ -617,9 +639,54 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             }
                         }
 
+
+                        if (biome == BiomeJurassicSandyIslandWhite.biome
+                                || biome == BiomeJurassicSandyIslandWhiteEdge.biome) {
+                            if (j1 >= i + 1) {
+                                if (rand.nextInt(10) == 0) {
+                                    iblockstate = Blocks.GRAVEL.getDefaultState();
+                                }
+                                else if (rand.nextInt(4) == 0) {
+                                    iblockstate = BlockCoarseSandyDirtWhite.block.getDefaultState();
+                                }
+                                if (rand.nextInt(24) == 0) {
+                                    iblockstate = BlockSandWhite.block.getDefaultState();
+                                    if (rand.nextInt(6) == 0) {
+                                        iblockstate = BlockSandstoneWhite.block.getDefaultState();
+                                    }
+                                }
+                            }
+                            else if (j1 >= i) {
+                                if (rand.nextInt(10) == 0) {
+                                    iblockstate = Blocks.GRAVEL.getDefaultState();
+                                }
+                                else if (rand.nextInt(8) == 0) {
+                                    iblockstate = BlockCoarseSandyDirtWhite.block.getDefaultState();
+                                }
+                                if (rand.nextInt(16) == 0) {
+                                    iblockstate = BlockSandWhite.block.getDefaultState();
+                                    if (rand.nextInt(6) == 0) {
+                                        iblockstate = BlockSandstoneWhite.block.getDefaultState();
+                                    }
+                                }
+                            }
+                            else if (j1 >= i - 1) {
+                                if (rand.nextInt(12) == 0) {
+                                    iblockstate = Blocks.GRAVEL.getDefaultState();
+                                }
+                                else if (rand.nextInt(8) == 0) {
+                                    iblockstate = BlockCoarseSandyDirtWhite.block.getDefaultState();
+                                }
+                                else if (rand.nextInt(6) == 0) {
+                                    iblockstate = BlockSandstoneWhite.block.getDefaultState();
+                                }
+                            }
+                        }
+
+
                         //For the Redwood Hills biome, make hills a bit  craggy:
-                        if (biome == BiomeJurassicRedwoodMountains.biome
-                                || biome == BiomeJurassicRedwoodHills.biome
+                        if (biome == BiomeJurassicConiferousMountains.biome
+                                || biome == BiomeJurassicConiferousHills.biome
                         ) {
                             //If it's over 100 blocks then start to fill in more as stone
                             //up to 140
@@ -658,6 +725,67 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             }
                         }
 
+                        //For the Island Crater Wall biome, manage the terrain:
+                        if (biome == BiomeJurassicIslandLargeRim.biome
+                        ) {
+                            //If it's over 100 blocks then start to fill in more as stone
+                            //up to 140
+                            int minHeight = 60;
+                            if (j1 >= minHeight) {
+                                int j2 = Math.max(0, 110 - j1);
+                                double stoneFactor = 4 * (double) j2 / (110D - (double) minHeight);
+                                if (Math.random() >= stoneFactor) {
+                                    if (Math.random() > 0.32) {
+                                        iblockstate = Blocks.STONE.getDefaultState();
+                                    } else {
+                                        iblockstate = Blocks.COBBLESTONE.getStateFromMeta(0);
+                                        if (rand.nextInt(8) == 0) {
+                                            if (rand.nextInt(2) == 0) {
+                                                iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                                            } else {
+                                                iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                                            }
+                                        } else if (rand.nextInt(2) == 0) {
+                                            iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                                        }
+                                    }
+                                }
+                                if (Math.random() >= stoneFactor) {
+                                    iblockstate1 = Blocks.STONE.getDefaultState();
+                                    if (rand.nextInt(8) == 0) {
+                                        if (rand.nextInt(2) == 0) {
+                                            iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                                        } else {
+                                            iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                                        }
+                                    } else if (rand.nextInt(2) == 0) {
+                                        iblockstate1 = Blocks.DIRT.getStateFromMeta(1);
+                                    }
+                                }
+                            }
+                        }
+                        if ((biome == BiomeJurassicIslandLargeScrub.biome
+                            || biome == BiomeJurassicIslandLargeWet.biome
+                            || biome == BiomeJurassicIslandLargeField.biome) && rand.nextInt(12) == 0) {
+                            iblockstate = BlockCoarseSandyDirtBlack.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicIslandLargeWet.biome
+                                || biome == BiomeJurassicIslandLargeField.biome) && rand.nextInt(12) == 0) {
+                            iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicIslandLargeWet.biome
+                                || biome == BiomeJurassicIslandLargeField.biome) && rand.nextInt(14) == 0) {
+                            iblockstate = BlockPrehistoricGroundBasic.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicIslandLargeScrub.biome
+                                || biome == BiomeJurassicIslandLargeField.biome) && rand.nextInt(12) == 0) {
+                            iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                            if (rand.nextInt(4) == 0) {
+                                iblockstate = Blocks.MOSSY_COBBLESTONE.getDefaultState();
+                            }
+                        }
+
+
                         //Add some moss and ferns generally:
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
                                 && biome == BiomeJurassicGinkgoWoodland.biome && rand.nextInt(12) == 0) {
@@ -684,7 +812,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             iblockstate = BlockPrehistoricGroundFern.block.getDefaultState();
                         }
                         if (iblockstate == Blocks.DIRT.getStateFromMeta(2)
-                                && biome == BiomeJurassicRedwoodForest.biome && rand.nextInt(12) == 0) {
+                                && biome == BiomeJurassicConiferousForest.biome && rand.nextInt(12) == 0) {
                             iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
                         }
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
@@ -697,11 +825,11 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         }
 
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
-                                && biome == BiomeJurassicSandbanks.biome && rand.nextInt(5) == 0) {
+                                && biome == BiomeJurassicSandyIsland.biome && rand.nextInt(5) == 0) {
                             iblockstate = BlockPrehistoricGroundFern.block.getDefaultState();
                         }
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
-                                && biome == BiomeJurassicSandbanks.biome && rand.nextInt(6) == 0) {
+                                && biome == BiomeJurassicSandyIsland.biome && rand.nextInt(6) == 0) {
                             iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
                         }
 
@@ -860,7 +988,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
 
                         //Taiga terrain:
                         if (biome == BiomeJurassicSouthernTaiga.biome
-                            || biome == BiomeJurassicSouthernTaigaHills.biome) {
+                            || biome == BiomeJurassicSouthernTaigaHills.biome
+                            || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                             if (j1 >= i + 1) {
                                 iblockstate = Blocks.DIRT.getStateFromMeta(2); //Podzol
                                 if (rand.nextInt(3) == 0) {
@@ -904,35 +1033,37 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         else if (j1 < i - 7 - k) {
                             iblockstate = AIR;
                             iblockstate1 = STONE;
-                            if (biome == BiomeJurassicGlassSpongeReef.biome
-                                    && rand.nextInt(8) == 0) {
-                                int s = rand.nextInt(4);
-                                switch (s) {
-                                    case 0: default:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.NORTH));
-                                        break;
-
-                                    case 1:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.EAST));
-                                        break;
-
-                                    case 2:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.SOUTH));
-                                        break;
-
-                                    case 3:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.WEST));
-                                        break;
-                                }
-                            }
-                            else if (biome == BiomeJurassicGlassSpongeReef.biome
+//                            if (biome == BiomeJurassicGlassSpongeReef.biome
+//                                    && rand.nextInt(32) == 0) {
+//                                int s = rand.nextInt(4);
+//                                switch (s) {
+//                                    case 0: default:
+//                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.NORTH));
+//                                        break;
+//
+//                                    case 1:
+//                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.EAST));
+//                                        break;
+//
+//                                    case 2:
+//                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.SOUTH));
+//                                        break;
+//
+//                                    case 3:
+//                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.WEST));
+//                                        break;
+//                                }
+//                            }
+//                            else
+                                if (biome == BiomeJurassicGlassSpongeReef.biome
                                     && rand.nextInt(4) == 0) {
                                 chunkPrimerIn.setBlockState(i1, j1, l, Blocks.GRAVEL.getDefaultState());
                             }
                             else if (Math.random() > 0.6 && j1 >= i - 2) {
                                 if (biome == BiomeJurassicSouthernTaiga.biome
                                     || biome == BiomeJurassicSouthernTaigaHills.biome
-                                    || biome == BiomeJurassicSouthernTaigaBasalt.biome) {
+                                    || biome == BiomeJurassicSouthernTaigaBasalt.biome
+                                    || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                     chunkPrimerIn.setBlockState(i1, j1, l, BlockSandyDirtBlack.block.getDefaultState());
                                 }
                                 else {
@@ -943,7 +1074,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                 if (Math.random() > 0.95 || (j1 < i - 10 && Math.random() > 0.3)) {
                                     if (biome == BiomeJurassicSouthernTaiga.biome
                                             || biome == BiomeJurassicSouthernTaigaHills.biome
-                                            || biome == BiomeJurassicSouthernTaigaBasalt.biome) {
+                                            || biome == BiomeJurassicSouthernTaigaBasalt.biome
+                                            || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                         chunkPrimerIn.setBlockState(i1, j1, l, BlockSandBlack.block.getDefaultState());
                                     }
                                     else {
@@ -954,7 +1086,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                         if (Math.random() > 0.85) {
                                             if (biome == BiomeJurassicSouthernTaiga.biome
                                                     || biome == BiomeJurassicSouthernTaigaHills.biome
-                                                    || biome == BiomeJurassicSouthernTaigaBasalt.biome) {
+                                                    || biome == BiomeJurassicSouthernTaigaBasalt.biome
+                                                    || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                                 chunkPrimerIn.setBlockState(i1, j1, l, BlockSandBlack.block.getDefaultState());
                                             }
                                             else {
@@ -969,8 +1102,13 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                         else {
                                             if (biome == BiomeJurassicSouthernTaiga.biome
                                                 || biome == BiomeJurassicSouthernTaigaHills.biome
-                                                || biome == BiomeJurassicSouthernTaigaBasalt.biome) {
+                                                || biome == BiomeJurassicSouthernTaigaBasalt.biome
+                                                || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                                 chunkPrimerIn.setBlockState(i1, j1, l, BlockSandBlackWavy.block.getDefaultState());
+                                            }
+                                            else if (biome == BiomeJurassicSandyIslandWhite.biome
+                                                    || biome == BiomeJurassicSandyIslandWhiteEdge.biome) {
+                                                chunkPrimerIn.setBlockState(i1, j1, l, BlockSandWhiteWavy.block.getDefaultState());
                                             }
                                             else {
                                                 chunkPrimerIn.setBlockState(i1, j1, l, BlockSandWavy.block.getDefaultState());
@@ -991,28 +1129,29 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                 }
                             }
                         } else {
-                            if (biome == BiomeJurassicGlassSpongeReef.biome
-                                    && rand.nextInt(4) == 0) {
-                                int s = rand.nextInt(4);
-                                switch (s) {
-                                    case 0: default:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.NORTH));
-                                        break;
-
-                                    case 1:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.EAST));
-                                        break;
-
-                                    case 2:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.SOUTH));
-                                        break;
-
-                                    case 3:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.WEST));
-                                        break;
-                                }
-                            }
-                            else if (biome == BiomeJurassicGlassSpongeReef.biome
+//                            if (biome == BiomeJurassicGlassSpongeReef.biome
+//                                    && rand.nextInt(16) == 0) {
+//                                int s = rand.nextInt(4);
+//                                switch (s) {
+//                                    case 0: default:
+//                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.NORTH));
+//                                        break;
+//
+//                                    case 1:
+//                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.EAST));
+//                                        break;
+//
+//                                    case 2:
+//                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.SOUTH));
+//                                        break;
+//
+//                                    case 3:
+//                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockGlassSpongeReef.block.getDefaultState().withProperty(BlockGlassSpongeReef.FACING, EnumFacing.WEST));
+//                                        break;
+//                                }
+//                            }
+//                            else
+                                if (biome == BiomeJurassicGlassSpongeReef.biome
                                     && rand.nextInt(4) == 0) {
                                 chunkPrimerIn.setBlockState(i1, j1, l, Blocks.GRAVEL.getDefaultState());
                             }
@@ -1034,6 +1173,10 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         else if (j == 0 && (iblockstate1.getBlock() == BlockSandBlack.block || iblockstate1.getBlock() == BlockSandBlackWavy.block) && k > 1) {
                             j = rand.nextInt(4) + Math.max(0, j1 - 63);
                             iblockstate1 = BlockSandstoneBlack.block.getDefaultState();
+                        }
+                        else if (j == 0 && (iblockstate1.getBlock() == BlockSandWhite.block || iblockstate1.getBlock() == BlockSandWhiteWavy.block) && k > 1) {
+                            j = rand.nextInt(4) + Math.max(0, j1 - 63);
+                            iblockstate1 = BlockSandstoneWhite.block.getDefaultState();
                         }
                     }
                 }

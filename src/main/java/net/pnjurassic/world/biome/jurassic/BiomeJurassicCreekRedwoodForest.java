@@ -550,7 +550,7 @@ public class BiomeJurassicCreekRedwoodForest extends ElementsLepidodendronMod.Mo
 
 		@Override
 		public EnumBiomeTypeJurassic getBiomeType() {
-			return EnumBiomeTypeJurassic.Redwood;
+			return EnumBiomeTypeJurassic.Coniferous;
 		}
 
 	}

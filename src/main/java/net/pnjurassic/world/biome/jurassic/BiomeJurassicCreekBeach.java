@@ -24,7 +24,7 @@ import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
 public class BiomeJurassicCreekBeach extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:jurassic_beach_coastal")
+	@GameRegistry.ObjectHolder("lepidodendron:jurassic_creek_coastal")
 	public static final BiomeGenCustom biome = null;
 	public BiomeJurassicCreekBeach(ElementsLepidodendronMod instance) {
 		super(instance, 1591);
@@ -44,7 +44,7 @@ public class BiomeJurassicCreekBeach extends ElementsLepidodendronMod.ModElement
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			super(new BiomeProperties("Jurassic Coastal Creek").setBaseHeight(-0.525F).setHeightVariation(0.0F).setTemperature(0.8F).setRainfall(0.4F));
-			setRegistryName("lepidodendron:jurassic_beach_coastal");
+			setRegistryName("lepidodendron:jurassic_creek_coastal");
 			topBlock = Blocks.SAND.getDefaultState();
 			fillerBlock = Blocks.SAND.getDefaultState();
 			decorator.treesPerChunk = 1;

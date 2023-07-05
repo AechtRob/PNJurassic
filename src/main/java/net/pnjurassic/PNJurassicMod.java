@@ -24,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.Supplier;
 
-@Mod(modid = PNJurassicMod.MODID, name = PNJurassicMod.NAME, version = PNJurassicMod.VERSION, dependencies = "required-after:lepidodendron@[57.0,)")
+@Mod(modid = PNJurassicMod.MODID, name = PNJurassicMod.NAME, version = PNJurassicMod.VERSION, dependencies = "required-after:lepidodendron@[58.0,)")
 public class PNJurassicMod {
     public static final String MODID = "pnjurassic";
     public static final String NAME = "Prehistoric Nature Jurassic Dimension";

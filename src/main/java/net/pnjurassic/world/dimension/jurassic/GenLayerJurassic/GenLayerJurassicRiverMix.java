@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.pnjurassic.world.biome.jurassic.BiomeJurassicIslandLargeWet;
 
 public class GenLayerJurassicRiverMix extends GenLayer
 {
@@ -33,6 +34,10 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public int JURASSIC_CREEK_COASTAL_ID = Biome.getIdForBiome(JURASSIC_CREEK_COASTAL);
     public Biome JURASSIC_CREEK_MIRE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire_lakes"));
     public int JURASSIC_CREEK_MIRE_ID = Biome.getIdForBiome(JURASSIC_CREEK_MIRE);
+    public Biome JURASSIC_CREEK_ISLAND_LARGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_creek"));
+    public int JURASSIC_CREEK_ISLAND_LARGE_ID = Biome.getIdForBiome(JURASSIC_CREEK_ISLAND_LARGE);
+    public Biome JURASSIC_CREEK_ISLAND_LARGE_FOG = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_creek_fog"));
+    public int JURASSIC_CREEK_ISLAND_LARGE_FOG_ID = Biome.getIdForBiome(JURASSIC_CREEK_ISLAND_LARGE_FOG);
 
     //Biomes to exclude for rivers:
     public Biome JURASSIC_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore"));
@@ -43,16 +48,28 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public  int JURASSIC_GLASS_SPONGE_REEF_ID =  Biome.getIdForBiome(JURASSIC_GLASS_SPONGE_REEF);
     public  Biome JURASSIC_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_rough_hills"));
     public  int JURASSIC_MOUNTAINS_ID =  Biome.getIdForBiome(JURASSIC_MOUNTAINS);
-    public  Biome JURASSIC_ATOLLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_sandbanks"));
+    public  Biome JURASSIC_ATOLLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy"));
     public  int JURASSIC_ATOLLS_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS);
-    public  Biome JURASSIC_ATOLLS2 = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_sandbanks_raised"));
+    public  Biome JURASSIC_ATOLLS2 = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_forest"));
     public  int JURASSIC_ATOLLS2_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS2);
+    public  Biome JURASSIC_ISLANDS_SANDY_WHITE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white"));
+    public  int JURASSIC_ISLANDS_SANDY_WHITE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_SANDY_WHITE);
+    public  Biome JURASSIC_ISLANDS_SANDY_WHITE_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white_edge"));
+    public  int JURASSIC_ISLANDS_SANDY_WHITE_EDGE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_SANDY_WHITE_EDGE);
+    public  Biome JURASSIC_ATOLLS3 = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_hills"));
+    public  int JURASSIC_ATOLLS3_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS3);
+//    public  Biome JURASSIC_ISLANDS_LARGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large"));
+//    public  int JURASSIC_ISLANDS_LARGE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE);
     public  Biome JURASSIC_LAKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lakes"));
     public  int JURASSIC_LAKES_ID =  Biome.getIdForBiome(JURASSIC_LAKES);
     public Biome JURASSIC_OCEAN_RAFTS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts"));
     public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
     public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
     public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
+//    public Biome JURASSIC_ISLANDS_LARGE_SCRUB = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_scrub"));
+//    public int JURASSIC_ISLANDS_LARGE_SCRUB_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE_SCRUB);
+//    public Biome JURASSIC_ISLANDS_LARGE_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_wet"));
+//    public int JURASSIC_ISLANDS_LARGE_WET_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE_WET);
 
 
     public GenLayerJurassicRiverMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
@@ -87,6 +104,9 @@ public class GenLayerJurassicRiverMix extends GenLayer
                         || aint[i] == JURASSIC_MOUNTAINS_ID
                         || aint[i] == JURASSIC_ATOLLS_ID
                         || aint[i] == JURASSIC_ATOLLS2_ID
+                        || aint[i] == JURASSIC_ATOLLS3_ID
+                        || aint[i] == JURASSIC_ISLANDS_SANDY_WHITE_ID
+                        || aint[i] == JURASSIC_ISLANDS_SANDY_WHITE_EDGE_ID
                         || aint[i] == JURASSIC_LAKES_ID
                         || aint[i] == JURASSIC_OCEAN_RAFTS_ID
                 )
@@ -113,7 +133,7 @@ public class GenLayerJurassicRiverMix extends GenLayer
                         else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Pasture) {
                             aint2[i] = JURASSIC_CREEK_FERN_ID;
                         }
-                        else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Redwood) {
+                        else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Coniferous) {
                             aint2[i] = JURASSIC_CREEK_REDWOOD_ID;
                         }
                         else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Taiga) {
@@ -124,6 +144,14 @@ public class GenLayerJurassicRiverMix extends GenLayer
                         }
                         else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Mire) {
                             aint2[i] = JURASSIC_CREEK_MIRE_ID;
+                        }
+                        else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.IslandRock) {
+                            if (biomeJurassic == BiomeJurassicIslandLargeWet.biome) {
+                                aint2[i] = JURASSIC_CREEK_ISLAND_LARGE_FOG_ID;
+                            }
+                            else {
+                                aint2[i] = JURASSIC_CREEK_ISLAND_LARGE_ID;
+                            }
                         }
                         else {
                             aint2[i] = JURASSIC_RIVER_ID;

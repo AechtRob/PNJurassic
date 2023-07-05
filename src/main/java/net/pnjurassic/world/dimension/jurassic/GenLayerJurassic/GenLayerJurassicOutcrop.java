@@ -107,7 +107,7 @@ public class GenLayerJurassicOutcrop extends GenLayer {
                         output[i] = GinkgoBiomes[nextInt(GinkgoBiomes.length)];
                     else if (Biome.getBiome(center) == BiomeJurassicGinkgoParkland.biome)
                         output[i] = GinkgoParklandBiomes[nextInt(GinkgoBiomes.length)];
-                    else if (Biome.getBiome(center) == BiomeJurassicRedwoodForest.biome)
+                    else if (Biome.getBiome(center) == BiomeJurassicConiferousForest.biome)
                         output[i] = RedwoodBiomes[nextInt(RedwoodBiomes.length)];
                     else output[i] = center;
                 } else output[i] = center;
