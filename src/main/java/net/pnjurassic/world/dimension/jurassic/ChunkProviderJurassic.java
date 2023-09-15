@@ -58,7 +58,10 @@ public class ChunkProviderJurassic implements IChunkGenerator {
         caveGenerator = new MapGenCaves() {
             @Override
             protected boolean canReplaceBlock(IBlockState a, IBlockState b) {
-                if (a.getBlock() == STONE.getBlock())
+                if (a.getBlock() == STONE.getBlock()
+                        || a.getMaterial() == Material.ROCK
+                        || a.getMaterial() == Material.SAND
+                        || a.getMaterial() == Material.GROUND)
                     return true;
                 return super.canReplaceBlock(a, b);
             }
@@ -74,7 +77,10 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                     || biome == BiomeJurassicSandyIslandHills.biome || biome == BiomeJurassicSandyIslandWhite.biome) {return;}
                 IBlockState state = data.getBlockState(x, y, z);
                 if (state.getBlock() == STONE.getBlock() || state.getBlock() == biome.topBlock.getBlock()
-                        || state.getBlock() == biome.fillerBlock.getBlock()) {
+                        || state.getBlock() == biome.fillerBlock.getBlock()
+                        || state.getMaterial() == Material.ROCK
+                        || state.getMaterial() == Material.SAND
+                        || state.getMaterial() == Material.GROUND ) {
                     if (y - 1 < 10) {
                         data.setBlockState(x, y, z, FLOWING_LAVA);
                     }
@@ -206,7 +212,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                 net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS)) {
             //int i1 = this.random.nextInt(16) + 8; //This is in the spawner instead:
             //int k1 = this.random.nextInt(16) + 8; //This is in the spawner instead:
-            ChunkGenSpawner.executeProcedure(false, this.world, blockpos, this.random, null, true);
+            ChunkGenSpawner.executeProcedure(this.world, blockpos, this.random, null, true);
         }
 
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.random, x, z, false);

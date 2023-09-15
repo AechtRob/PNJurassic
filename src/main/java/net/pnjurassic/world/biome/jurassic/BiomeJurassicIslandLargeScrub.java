@@ -104,6 +104,7 @@ public class BiomeJurassicIslandLargeScrub extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenWilliamsonia WILLIAMSONIA_GENERATOR = new WorldGenWilliamsonia();
 		protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
 
+		protected static final WorldGenPtilozamites PTILOZAMITES_GENERATOR = new WorldGenPtilozamites();
 
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
 		protected static final WorldGenDictyophyllum DICTYOPHYLLUM_GENERATOR = new WorldGenDictyophyllum();
@@ -240,6 +241,15 @@ public class BiomeJurassicIslandLargeScrub extends ElementsLepidodendronMod.ModE
 					int k1 = rand.nextInt(16) + 8;
 					int l1 = rand.nextInt(worldIn.getHeight(pos.add(j1, 0, k1)).getY() + 32);
 					DOUBLE_PLANT_GENERATOR.generate(worldIn, rand, pos.add(j1, l1, k1));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 356; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					PTILOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
