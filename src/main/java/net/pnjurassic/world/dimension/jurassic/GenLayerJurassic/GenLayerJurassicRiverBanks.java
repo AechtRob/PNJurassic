@@ -28,7 +28,7 @@ public class GenLayerJurassicRiverBanks extends GenLayer
     public int JURASSIC_FLOODPLAIN_FORESTED_ID =  Biome.getIdForBiome(JURASSIC_FLOODPLAIN_FORESTED);
     public Biome JURASSIC_GINKGO_WOODLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_woodland"));
     public int JURASSIC_GINKGO_WOODLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_WOODLAND);
-    public Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_forest"));
+    public Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_forest"));
     public int JURASSIC_REDWOOD_FOREST_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_FOREST);
     public Biome JURASSIC_MUDFLATS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats"));
     public int JURASSIC_MUDFLATS_ID =  Biome.getIdForBiome(JURASSIC_MUDFLATS);
@@ -48,10 +48,10 @@ public class GenLayerJurassicRiverBanks extends GenLayer
     public  Biome JURASSIC_RIVERBANK = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_riverbank"));
     public  int JURASSIC_RIVERBANK_ID =  Biome.getIdForBiome(JURASSIC_RIVERBANK);
 
-    public Biome JURASSIC_REDWOOD_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_hills"));
+    public Biome JURASSIC_REDWOOD_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_hills"));
     public int JURASSIC_REDWOOD_HILLS_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_HILLS);
 
-    public Biome JURASSIC_REDWOOD_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_mountains"));
+    public Biome JURASSIC_REDWOOD_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_mountains"));
     public int JURASSIC_REDWOOD_MOUNTAINS_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_MOUNTAINS);
 
     public Biome JURASSIC_LAKE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lakes"));

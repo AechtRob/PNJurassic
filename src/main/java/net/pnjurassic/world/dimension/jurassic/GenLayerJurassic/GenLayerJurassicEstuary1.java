@@ -21,9 +21,9 @@ public class GenLayerJurassicEstuary1 extends GenLayer
     public  int JURASSIC_OUTCROPS_EDGE_ID =  Biome.getIdForBiome(JURASSIC_OUTCROPS_EDGE);
     public  Biome JURASSIC_OUTCROPS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_outcrops"));
     public  int JURASSIC_OUTCROPS_ID =  Biome.getIdForBiome(JURASSIC_OUTCROPS);
-    public  Biome JURASSIC_REDWOOD_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_hills"));
+    public  Biome JURASSIC_REDWOOD_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_hills"));
     public  int JURASSIC_REDWOOD_HILLS_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_HILLS);
-    public  Biome JURASSIC_REDWOOD_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_mountains"));
+    public  Biome JURASSIC_REDWOOD_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_mountains"));
     public  int JURASSIC_REDWOOD_MOUNTAINS_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_MOUNTAINS);
    
     public  Biome JURASSIC_ESTUARY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_helper"));

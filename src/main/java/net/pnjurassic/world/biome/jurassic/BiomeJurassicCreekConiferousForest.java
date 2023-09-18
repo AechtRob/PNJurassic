@@ -25,10 +25,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomeJurassicCreekRedwoodForest extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:jurassic_creek_redwood_forest")
+public class BiomeJurassicCreekConiferousForest extends ElementsLepidodendronMod.ModElement {
+	@GameRegistry.ObjectHolder("lepidodendron:jurassic_creek_coniferous_forest")
 	public static final BiomeGenCustom biome = null;
-	public BiomeJurassicCreekRedwoodForest(ElementsLepidodendronMod instance) {
+	public BiomeJurassicCreekConiferousForest(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -47,7 +47,7 @@ public class BiomeJurassicCreekRedwoodForest extends ElementsLepidodendronMod.Mo
 		public BiomeGenCustom() {
 			//was height 0.001
 			super(new BiomeProperties("Jurassic Coniferous Forest Creek").setBaseHeight(-0.525F).setHeightVariation(0.0F).setTemperature(0.65F).setRainfall(1.1F));
-			setRegistryName("lepidodendron:jurassic_creek_redwood_forest");
+			setRegistryName("lepidodendron:jurassic_creek_coniferous_forest");
 			topBlock = Blocks.DIRT.getStateFromMeta(2); //podzol
 			fillerBlock = Blocks.STONE.getStateFromMeta(0);
 			decorator.treesPerChunk = 18;

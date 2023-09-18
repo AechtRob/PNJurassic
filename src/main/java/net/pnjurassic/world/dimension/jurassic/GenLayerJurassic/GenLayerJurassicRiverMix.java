@@ -24,7 +24,7 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public int JURASSIC_CREEK_FLOODPLAIN_ID = Biome.getIdForBiome(JURASSIC_CREEK_FLOODPLAIN);
     public Biome JURASSIC_CREEK_GARRIGUE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_garrigue"));
     public int JURASSIC_CREEK_GARRIGUE_ID = Biome.getIdForBiome(JURASSIC_CREEK_GARRIGUE);
-    public Biome JURASSIC_CREEK_REDWOOD = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_redwood_forest"));
+    public Biome JURASSIC_CREEK_REDWOOD = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_coniferous_forest"));
     public int JURASSIC_CREEK_REDWOOD_ID = Biome.getIdForBiome(JURASSIC_CREEK_REDWOOD);
     public Biome JURASSIC_CREEK_SOUTHERN_TAIGA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_southern_taiga"));
     public int JURASSIC_CREEK_SOUTHERN_TAIGA_ID = Biome.getIdForBiome(JURASSIC_CREEK_SOUTHERN_TAIGA);

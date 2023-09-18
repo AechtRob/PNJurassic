@@ -19,7 +19,7 @@ public class GenLayerDiversifyJurassic2 extends GenLayer {
     public int JURASSIC_GINKGO_WOODLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_WOODLAND);
     public Biome JURASSIC_GINKGO_PARKLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_parkland"));
     public int JURASSIC_GINKGO_PARKLAND_ID =  Biome.getIdForBiome(JURASSIC_GINKGO_PARKLAND);
-    Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_redwood_forest"));
+    Biome JURASSIC_REDWOOD_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_forest"));
     public int JURASSIC_REDWOOD_FOREST_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_FOREST);
     public Biome JURASSIC_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_floodplain"));
     public int JURASSIC_FLOODPLAIN_ID =  Biome.getIdForBiome(JURASSIC_FLOODPLAIN);

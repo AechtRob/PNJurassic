@@ -39,7 +39,7 @@ public class BiomeJurassicSandyIslandWhite extends ElementsLepidodendronMod.ModE
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			//was height 0.001
-			super(new BiomeProperties("Jurassic Windswept Islws").setBaseHeight(-0.25F).setHeightVariation(0F).setTemperature(1.9F));
+			super(new BiomeProperties("Jurassic Windswept Isles").setBaseHeight(-0.25F).setHeightVariation(0F).setTemperature(1.9F));
 			setRegistryName("lepidodendron:jurassic_island_sandy_white");
 			topBlock = BlockSandWhite.block.getDefaultState();
 			fillerBlock = BlockSandstoneWhite.block.getDefaultState();
