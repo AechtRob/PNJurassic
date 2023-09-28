@@ -109,6 +109,7 @@ public class BiomeJurassicIslandLargeWet extends ElementsLepidodendronMod.ModEle
 		protected static final WorldGenTreeLog LOG_GENERATOR = new WorldGenTreeLog(BlockCzekanowskiaLog.block);
 		protected static final WorldGenGravelPatch SAND_PATCH_GENERATOR = new WorldGenGravelPatch(BlockCoarseSiltyDirt.block, 3);
 		protected static final WorldGenEquisetites EQISETITES_GENERATOR = new WorldGenEquisetites();
+		protected static final WorldGenWielandiella WIELANDIELLA_GENERATOR = new WorldGenWielandiella();
 
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
 		protected static final WorldGenCzekanowskia CZEKANOWSKIA_GENERATOR = new WorldGenCzekanowskia();
@@ -305,6 +306,15 @@ public class BiomeJurassicIslandLargeWet extends ElementsLepidodendronMod.ModEle
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					SLIMY_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 12; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					WIELANDIELLA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

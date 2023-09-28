@@ -83,7 +83,7 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenRedSandyDirt DIRT_GENERATOR = new WorldGenRedSandyDirt();
 		protected static final WorldGenDriedMud MUD_GENERATOR = new WorldGenDriedMud();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
-		protected static final WorldGenSpaciinodum SPACIINODUM_GENERATOR = new WorldGenSpaciinodum();
+		//protected static final WorldGenSpaciinodum SPACIINODUM_GENERATOR = new WorldGenSpaciinodum();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -215,14 +215,14 @@ public class BiomeJurassicMudflats extends ElementsLepidodendronMod.ModElement {
 				}
 
 
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 18; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPACIINODUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
+//			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+//				for (int i = 0; i < 18; ++i)
+//				{
+//					int j = rand.nextInt(16) + 8;
+//					int k = rand.nextInt(16) + 8;
+//					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+//					SPACIINODUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 156; ++i)
