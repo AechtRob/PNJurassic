@@ -81,6 +81,7 @@ public class BiomeJurassicIslandLargeField extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenSchmeissneria SCHMEISSNERIA_GENERATOR = new WorldGenSchmeissneria();
 		protected static final WorldGenIschnophyton ISCHNOPHYTON_GENERATOR = new WorldGenIschnophyton();
 		protected static final WorldGenTyrmia TYRMIA_GENERATOR = new WorldGenTyrmia();
+		protected static final WorldGenPseudoctenis PSEUDOCTENIS_GENERATOR = new WorldGenPseudoctenis();
 
 		protected static final WorldGenCzekanowskia CZEKANOWSKIA_GENERATOR = new WorldGenCzekanowskia();
 
@@ -222,6 +223,15 @@ public class BiomeJurassicIslandLargeField extends ElementsLepidodendronMod.ModE
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					MUD_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 6; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					PSEUDOCTENIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

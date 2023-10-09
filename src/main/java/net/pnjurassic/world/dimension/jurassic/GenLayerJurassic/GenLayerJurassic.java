@@ -15,7 +15,7 @@ public class GenLayerJurassic {
         //if (!LepidodendronConfig.doShrinkBiomes) {
 
         biomes = new GenLayerJurassicIslandsLarge(55L, biomes);
-            biomes = new GenLayerZoom(2001L, biomes);
+            //biomes = new GenLayerZoom(2001L, biomes); //ONe zoom too many for comfort!
         //}
         biomes = new GenLayerDiversifyJurassic(1000L, biomes);
         biomes = new GenLayerJurassicIslands(50L, biomes);
