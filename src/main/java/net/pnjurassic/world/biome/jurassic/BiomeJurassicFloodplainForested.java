@@ -69,7 +69,7 @@ public class BiomeJurassicFloodplainForested extends ElementsLepidodendronMod.Mo
 		protected static final WorldGenBrachyphyllumTree BRACHYPHYLLUM_TREE = new WorldGenBrachyphyllumTree(false);
 		protected static final WorldGenPodozamitesTreeWater PODOZAMITES_TREE = new WorldGenPodozamitesTreeWater(false);
 		protected static final WorldGenBunyaTree BUNYA_TREE = new WorldGenBunyaTree(false);
-		protected static final WorldGenYewTree YEW_TREE = new WorldGenYewTree(false);
+		//protected static final WorldGenYewTree YEW_TREE = new WorldGenYewTree(false);
 		protected static final WorldGenCypressTreeWater CYPRESS_TREE = new WorldGenCypressTreeWater(false);
 		protected static final WorldGenSphenobaieraTree SPHENOBAIERA_TREE = new WorldGenSphenobaieraTree(false);
 
@@ -108,9 +108,9 @@ public class BiomeJurassicFloodplainForested extends ElementsLepidodendronMod.Mo
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
-			if (rand.nextInt(35) == 0) {
-				return YEW_TREE;
-			}
+			//if (rand.nextInt(35) == 0) {
+			//	return YEW_TREE;
+			//}
 			int selector = rand.nextInt(11);
 			switch (selector) {
 				case 0:

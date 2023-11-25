@@ -138,6 +138,7 @@ public class GenLayerJurassic {
         biomes = new GenLayerJoinRiversJurassic(156L, biomes);
         biomes = new GenLayerJurassicRiverBanks(227L, biomes);
         biomes = new GenLayerJurassicTaigaBasalt(1976L, biomes);
+        biomes = new GenLayerJurassicRoosts(1000L, biomes);
         biomes = new GenLayerJurassicTryToJoinRiverToSea(1000L, biomes);
         biomes = new GenLayerZoom(1006L, biomes);
 

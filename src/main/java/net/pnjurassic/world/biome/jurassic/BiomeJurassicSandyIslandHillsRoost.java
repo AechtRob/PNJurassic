@@ -24,10 +24,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:jurassic_island_sandy_hills")
+public class BiomeJurassicSandyIslandHillsRoost extends ElementsLepidodendronMod.ModElement {
+	@GameRegistry.ObjectHolder("lepidodendron:jurassic_island_sandy_hills_roost")
 	public static final BiomeGenCustom biome = null;
-	public BiomeJurassicSandyIslandHills(ElementsLepidodendronMod instance) {
+	public BiomeJurassicSandyIslandHillsRoost(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -45,8 +45,8 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			//was height 0.001
-			super(new BiomeProperties("Jurassic Sandy Atolls Hillocks").setBaseHeight(0.75F).setHeightVariation(0.15F).setTemperature(1.9F));
-			setRegistryName("lepidodendron:jurassic_island_sandy_hills");
+			super(new BiomeProperties("Jurassic Sandy Atolls Roost").setBaseHeight(0.75F).setHeightVariation(0.15F).setTemperature(1.9F));
+			setRegistryName("lepidodendron:jurassic_island_sandy_hills_roost");
 			topBlock = Blocks.SAND.getDefaultState();
 			fillerBlock = Blocks.STONE.getDefaultState();
 			decorator.treesPerChunk = 1;
@@ -86,6 +86,9 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenCorallineAlgae CORALLINE_GENERATOR = new WorldGenCorallineAlgae();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 
+		protected static final WorldGenGuano GUANO_GENERATOR = new WorldGenGuano();
+		protected static final WorldGenNestExtra NEST_GENERATOR = new WorldGenNestExtra();
+
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
 			if (rand.nextInt(10) == 0) {
@@ -101,16 +104,45 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 		public void decorate(World worldIn, Random rand, BlockPos pos)
 		{
 
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
+				{
+					//int i = rand.nextInt(32);
+
+					for (int j = 0; j < 12; ++j)
+					{
+						int k = rand.nextInt(16) + 8;
+						int l = rand.nextInt(16) + 8;
+						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+						GUANO_GENERATOR.generate(worldIn, rand, blockpos, 85);
+					}
+				}
+			}
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
+				{
+					int i = rand.nextInt(24) + 16;
+
+					for (int j = 0; j < i; ++j)
+					{
+						int k = rand.nextInt(16) + 8;
+						int l = rand.nextInt(16) + 8;
+						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+						blockpos = ChunkGenSpawner.getTopSolidBlock(blockpos, worldIn).up();
+						NEST_GENERATOR.generate(worldIn, rand, blockpos, 85, new EntityPrehistoricFloraRhamphorhynchus(worldIn));
+					}
+				}
+			}
+
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS)) {
 				//int i = rand.nextInt(2);
 
 				//for (int j = 0; j < i; ++j) {
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(16) + 8;
-					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-					if (Math.random() > 0.8) {
-						LOG_GENERATOR.generate(worldIn, rand, blockpos);
-					}
+				int k = rand.nextInt(16) + 8;
+				int l = rand.nextInt(16) + 8;
+				BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+				if (Math.random() > 0.8) {
+					LOG_GENERATOR.generate(worldIn, rand, blockpos);
+				}
 				//}
 			}
 
@@ -215,13 +247,13 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-			for (int i = 0; i < 12; ++i)
-			{
-				int j = rand.nextInt(16) + 8;
-				int k = rand.nextInt(16) + 8;
-				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				FURCIFOLIUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-			}
+				for (int i = 0; i < 12; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					FURCIFOLIUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 24; ++i)

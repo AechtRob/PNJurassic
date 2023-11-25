@@ -74,7 +74,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                     || biome == BiomeJurassicMudflats.biome || biome == BiomeJurassicMudflatsHelper.biome
                     || biome == BiomeJurassicRiver.biome || biome == BiomeJurassicRiverbank.biome
                     || biome == BiomeJurassicSandyIsland.biome || biome == BiomeJurassicSandyIslandForest.biome
-                    || biome == BiomeJurassicSandyIslandHills.biome || biome == BiomeJurassicSandyIslandWhite.biome) {return;}
+                    || biome == BiomeJurassicSandyIslandHills.biome || biome == BiomeJurassicSandyIslandWhite.biome
+                    || biome == BiomeJurassicSandyIslandHillsRoost.biome) {return;}
                 IBlockState state = data.getBlockState(x, y, z);
                 if (state.getBlock() == STONE.getBlock() || state.getBlock() == biome.topBlock.getBlock()
                         || state.getBlock() == biome.fillerBlock.getBlock()
@@ -122,6 +123,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
             && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIsland.biome
             && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandForest.biome
             && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandHills.biome
+            && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandHillsRoost.biome
             && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandWhite.biome
             && this.world.getBiome(new BlockPos (x, 0, z)) != BiomeJurassicSandyIslandWhiteEdge.biome) {
             this.ravineGenerator.generate(this.world, x, z, chunkprimer);
@@ -571,7 +573,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         //Islands terrain:
                         if (biome == BiomeJurassicSandyIsland.biome
                                 || biome == BiomeJurassicSandyIslandForest.biome
-                                || biome == BiomeJurassicSandyIslandHills.biome) {
+                                || biome == BiomeJurassicSandyIslandHills.biome
+                                || biome == BiomeJurassicSandyIslandHillsRoost.biome) {
                             if (j1 >= i + 6) {
                                 iblockstate = BlockPrehistoricGroundBasic.block.getDefaultState();
                                 if (rand.nextInt(36) == 0) {
