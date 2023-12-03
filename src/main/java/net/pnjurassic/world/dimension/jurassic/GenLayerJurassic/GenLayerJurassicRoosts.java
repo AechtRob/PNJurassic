@@ -15,11 +15,6 @@ public class GenLayerJurassicRoosts extends GenLayer {
     public Biome JURASSIC_ROOST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_roost"));
     public int JURASSIC_CALDERA_ROOST_ID =  Biome.getIdForBiome(JURASSIC_ROOST);
 
-    public Biome JURASSIC_SANDY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_hills"));
-    public int JURASSIC_SANDY_ID =  Biome.getIdForBiome(JURASSIC_SANDY);
-    public Biome JURASSIC_SANDY_ROOST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_hills_roost"));
-    public int JURASSIC_SANDY_ROOST_ID =  Biome.getIdForBiome(JURASSIC_SANDY_ROOST);
-
     private final int CalderaRoostBiomes[] = new int[] {
             JURASSIC_RIM_ID,
             JURASSIC_RIM_ID,
@@ -28,16 +23,6 @@ public class GenLayerJurassicRoosts extends GenLayer {
             JURASSIC_RIM_ID,
             JURASSIC_RIM_ID,
             JURASSIC_CALDERA_ROOST_ID
-    };
-
-    private final int SandyRoostBiomes[] = new int[] {
-            JURASSIC_SANDY_ID,
-            JURASSIC_SANDY_ID,
-            JURASSIC_SANDY_ID,
-            JURASSIC_SANDY_ID,
-            JURASSIC_SANDY_ID,
-            JURASSIC_SANDY_ID,
-            JURASSIC_SANDY_ROOST_ID
     };
 
     public GenLayerJurassicRoosts(long seed, GenLayer genlayer) {
@@ -62,9 +47,6 @@ public class GenLayerJurassicRoosts extends GenLayer {
                 if (nextInt(2) == 0) {
                     if (Biome.getBiome(center) == BiomeJurassicIslandLargeRim.biome)
                         output[i] = CalderaRoostBiomes[nextInt(CalderaRoostBiomes.length)];
-
-                    if (Biome.getBiome(center) == BiomeJurassicSandyIslandHills.biome)
-                        output[i] = SandyRoostBiomes[nextInt(SandyRoostBiomes.length)];
 
                     else output[i] = center;
                 } else output[i] = center;
