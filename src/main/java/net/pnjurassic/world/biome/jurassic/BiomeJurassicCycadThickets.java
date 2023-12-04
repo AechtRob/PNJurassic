@@ -81,6 +81,7 @@ public class BiomeJurassicCycadThickets extends ElementsLepidodendronMod.ModElem
 		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
 		protected static final WorldGenPterophyllum PTEROPHYLLUM_GENERATOR = new WorldGenPterophyllum();
 		protected static final WorldGenPseudoctenis PSEUDOCTENIS_GENERATOR = new WorldGenPseudoctenis();
+		protected static final WorldGenDoratophyllum DORATOPHYLLUM_GENERATOR = new WorldGenDoratophyllum();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
 
 		protected static final WorldGenCtenis CTENIS_GENERATOR = new WorldGenCtenis();
@@ -259,6 +260,15 @@ public class BiomeJurassicCycadThickets extends ElementsLepidodendronMod.ModElem
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					PSEUDOCTENIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 16; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					DORATOPHYLLUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.FERN);
