@@ -10,6 +10,8 @@ public class GenLayerJurassicIslandLargeInterior extends GenLayer
 
     public Biome JURASSIC_ISLANDS_LARGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large"));
     public int JURASSIC_ISLANDS_LARGE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE);
+    public Biome JURASSIC_ISLANDS_LARGE_ROOST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_roost"));
+    public int JURASSIC_ISLANDS_LARGE_ROOST_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE_ROOST);
     public Biome JURASSIC_ISLANDS_LARGE_SCRUB = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_scrub"));
     public int JURASSIC_ISLANDS_LARGE_SCRUB_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE_SCRUB);
     public Biome JURASSIC_ISLANDS_LARGE_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_wet"));
@@ -74,6 +76,7 @@ public class GenLayerJurassicIslandLargeInterior extends GenLayer
 
     private boolean isCraterWall(int biomeID) {
         if (biomeID == JURASSIC_ISLANDS_LARGE_ID
+                || biomeID == JURASSIC_ISLANDS_LARGE_ROOST_ID
         ) {
             return true;
         }

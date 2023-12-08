@@ -31,6 +31,8 @@ public class GenLayerSeperateIslands extends GenLayer
     public int JURASSIC_ATOLLS3_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS3);
     public Biome JURASSIC_ISLANDS_LARGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large"));
     public int JURASSIC_ISLANDS_LARGE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE);
+    public Biome JURASSIC_ISLANDS_LARGE_RIM = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_rim"));
+    public int JURASSIC_ISLANDS_LARGE_RIM_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE_RIM);
     public Biome JURASSIC_ISLANDS_LARGE_SCRUB = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_scrub"));
     public int JURASSIC_ISLANDS_LARGE_SCRUB_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE_SCRUB);
     public Biome JURASSIC_ISLANDS_LARGE_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_wet"));
@@ -116,6 +118,7 @@ public class GenLayerSeperateIslands extends GenLayer
 
     private boolean isLargeIslands(int biomeID) {
         if (biomeID == JURASSIC_ISLANDS_LARGE_ID
+                || biomeID == JURASSIC_ISLANDS_LARGE_RIM_ID
                 || biomeID == JURASSIC_ISLANDS_LARGE_SCRUB_ID
                 || biomeID == JURASSIC_ISLANDS_LARGE_WET_ID
                 || biomeID == JURASSIC_ISLANDS_LARGE_FIELD_ID
