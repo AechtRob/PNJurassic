@@ -63,6 +63,9 @@ public class GenLayerJurassicRiverBanks extends GenLayer
     public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
     public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
 
+    public Biome JURASSIC_DESERT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert"));
+    public int JURASSIC_DESERT_ID =  Biome.getIdForBiome(JURASSIC_DESERT);
+
     public GenLayerJurassicRiverBanks(long seed, GenLayer genLayer)
     {
         super(seed);
@@ -112,7 +115,7 @@ public class GenLayerJurassicRiverBanks extends GenLayer
                 || biomeID == JURASSIC_BEACH_ID || biomeID == JURASSIC_BEACH_BLACK_ID
                 || biomeID == JURASSIC_LAKE_ID || biomeID == JURASSIC_LAKE_SHORE_ID
                 || biomeID == JURASSIC_RIVER_ID || biomeID == JURASSIC_OCEAN_RAFTS_ID
-                || biomeID == JURASSIC_CORAL_ID) {
+                || biomeID == JURASSIC_CORAL_ID ) {
             return true;
         }
         return false;
@@ -137,7 +140,8 @@ public class GenLayerJurassicRiverBanks extends GenLayer
                 || biomeID == JURASSIC_ESTUARY_ID
                 || biomeID == JURASSIC_ESTUARY_HELPER_ID
                 || biomeID == JURASSIC_LAKE_ID
-                || biomeID == JURASSIC_LAKE_SHORE_ID ) {
+                || biomeID == JURASSIC_LAKE_SHORE_ID
+                || biomeID == JURASSIC_DESERT_ID) {
             return true;
         }
         return false;

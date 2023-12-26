@@ -38,6 +38,8 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public int JURASSIC_CREEK_ISLAND_LARGE_ID = Biome.getIdForBiome(JURASSIC_CREEK_ISLAND_LARGE);
     public Biome JURASSIC_CREEK_ISLAND_LARGE_FOG = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_creek_fog"));
     public int JURASSIC_CREEK_ISLAND_LARGE_FOG_ID = Biome.getIdForBiome(JURASSIC_CREEK_ISLAND_LARGE_FOG);
+    public Biome JURASSIC_CREEK_DESERT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_desert"));
+    public int JURASSIC_CREEK_DESERT_ID = Biome.getIdForBiome(JURASSIC_CREEK_DESERT);
 
     //Biomes to exclude for rivers:
     public Biome JURASSIC_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore"));
@@ -144,6 +146,9 @@ public class GenLayerJurassicRiverMix extends GenLayer
                         }
                         else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Mire) {
                             aint2[i] = JURASSIC_CREEK_MIRE_ID;
+                        }
+                        else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Desert) {
+                            aint2[i] = JURASSIC_CREEK_DESERT_ID;
                         }
                         else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.IslandRock) {
                             if (biomeJurassic == BiomeJurassicIslandLargeWet.biome) {

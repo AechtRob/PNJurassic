@@ -3,6 +3,7 @@ package net.pnjurassic.world.dimension.jurassic;
 import net.lepidodendron.block.*;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
 import net.lepidodendron.world.gen.WorldGenJurassicVolcanos;
+import net.lepidodendron.world.gen.WorldGenPangaeanDryLakes;
 import net.lepidodendron.world.gen.WorldGenPrehistoricLakes;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -179,6 +180,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
         if (this.random.nextInt(chanceLake) == 0
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicOceanShore.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicBoulders.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicDesert.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicSandyIslandWhite.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicSandyIslandWhiteEdge.biome)
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
@@ -427,6 +429,10 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             iblockstate = AIR;
                             iblockstate1 = STONE;
                             //} else if (j1 >= i - 4 && j1 <= i + 1) {
+                        }
+                        else if (j1 <= i + 2 && j1 >= i - 1 && Math.random() > 0.25
+                                && (biome == BiomeJurassicCreekDesert.biome)) {
+                            iblockstate = BlockDriedMud.block.getDefaultState();
                         } else if (j1 <= i - 1) {
                             iblockstate = biome.topBlock;
                             //iblockstate1 = biome.fillerBlock;

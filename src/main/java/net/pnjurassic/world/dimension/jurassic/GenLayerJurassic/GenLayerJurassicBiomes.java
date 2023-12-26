@@ -23,6 +23,8 @@ public class GenLayerJurassicBiomes extends GenLayer {
     public int JURASSIC_ROUGH_HILLS_ID =  Biome.getIdForBiome(JURASSIC_ROUGH_HILLS);
     public Biome JURASSIC_TAIGA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga"));
     public int JURASSIC_TAIGA_ID =  Biome.getIdForBiome(JURASSIC_TAIGA);
+    public Biome JURASSIC_DESERT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert"));
+    public int JURASSIC_DESERT_ID =  Biome.getIdForBiome(JURASSIC_DESERT);
 
     private final int JurassicBiomes[] = new int[] {
         JURASSIC_FERN_PASTURE_ID,
@@ -45,6 +47,8 @@ public class GenLayerJurassicBiomes extends GenLayer {
 
         JURASSIC_TAIGA_ID,
         JURASSIC_TAIGA_ID,
+
+        JURASSIC_DESERT_ID,
 
         JURASSIC_OCEAN_SHORE_ID,
         JURASSIC_OCEAN_SHORE_ID,
