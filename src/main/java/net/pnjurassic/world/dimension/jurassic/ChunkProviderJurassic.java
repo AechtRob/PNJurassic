@@ -1,7 +1,9 @@
 package net.pnjurassic.world.dimension.jurassic;
 
 import net.lepidodendron.block.*;
+import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
+import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.WorldGenJurassicVolcanos;
 import net.lepidodendron.world.gen.WorldGenPangaeanDryLakes;
 import net.lepidodendron.world.gen.WorldGenPrehistoricLakes;
@@ -16,6 +18,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeDesert;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.*;
@@ -31,6 +34,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
     //public static final IBlockState FLUID = Blocks.FLOWING_WATER.getDefaultState();
 
     public static final IBlockState FLUID = Blocks.WATER.getDefaultState();
+    public static final IBlockState FLUID_FLOWING = Blocks.FLOWING_WATER.getDefaultState();
+    public static final int DESERT_SEA_LEVEL = 42;
 
     public static final IBlockState AIR = Blocks.AIR.getDefaultState();
     public static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
@@ -181,6 +186,10 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicOceanShore.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicBoulders.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicDesert.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicCreekDesert.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicDesertIsland.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicDesertRim.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicDesertRimDesertSide.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicSandyIslandWhite.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomeJurassicSandyIslandWhiteEdge.biome)
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
@@ -409,6 +418,9 @@ public class ChunkProviderJurassic implements IChunkGenerator {
 
     public final void generateBiomeTerrain(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal, Biome biome) {
         int i = SEALEVEL;
+        if (biome == BiomeJurassicDesert.biome || biome == BiomeJurassicDesertIsland.biome || biome == BiomeJurassicCreekDesert.biome || biome == BiomeJurassicDesertRimDesertSide.biome) {
+            i = DESERT_SEA_LEVEL;
+        }
         IBlockState iblockstate = biome.topBlock;
         IBlockState iblockstate1 = biome.fillerBlock;
         int j = -1;
@@ -417,8 +429,19 @@ public class ChunkProviderJurassic implements IChunkGenerator {
         int i1 = z & 15;
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         for (int j1 = 255; j1 >= 0; --j1) {
+            IBlockState iblockstate5 = chunkPrimerIn.getBlockState(i1, j1, l);
+//            if ((((BiomeJurassic)biome).getBiomeType() != EnumBiomeTypeJurassic.Ocean
+//                    && ((BiomeJurassic)biome).getBiomeType() != EnumBiomeTypeJurassic.Lake
+//                    && ((BiomeJurassic)biome).getBiomeType() != EnumBiomeTypeJurassic.River
+//                ) && iblockstate5.getMaterial() == Material.WATER
+//            ) {
+//                chunkPrimerIn.setBlockState(i1, j1, l, FLUID_FLOWING);
+//            }
             if (j1 <= rand.nextInt(5)) {
                 chunkPrimerIn.setBlockState(i1, j1, l, BEDROCK);
+            }
+            else if ((biome == BiomeJurassicDesert.biome || biome == BiomeJurassicDesertIsland.biome || biome == BiomeJurassicDesertRimDesertSide.biome || biome == BiomeJurassicCreekDesert.biome) && iblockstate5.getMaterial() == Material.WATER && j1 > DESERT_SEA_LEVEL) {
+                chunkPrimerIn.setBlockState(i1, j1, l, AIR);
             } else {
                 IBlockState iblockstate2 = chunkPrimerIn.getBlockState(i1, j1, l);
                 if (iblockstate2.getMaterial() == Material.AIR) {
@@ -431,8 +454,19 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             //} else if (j1 >= i - 4 && j1 <= i + 1) {
                         }
                         else if (j1 <= i + 2 && j1 >= i - 1 && Math.random() > 0.25
-                                && (biome == BiomeJurassicCreekDesert.biome)) {
-                            iblockstate = BlockDriedMud.block.getDefaultState();
+                                && (biome == BiomeJurassicCreekDesert.biome || biome == BiomeJurassicDesert.biome)) {
+                            if (j1 >= i) {
+                                iblockstate = BlockDriedMud.block.getDefaultState();
+                                if (Math.random() > 0.80 && biome == BiomeJurassicCreekDesert.biome) {
+                                    iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                                }
+                                if (j1 <= i + 1 && Math.random() > 0.80 && biome == BiomeJurassicCreekDesert.biome) {
+                                    iblockstate = Blocks.DIRT.getStateFromMeta(2);
+                                }
+                            }
+                            else {
+                                iblockstate = BlockCoarseSandyDirt.block.getDefaultState();
+                            }
                         } else if (j1 <= i - 1) {
                             iblockstate = biome.topBlock;
                             //iblockstate1 = biome.fillerBlock;
@@ -789,14 +823,16 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                 || biome == BiomeJurassicIslandLargeField.biome) && rand.nextInt(14) == 0) {
                             iblockstate = BlockPrehistoricGroundBasic.block.getDefaultState();
                         }
-                        if ((biome == BiomeJurassicIslandLargeScrub.biome
-                                || biome == BiomeJurassicIslandLargeField.biome) && rand.nextInt(12) == 0) {
-                            iblockstate = Blocks.COBBLESTONE.getDefaultState();
-                            if (rand.nextInt(4) == 0) {
-                                iblockstate = Blocks.MOSSY_COBBLESTONE.getDefaultState();
-                            }
+                        if ((biome == BiomeJurassicDesert.biome) && rand.nextInt(3) == 0) {
+                            iblockstate = Blocks.SAND.getStateFromMeta(0);
                         }
-
+                        if ((biome == BiomeJurassicIslandLargeWet.biome
+                                || biome == BiomeJurassicIslandLargeField.biome) && rand.nextInt(12) == 0) {
+                            iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicDesert.biome) && rand.nextInt(500) == 0) {
+                            iblockstate = BlockCoralBleached.block.getDefaultState();
+                        }
 
                         //Add some moss and ferns generally:
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
@@ -951,6 +987,31 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                         iblockstate1 = Blocks.COBBLESTONE.getDefaultState();
                                     } else if (rand.nextInt(8) == 0) {
                                         iblockstate1 = Blocks.DIRT.getStateFromMeta(1);
+                                    }
+                                }
+                            }
+                        }
+
+                        if (biome == BiomeJurassicDesertIsland.biome
+                        ) {
+                            //If it's over 58 blocks then start to fill in more as stone
+                            //up to 80
+                            int minHeight = 58;
+                            if (j1 >= minHeight) {
+                                int j2 = Math.max(0, 80 - j1);
+                                double stoneFactor = (double) j2 / (80D - (double) minHeight);
+                                if (Math.random() >= stoneFactor) {
+                                    if (rand.nextInt(8) == 0) {
+                                        iblockstate1 = Blocks.COBBLESTONE.getDefaultState();
+                                    }
+                                    if (rand.nextInt(12) == 0) {
+                                        iblockstate1 = Blocks.STONE.getDefaultState();
+                                    }
+                                    if (rand.nextInt(8) == 0) {
+                                        iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                                    }
+                                    if (rand.nextInt(12) == 0) {
+                                        iblockstate = Blocks.STONE.getDefaultState();
                                     }
                                 }
                             }

@@ -68,6 +68,10 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
     public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
     public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
+    public Biome JURASSIC_DESERT_RIM = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim"));
+    public int JURASSIC_DESERT_RIM_ID =  Biome.getIdForBiome(JURASSIC_DESERT_RIM);
+    public Biome JURASSIC_DESERT_RIM_DESERT_SIDE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim_desert_side"));
+    public int JURASSIC_DESERT_RIM_DESERT_SIDE_ID =  Biome.getIdForBiome(JURASSIC_DESERT_RIM_DESERT_SIDE);
 //    public Biome JURASSIC_ISLANDS_LARGE_SCRUB = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_scrub"));
 //    public int JURASSIC_ISLANDS_LARGE_SCRUB_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_LARGE_SCRUB);
 //    public Biome JURASSIC_ISLANDS_LARGE_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_wet"));
@@ -111,6 +115,8 @@ public class GenLayerJurassicRiverMix extends GenLayer
                         || aint[i] == JURASSIC_ISLANDS_SANDY_WHITE_EDGE_ID
                         || aint[i] == JURASSIC_LAKES_ID
                         || aint[i] == JURASSIC_OCEAN_RAFTS_ID
+                        || aint[i] == JURASSIC_DESERT_RIM_ID
+                        || aint[i] == JURASSIC_DESERT_RIM_DESERT_SIDE_ID
                 )
                 {
                     aint2[i] = aint[i];

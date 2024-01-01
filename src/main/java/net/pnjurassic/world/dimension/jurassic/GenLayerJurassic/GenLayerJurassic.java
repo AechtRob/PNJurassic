@@ -12,11 +12,10 @@ public class GenLayerJurassic {
 
         GenLayer biomes = new GenLayerJurassicBiomes(1L);
         biomes = new GenLayerFuzzyZoom(2000L, biomes);
-        //if (!LepidodendronConfig.doShrinkBiomes) {
+        biomes = new GenLayerDesertNotBySea(2230L, biomes);
 
         biomes = new GenLayerJurassicIslandsLarge(55L, biomes);
-            //biomes = new GenLayerZoom(2001L, biomes); //ONe zoom too many for comfort!
-        //}
+//        biomes = new GenLayerZoom(2001L, biomes); //ONe zoom too many for comfort!
         biomes = new GenLayerDiversifyJurassic(1000L, biomes);
         biomes = new GenLayerJurassicIslands(50L, biomes);
 
@@ -55,6 +54,7 @@ public class GenLayerJurassic {
         biomes = new GenLayerJurassicOutcrop(1088L, biomes);
         biomes = new GenLayerJurassicCoral(439L, biomes);
         biomes = new GenLayerJurassicIslandLargeInterior(143L, biomes);
+        biomes = new GenLayerDesertTransitionDesertSide(144L, biomes);
         biomes = new GenLayerZoom(1004L, biomes);
 
         biomes = new GenLayerAddMountainsToRedwoodRare(1001L, biomes);
@@ -67,6 +67,7 @@ public class GenLayerJurassic {
         biomes = new GenLayerJurassicBoulders(1066L, biomes);
         biomes = new GenLayerDiversifyJurassic3(1001L, biomes);
         biomes = new GenLayerSeperateIslands(1555L, biomes);
+        biomes = new GenLayerJurassicDesertIslands(1563L, biomes);
 
         biomes = new GenLayerFuzzyZoom(1000L, biomes);
 
@@ -78,7 +79,10 @@ public class GenLayerJurassic {
         biomes = new GenLayerJurassicOutcropBlend2(333L, biomes);
         biomes = new GenLayerDiversifyJurassicMudflats(1136L, biomes);
         biomes = new GenLayerSmooth(705L, biomes);
+
         biomes = new GenLayerFuzzyZoom(1001L, biomes);
+
+        biomes = new GenLayerJurassicDesertRim(1032L, biomes);
 
         biomes = new GenLayerSeperateIslands(1655L, biomes);
 
@@ -103,7 +107,11 @@ public class GenLayerJurassic {
         biomes = new GenLayerJurassicTryToJoinRiverToSea(1008L, biomes);
 
         biomes = new GenLayerJurassicTaigaBasalt(1975L, biomes);
+
+        biomes = new GenLayerJurassicDesertRimFromDesert(1302L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
+
+        //biomes = new GenLayerJurassicDesertRimFromDesert(1302L, biomes);
 
         biomes = new GenLayerJurassicTryToJoinRiverToSea(1000L, biomes);
         biomes = new GenLayerJurassicTryToJoinRiverToSea(1001L, biomes);
