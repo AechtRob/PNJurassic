@@ -109,6 +109,7 @@ public class GenLayerJurassic {
         biomes = new GenLayerJurassicTaigaBasalt(1975L, biomes);
 
         biomes = new GenLayerJurassicDesertRimFromDesert(1302L, biomes);
+        biomes = new GenLayerJurassicDesertRimFromHills(1203L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
 
         //biomes = new GenLayerJurassicDesertRimFromDesert(1302L, biomes);

@@ -47,7 +47,7 @@ public class BiomeJurassicCreekDesert extends ElementsLepidodendronMod.ModElemen
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			//super(new BiomeProperties("Permian Desert").setRainfall(0.0F).setBaseHeight(0.18F).setHeightVariation(0.17F).setTemperature(2.2F).setRainDisabled().setWaterColor(10990706));
-			super(new BiomeProperties("Jurassic Desert Creek").setRainfall(0.0F).setBaseHeight(-1.425F).setHeightVariation(0.0F).setTemperature(2.5F).setRainDisabled());
+			super(new BiomeProperties("Jurassic Desert Gulley").setRainfall(0.0F).setBaseHeight(-1.425F).setHeightVariation(0.0F).setTemperature(2.5F).setRainDisabled());
 			setRegistryName("lepidodendron:jurassic_creek_desert");
 			topBlock = Blocks.GRAVEL.getDefaultState();
 			fillerBlock = Blocks.SANDSTONE.getStateFromMeta(0);

@@ -430,13 +430,11 @@ public class ChunkProviderJurassic implements IChunkGenerator {
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         for (int j1 = 255; j1 >= 0; --j1) {
             IBlockState iblockstate5 = chunkPrimerIn.getBlockState(i1, j1, l);
-//            if ((((BiomeJurassic)biome).getBiomeType() != EnumBiomeTypeJurassic.Ocean
-//                    && ((BiomeJurassic)biome).getBiomeType() != EnumBiomeTypeJurassic.Lake
-//                    && ((BiomeJurassic)biome).getBiomeType() != EnumBiomeTypeJurassic.River
-//                ) && iblockstate5.getMaterial() == Material.WATER
-//            ) {
-//                chunkPrimerIn.setBlockState(i1, j1, l, FLUID_FLOWING);
-//            }
+            if ((biome == BiomeJurassicDesertRim.biome || biome == BiomeJurassicDesertRimDesertSide.biome)
+                 && iblockstate5.getMaterial() == Material.WATER
+            ) {
+                chunkPrimerIn.setBlockState(i1, j1, l, FLUID_FLOWING);
+            }
             if (j1 <= rand.nextInt(5)) {
                 chunkPrimerIn.setBlockState(i1, j1, l, BEDROCK);
             }

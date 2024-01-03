@@ -70,6 +70,8 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
     public Biome JURASSIC_DESERT_RIM = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim"));
     public int JURASSIC_DESERT_RIM_ID =  Biome.getIdForBiome(JURASSIC_DESERT_RIM);
+    public Biome JURASSIC_DESERT_RIM_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim_helper"));
+    public int JURASSIC_DESERT_RIM_HELPER_ID =  Biome.getIdForBiome(JURASSIC_DESERT_RIM_HELPER);
     public Biome JURASSIC_DESERT_RIM_DESERT_SIDE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim_desert_side"));
     public int JURASSIC_DESERT_RIM_DESERT_SIDE_ID =  Biome.getIdForBiome(JURASSIC_DESERT_RIM_DESERT_SIDE);
 //    public Biome JURASSIC_ISLANDS_LARGE_SCRUB = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_scrub"));
@@ -116,6 +118,7 @@ public class GenLayerJurassicRiverMix extends GenLayer
                         || aint[i] == JURASSIC_LAKES_ID
                         || aint[i] == JURASSIC_OCEAN_RAFTS_ID
                         || aint[i] == JURASSIC_DESERT_RIM_ID
+                        || aint[i] == JURASSIC_DESERT_RIM_HELPER_ID
                         || aint[i] == JURASSIC_DESERT_RIM_DESERT_SIDE_ID
                 )
                 {

@@ -80,6 +80,8 @@ public class GenLayerJurassicRiverBorder extends GenLayer
     public int JURASSIC_DESERT_ID =  Biome.getIdForBiome(JURASSIC_DESERT);
     public Biome JURASSIC_DESERT_RIM = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim"));
     public int JURASSIC_DESERT_RIM_ID =  Biome.getIdForBiome(JURASSIC_DESERT_RIM);
+    public Biome JURASSIC_DESERT_RIM_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim_helper"));
+    public int JURASSIC_DESERT_RIM_HELPER_ID =  Biome.getIdForBiome(JURASSIC_DESERT_RIM_HELPER);
     public Biome JURASSIC_DESERT_RIM_DESERT_SIDE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim_desert_side"));
     public int JURASSIC_DESERT_RIM_DESERT_SIDE_ID =  Biome.getIdForBiome(JURASSIC_DESERT_RIM_DESERT_SIDE);
 
@@ -204,6 +206,7 @@ public class GenLayerJurassicRiverBorder extends GenLayer
                 || biomeID == JURASSIC_OCEAN_RAFTS_ID
                 || biomeID == JURASSIC_DESERT_ID
                 || biomeID == JURASSIC_DESERT_RIM_ID
+                || biomeID == JURASSIC_DESERT_RIM_HELPER_ID
                 || biomeID == JURASSIC_DESERT_RIM_DESERT_SIDE_ID) {
             return true;
         }

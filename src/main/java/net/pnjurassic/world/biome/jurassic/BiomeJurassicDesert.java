@@ -15,6 +15,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenSand;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -82,6 +83,8 @@ public class BiomeJurassicDesert extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenProtognetum PROTOGNETUM_GENERATOR = new WorldGenProtognetum();
 		protected static final WorldGenSphenobaieraNotAsTree SPHENOBAIERA_GENERATOR = new WorldGenSphenobaieraNotAsTree();
 		protected static final WorldGenThinnfeldia THINNFELDIA_GENERATOR = new WorldGenThinnfeldia();
+
+		protected static final WorldGenRibCage RIBCAGE = new WorldGenRibCage();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -256,6 +259,15 @@ public class BiomeJurassicDesert extends ElementsLepidodendronMod.ModElement {
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					PROTOGNETUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true, ChunkProviderJurassic.DESERT_SEA_LEVEL);
 				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS)) {
+				if (rand.nextInt(5) == 0)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					RIBCAGE.generate(worldIn, rand, new BlockPos(pos.getX() + j, ChunkProviderJurassic.DESERT_SEA_LEVEL + 8, pos.getZ() + k), ChunkProviderJurassic.DESERT_SEA_LEVEL + 12);
+				}
+			}
 
 
 			super.decorate(worldIn, rand, pos);
