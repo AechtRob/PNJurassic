@@ -41,7 +41,7 @@ public class BiomeJurassicDesertRim extends ElementsLepidodendronMod.ModElement 
 
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Jurassic Desert Edge").setBaseHeight(0.05F).setHeightVariation(0.0F).setTemperature(1.8F).setRainfall(0.8F));
+			super(new BiomeProperties("Jurassic Desert Edge").setRainfall(0.0F).setBaseHeight(0.05F).setHeightVariation(0.0F).setTemperature(1.8F).setRainDisabled());
 			setRegistryName("lepidodendron:jurassic_desert_rim");
 			topBlock = Blocks.SAND.getStateFromMeta(0);
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);

@@ -58,7 +58,7 @@ public class GenVanillaFossils extends ElementsPNJurassicMod.ModElement {
 		if (biome != BiomeJurassicDesert.biome)
 			return;
 
-		int GenChance = 5000;
+		int GenChance = 3300;
 
 		if ((random.nextInt(1000000) + 1) <= GenChance) {
 			int count = random.nextInt(1) + 1;

@@ -45,7 +45,7 @@ public class BiomeJurassicDesertIsland extends ElementsLepidodendronMod.ModEleme
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
 			//was height 0.001
-			super(new BiomeProperties("Jurassic Desert Islands").setBaseHeight(0.75F).setHeightVariation(0.15F).setTemperature(1.8F).setRainfall(0.8F));
+			super(new BiomeProperties("Jurassic Desert Islands").setRainfall(0.0F).setBaseHeight(0.75F).setHeightVariation(0.15F).setTemperature(1.8F).setRainDisabled());
 			setRegistryName("lepidodendron:jurassic_desert_island");
 			topBlock = Blocks.SAND.getDefaultState();
 			fillerBlock = Blocks.SANDSTONE.getStateFromMeta(0);
