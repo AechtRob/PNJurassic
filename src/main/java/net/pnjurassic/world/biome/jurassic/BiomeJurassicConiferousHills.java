@@ -138,7 +138,12 @@ public class BiomeJurassicConiferousHills extends ElementsLepidodendronMod.ModEl
 							return REDWOOD_TREE;
 						}
 						else {
-							return PAGIOPHYLLUM_TREE;
+							if (Math.random() > 0.75) {
+								return PAGIOPHYLLUM_TREE;
+							}
+							else {
+								return CUNNINGHAMIA_TREE;
+							}
 						}
 					}
 				case 1:

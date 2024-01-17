@@ -140,7 +140,12 @@ public class BiomeJurassicConiferousForest extends ElementsLepidodendronMod.ModE
 						return REDWOOD_TREE;
 					}
 					else {
-						return PAGIOPHYLLUM_TREE;
+						if (Math.random() > 0.75) {
+							return PAGIOPHYLLUM_TREE;
+						}
+						else {
+							return CUNNINGHAMIA_TREE;
+						}
 					}
 				case 1:
 					if (Math.random() > 0.8) {
