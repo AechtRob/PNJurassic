@@ -77,8 +77,8 @@ public class BiomeJurassicCoral extends ElementsLepidodendronMod.ModElement {
 	        	int i = rand.nextInt(12);
 	            for (int j = 0; j < i; ++j)
 	            {
-	                int k = rand.nextInt(16) + 8;
-	                int l = rand.nextInt(16) + 8;
+	                int k = rand.nextInt(12) + 10;
+	                int l = rand.nextInt(12) + 10;
 	                BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
 	                ROCK_PILES_GENERATOR.generate(worldIn, rand, blockpos, true);
 	            }
@@ -90,12 +90,12 @@ public class BiomeJurassicCoral extends ElementsLepidodendronMod.ModElement {
 					int radius = 3;
 					int j;
 					int k;
-					if (radius < 14) {
-						j = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
-						k = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+					if (radius < 10) {
+						j = 16 + (int)Math.floor(rand.nextInt(16 - radius - 6)/2) - (int)Math.floor(rand.nextInt(16 - radius - 6)/2);
+						k = 16 + (int)Math.floor(rand.nextInt(16 - radius - 6)/2) - (int)Math.floor(rand.nextInt(16 - radius - 6)/2);
 					}
 					else {
-						radius = 14;
+						radius = 10;
 						j = 16;
 						k = 16;
 					}

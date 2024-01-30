@@ -43,7 +43,7 @@ public class BiomeJurassicRiverbank extends ElementsLepidodendronMod.ModElement 
 
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Jurassic Riverbanks").setBaseHeight(0.0F).setHeightVariation(0.013F).setTemperature(0.8F).setRainfall(0.4F).setWaterColor(13038245));
+			super(new BiomeProperties("Jurassic Riverbanks").setBaseHeight(0.0F).setHeightVariation(0.013F).setTemperature(0.8F).setRainfall(0.4F));
 			setRegistryName("lepidodendron:jurassic_riverbank");
 			topBlock = BlockPrehistoricGroundBasic.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirt.block.getDefaultState();
