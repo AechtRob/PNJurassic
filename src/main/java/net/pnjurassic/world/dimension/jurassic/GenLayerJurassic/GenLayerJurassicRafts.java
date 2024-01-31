@@ -19,7 +19,7 @@ public class GenLayerJurassicRafts extends GenLayer {
             JURASSIC_OCEAN_ID,
             JURASSIC_OCEAN_ID,
             JURASSIC_OCEAN_ID,
-            JURASSIC_OCEAN_ID,
+            //JURASSIC_OCEAN_ID,
             //JURASSIC_OCEAN_ID,
             JURASSIC_OCEAN_RAFTS_ID
     };

@@ -66,6 +66,8 @@ public class GenLayerJurassicRiverBorder extends GenLayer
     public int JURASSIC_TAIGA_HILLS_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_HILLS);
     public Biome JURASSIC_TAIGA_BASALT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_basalt"));
     public int JURASSIC_TAIGA_BASALT_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_BASALT);
+    public Biome JURASSIC_TAIGA_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_forest"));
+    public int JURASSIC_TAIGA_FOREST_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_FOREST);
 
     public Biome JURASSIC_LAKE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lakes"));
     public int JURASSIC_LAKE_ID =  Biome.getIdForBiome(JURASSIC_LAKE);
@@ -244,6 +246,7 @@ public class GenLayerJurassicRiverBorder extends GenLayer
                 || biomeID == JURASSIC_TAIGA_ID
                 || biomeID == JURASSIC_TAIGA_HILLS_ID
                 || biomeID == JURASSIC_TAIGA_BASALT_ID
+                || biomeID == JURASSIC_TAIGA_FOREST_ID
                 || biomeID == JURASSIC_FERN_PASTURE_ID
                 || biomeID == JURASSIC_GINKGO_WOODLAND_ID
                 || biomeID == JURASSIC_GINKGO_PARKLAND_ID

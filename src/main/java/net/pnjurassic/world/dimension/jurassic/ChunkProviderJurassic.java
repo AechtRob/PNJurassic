@@ -202,7 +202,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
 
         if (this.random.nextInt(350) == 0 &&
                 (world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomeJurassicSouthernTaigaHills.biome
-                        || world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomeJurassicSouthernTaiga.biome)
+                        || world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomeJurassicSouthernTaiga.biome
+                        || world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomeJurassicSouthernTaigaForest.biome)
             )
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
@@ -473,6 +474,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                     if (biome == BiomeJurassicSouthernTaiga.biome
                                         || biome == BiomeJurassicSouthernTaigaHills.biome
                                         || biome == BiomeJurassicSouthernTaigaBasalt.biome
+                                        || biome == BiomeJurassicSouthernTaigaForest.biome
                                         || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                         iblockstate1 = BlockCoarseSandyDirtBlack.block.getDefaultState();
                                     }
@@ -491,6 +493,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                 } else {
                                     if (biome == BiomeJurassicSouthernTaiga.biome
                                         || biome == BiomeJurassicSouthernTaigaHills.biome
+                                        || biome == BiomeJurassicSouthernTaigaForest.biome
                                         || biome == BiomeJurassicSouthernTaigaBasalt.biome
                                         || biome == BiomeJurassicBeachBlack.biome
                                         || biome == BiomeJurassicCreekSouthernTaiga.biome) {
@@ -519,6 +522,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                 if (biome == BiomeJurassicSouthernTaiga.biome
                                     || biome == BiomeJurassicSouthernTaigaHills.biome
                                     || biome == BiomeJurassicSouthernTaigaBasalt.biome
+                                    || biome == BiomeJurassicSouthernTaigaForest.biome
                                     || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                                     iblockstate1 = BlockSandBlackWavy.block.getDefaultState();
                                 }
@@ -605,6 +609,37 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             }
                         }
 
+                        //For the Taiga Hills biome, make hills a bit craggy:
+                        if (biome == BiomeJurassicSouthernTaigaHills.biome
+                        ) {
+                            //If it's over 80 blocks then start to fill in more as stone
+                            //up to 100
+                            int minHeight = 80;
+                            if (j1 >= minHeight) {
+                                int j2 = Math.max(0, 100 - j1);
+                                double stoneFactor = 4 * (double) j2 / (100D - (double) minHeight);
+                                if (Math.random() >= stoneFactor) {
+                                    if (Math.random() > 0.22) {
+                                        iblockstate = Blocks.STONE.getDefaultState();
+                                    } else {
+                                        iblockstate = Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0);
+                                        if (rand.nextInt(3) == 0) {
+                                            iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                                        } else if (rand.nextInt(8) == 0) {
+                                            iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                                        }
+                                    }
+                                }
+                                if (Math.random() >= stoneFactor) {
+                                    iblockstate1 = Blocks.STONE.getDefaultState();
+                                    if (rand.nextInt(8) == 0) {
+                                        iblockstate1 = Blocks.COBBLESTONE.getDefaultState();
+                                    } else if (rand.nextInt(8) == 0) {
+                                        iblockstate1 = Blocks.DIRT.getStateFromMeta(1);
+                                    }
+                                }
+                            }
+                        }
 
                         //Islands terrain:
                         if (biome == BiomeJurassicSandyIsland.biome

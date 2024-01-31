@@ -26,6 +26,8 @@ public class GenLayerJurassic {
 
         biomes = new GenLayerJurassicEstuary1(1008L, biomes);
 
+        biomes = new GenLayerJurassicTaiga(5843L, biomes);
+
         biomes = new GenLayerZoom(1001L, biomes);
 
         biomes = new GenLayerAddHillsToRedwood(1001L, biomes);

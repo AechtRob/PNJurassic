@@ -37,6 +37,8 @@ public class GenLayerJurassicBeach extends GenLayer
     public  int JURASSIC_TAIGA_HILLS_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_HILLS);
     public  Biome JURASSIC_TAIGA_BASALT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_basalt"));
     public  int JURASSIC_TAIGA_BASALT_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_BASALT);
+    public  Biome JURASSIC_TAIGA_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_forest"));
+    public  int JURASSIC_TAIGA_FOREST_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_FOREST);
     public  Biome JURASSIC_BLACK_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_beach_black"));
     public  int JURASSIC_BLACK_BEACH_ID =  Biome.getIdForBiome(JURASSIC_BLACK_BEACH);
 
@@ -131,7 +133,7 @@ public class GenLayerJurassicBeach extends GenLayer
 
     private boolean hasBlackBeach(int biomeID) {
         if (biomeID == JURASSIC_TAIGA_ID || biomeID == JURASSIC_TAIGA_HILLS_ID
-            || biomeID == JURASSIC_TAIGA_BASALT_ID) {
+            || biomeID == JURASSIC_TAIGA_BASALT_ID || biomeID == JURASSIC_TAIGA_FOREST_ID) {
             return true;
         }
         return false;

@@ -28,8 +28,6 @@ public class GenLayerDiversifyJurassic extends GenLayer {
 
     public Biome JURASSIC_TAIGA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga"));
     public int JURASSIC_TAIGA_ID =  Biome.getIdForBiome(JURASSIC_TAIGA);
-    public Biome JURASSIC_TAIGA_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_hills"));
-    public int JURASSIC_TAIGA_HILLS_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_HILLS);
 
 
     private final int PastureBiomes[] = new int[] {
@@ -37,13 +35,8 @@ public class GenLayerDiversifyJurassic extends GenLayer {
     };
 
     private final int TaigaBiomes[] = new int[] {
-        JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_HILLS_ID
+        JURASSIC_TAIGA_ID
     };
-
 
     private final int GarrigueBiomes[] = new int[] {
          JURASSIC_GARRIGUE_ID

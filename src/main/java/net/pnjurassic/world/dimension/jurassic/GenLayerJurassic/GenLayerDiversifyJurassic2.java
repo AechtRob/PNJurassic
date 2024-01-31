@@ -33,6 +33,8 @@ public class GenLayerDiversifyJurassic2 extends GenLayer {
     public int JURASSIC_TAIGA_HILLS_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_HILLS);
     public Biome JURASSIC_MIRE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire"));
     public int JURASSIC_MIRE_ID =  Biome.getIdForBiome(JURASSIC_MIRE);
+    public Biome JURASSIC_TAIGA_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_forest"));
+    public int JURASSIC_TAIGA_FOREST_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_FOREST);
 
     private final int PastureBiomes[] = new int[] {
         JURASSIC_FERN_PASTURE_ID
@@ -40,7 +42,7 @@ public class GenLayerDiversifyJurassic2 extends GenLayer {
 
     private final int TaigaBiomes[] = new int[] {
         JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_HILLS_ID,
+        JURASSIC_TAIGA_ID,
         JURASSIC_MIRE_ID
     };
 
@@ -94,8 +96,7 @@ public class GenLayerDiversifyJurassic2 extends GenLayer {
                         output[i] = GinkgoBiomes[nextInt(GinkgoBiomes.length)];
                     else if (Biome.getBiome(center) == BiomeJurassicConiferousForest.biome)
                         output[i] = RedwoodBiomes[nextInt(RedwoodBiomes.length)];
-                    else if (Biome.getBiome(center) == BiomeJurassicSouthernTaiga.biome
-                            || Biome.getBiome(center) == BiomeJurassicSouthernTaigaHills.biome)
+                    else if (Biome.getBiome(center) == BiomeJurassicSouthernTaiga.biome)
                         output[i] = TaigaBiomes[nextInt(TaigaBiomes.length)];
 
                     else output[i] = center;

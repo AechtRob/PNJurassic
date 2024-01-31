@@ -5,46 +5,30 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicSouthernTaiga;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicSouthernTaigaForest;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicSouthernTaigaHills;
+import net.pnjurassic.world.biome.jurassic.*;
 
-public class GenLayerJurassicTaigaBasalt extends GenLayer {
+public class GenLayerJurassicTaiga extends GenLayer {
 
     public Biome JURASSIC_TAIGA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga"));
     public int JURASSIC_TAIGA_ID =  Biome.getIdForBiome(JURASSIC_TAIGA);
     public Biome JURASSIC_TAIGA_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_hills"));
     public int JURASSIC_TAIGA_HILLS_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_HILLS);
-    public Biome JURASSIC_TAIGA_BASALT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_basalt"));
-    public int JURASSIC_TAIGA_BASALT_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_BASALT);
     public Biome JURASSIC_TAIGA_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_forest"));
     public int JURASSIC_TAIGA_FOREST_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_FOREST);
 
+
     private final int TaigaBiomes[] = new int[] {
-        JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_ID,
-        JURASSIC_TAIGA_BASALT_ID
+            JURASSIC_TAIGA_ID,
+            JURASSIC_TAIGA_ID,
+            JURASSIC_TAIGA_ID,
+            JURASSIC_TAIGA_FOREST_ID,
+            JURASSIC_TAIGA_FOREST_ID,
+            JURASSIC_TAIGA_FOREST_ID,
+            JURASSIC_TAIGA_HILLS_ID,
+            JURASSIC_TAIGA_HILLS_ID
     };
 
-    private final int TaigaHillBiomes[] = new int[] {
-            JURASSIC_TAIGA_HILLS_ID,
-            JURASSIC_TAIGA_HILLS_ID,
-            JURASSIC_TAIGA_HILLS_ID,
-            JURASSIC_TAIGA_HILLS_ID,
-            JURASSIC_TAIGA_BASALT_ID
-    };
-
-    private final int TaigaForestBiomes[] = new int[] {
-            JURASSIC_TAIGA_FOREST_ID,
-            JURASSIC_TAIGA_FOREST_ID,
-            JURASSIC_TAIGA_FOREST_ID,
-            JURASSIC_TAIGA_FOREST_ID,
-            JURASSIC_TAIGA_BASALT_ID
-    };
-
-    public GenLayerJurassicTaigaBasalt(long seed, GenLayer genlayer) {
+    public GenLayerJurassicTaiga(long seed, GenLayer genlayer) {
         super(seed);
         this.parent = genlayer;
     }
@@ -64,15 +48,9 @@ public class GenLayerJurassicTaigaBasalt extends GenLayer {
                 int center = input[i];
                 initChunkSeed(xOut + x, zOut + z);
                 if (nextInt(2) == 0) {
-                    if (Biome.getBiome(center) == BiomeJurassicSouthernTaiga.biome) {
+                    if (Biome.getBiome(center) == BiomeJurassicSouthernTaiga.biome)
                         output[i] = TaigaBiomes[nextInt(TaigaBiomes.length)];
-                    }
-                    else if (Biome.getBiome(center) == BiomeJurassicSouthernTaigaHills.biome) {
-                        output[i] = TaigaHillBiomes[nextInt(TaigaHillBiomes.length)];
-                    }
-                    else if (Biome.getBiome(center) == BiomeJurassicSouthernTaigaForest.biome) {
-                        output[i] = TaigaForestBiomes[nextInt(TaigaForestBiomes.length)];
-                    }
+
                     else output[i] = center;
                 } else output[i] = center;
             }

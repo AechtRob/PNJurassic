@@ -23,10 +23,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:jurassic_southern_taiga_hills")
+public class BiomeJurassicSouthernTaigaForest extends ElementsLepidodendronMod.ModElement {
+	@GameRegistry.ObjectHolder("lepidodendron:jurassic_southern_taiga_forest")
 	public static final BiomeGenCustom biome = null;
-	public BiomeJurassicSouthernTaigaHills(ElementsLepidodendronMod instance) {
+	public BiomeJurassicSouthernTaigaForest(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -37,17 +37,18 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 
 	@Override
 	public void init(FMLInitializationEvent event) {
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.HILLS);
+		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.WET);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.LUSH);
 	}
 
 	static class BiomeGenCustom extends BiomeJurassic {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Jurassic Southern Taiga Tors").setTemperature(0.225F).setRainfall(0.8F).setBaseHeight(1.4F).setHeightVariation(0.62F).setWaterColor(-5317633));
-			setRegistryName("lepidodendron:jurassic_southern_taiga_hills");
-			topBlock = Blocks.DIRT.getStateFromMeta(1);
+			//super(new BiomeProperties("Triassic Warm Lakeland").setTemperature(3.25F).setRainfall(0.8F).setBaseHeight(0.022F).setHeightVariation(0.05F).setWaterColor(-5317633));
+			super(new BiomeProperties("Jurassic Southern Taiga Forest").setTemperature(0.225F).setRainfall(0.8F).setBaseHeight(-0.098F).setHeightVariation(0.015F).setWaterColor(-5317633));
+			setRegistryName("lepidodendron:jurassic_southern_taiga_forest");
+			topBlock = Blocks.DIRT.getStateFromMeta(2);
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
-			decorator.treesPerChunk = 1;
+			decorator.treesPerChunk = 20;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
 			decorator.mushroomsPerChunk = 0;
@@ -93,11 +94,12 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 		protected static final WorldGenPodocarpTree PODOCARP_TREE = new WorldGenPodocarpTree(false);
 		protected static final WorldGenBrachyphyllumTree BRACHYPHYLLUM_TREE = new WorldGenBrachyphyllumTree(false);
 		protected static final WorldGenColumnarisTree COLUMNARIS_TREE = new WorldGenColumnarisTree(false);
-		protected static final WorldGenMonkeyPuzzleAraucariaTree PARARAUCARIA_TREE = new WorldGenMonkeyPuzzleAraucariaTree(false);
 		protected static final WorldGenSilverTreefernTree SILVER_TREEFERNS = new WorldGenSilverTreefernTree(false);
 		protected static final WorldGenBlackTreefernTree BLACK_TREEFERNS = new WorldGenBlackTreefernTree(false);
 		protected static final WorldGenWalchiaTreeDead DEAD_TREE = new WorldGenWalchiaTreeDead(false);
 		protected static final WorldGenDicroidiumFTree DICROIDIUM_TREE = new WorldGenDicroidiumFTree(false);
+		protected static final WorldGenCephalotaxusTree CEPHALOTAXUS_TREE = new WorldGenCephalotaxusTree(false);
+		protected static final WorldGenSciadopitysTree SCIADOPITYS_TREE = new WorldGenSciadopitysTree(false);
 
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
@@ -118,7 +120,6 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 		private static final WorldGenBlockBlob FOREST_ROCK_GENERATOR = new WorldGenBlockBlob(Blocks.MOSSY_COBBLESTONE, 0);
 		protected static final WorldGenTreeLog PARARAUCARIA_LOG_GENERATOR = new WorldGenTreeLog(BlockMonkeyPuzzleAraucariaLog.block);
 		protected static final WorldGenTreeLog COLUMNARIS_LOG_GENERATOR = new WorldGenTreeLog(BlockColumnarisLog.block);
-		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -129,7 +130,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 			if (rand.nextInt(64) == 0) {
 				return DICROIDIUM_TREE;
 			}
-			int selector = rand.nextInt(16) + 8;
+			int selector = rand.nextInt(15);
 			switch (selector) {
 				case 0:
 					return PODOCARP_TREE;
@@ -146,7 +147,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 				case 6:
 					return COLUMNARIS_TREE;
 				case 7:
-					return COLUMNARIS_TREE;
+					return CEPHALOTAXUS_TREE;
 				case 8:
 					return COLUMNARIS_TREE;
 				case 9:
@@ -154,15 +155,13 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 				case 10:
 					return CYPRESS_TREE;
 				case 11:
-					return PARARAUCARIA_TREE;
+					return SCIADOPITYS_TREE;
 				case 12:
-					return NULL_TREE;
-				case 13:
 					return SILVER_TREEFERNS;
-				case 14:
+				case 13:
 					return BLACK_TREEFERNS;
-				case 15:
-					return NULL_TREE;
+				case 14:
+					return CEPHALOTAXUS_TREE;
 			}
 			return NULL_TREE;
 		}
@@ -173,7 +172,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ROCK))
 			{
-				int i = rand.nextInt(2);
+				int i = rand.nextInt(5);
 
 				for (int j = 0; j < i; ++j)
 				{
@@ -186,7 +185,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 			{
-				int i = rand.nextInt(2);
+				int i = rand.nextInt(5);
 
 				for (int j = 0; j < i; ++j)
 				{
@@ -199,7 +198,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 			{
-				int i = rand.nextInt(2);
+				int i = rand.nextInt(5);
 
 				for (int j = 0; j < i; ++j)
 				{
@@ -211,7 +210,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 3; ++i)
+				for (int i = 0; i < 24; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -220,7 +219,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 1; ++i)
+				for (int i = 0; i < 12; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -229,7 +228,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 9; ++i)
+				for (int i = 0; i < 22; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -238,7 +237,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 2; ++i)
+				for (int i = 0; i < 36; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -291,8 +290,9 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 					CONIOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
+
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 6; ++i)
+				for (int i = 0; i < 16; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -328,7 +328,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 8; ++i)
+				for (int i = 0; i < 28; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -344,18 +344,11 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					WOOD_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 32; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CLUBMOSS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
+
 
 			DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.FERN);
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i1 = 0; i1 < 15; ++i1)
+				for (int i1 = 0; i1 < 45; ++i1)
 				{
 					int j1 = rand.nextInt(16) + 8;
 					int k1 = rand.nextInt(16) + 8;
@@ -364,7 +357,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 50; ++i)
+				for (int i = 0; i < 80; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -373,7 +366,7 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 256; ++i)
+				for (int i = 0; i < 64; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
