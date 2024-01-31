@@ -122,6 +122,8 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 		protected static final WorldGenTreeLog COLUMNARIS_LOG_GENERATOR = new WorldGenTreeLog(BlockColumnarisLog.block);
 		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 
+		protected static final WorldGenSnowHigh SNOW_GENERATOR = new WorldGenSnowHigh();
+
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -172,6 +174,15 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 		@Override
 		public void decorate(World worldIn, Random rand, BlockPos pos)
 		{
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE))
+				for (int i = 0; i < 64; ++i)
+				{
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(16) + 8;
+					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+					SNOW_GENERATOR.generate(worldIn, rand, blockpos);
+				}
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ROCK))
 			{
