@@ -609,37 +609,6 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             }
                         }
 
-                        //For the Taiga Hills biome, make hills a bit craggy:
-                        if (biome == BiomeJurassicSouthernTaigaHills.biome
-                        ) {
-                            //If it's over 80 blocks then start to fill in more as stone
-                            //up to 100
-                            int minHeight = 80;
-                            if (j1 >= minHeight) {
-                                int j2 = Math.max(0, 100 - j1);
-                                double stoneFactor = 4 * (double) j2 / (100D - (double) minHeight);
-                                if (Math.random() >= stoneFactor) {
-                                    if (Math.random() > 0.22) {
-                                        iblockstate = Blocks.STONE.getDefaultState();
-                                    } else {
-                                        iblockstate = Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0);
-                                        if (rand.nextInt(3) == 0) {
-                                            iblockstate = Blocks.COBBLESTONE.getDefaultState();
-                                        } else if (rand.nextInt(8) == 0) {
-                                            iblockstate = Blocks.DIRT.getStateFromMeta(1);
-                                        }
-                                    }
-                                }
-                                if (Math.random() >= stoneFactor) {
-                                    iblockstate1 = Blocks.STONE.getDefaultState();
-                                    if (rand.nextInt(8) == 0) {
-                                        iblockstate1 = Blocks.COBBLESTONE.getDefaultState();
-                                    } else if (rand.nextInt(8) == 0) {
-                                        iblockstate1 = Blocks.DIRT.getStateFromMeta(1);
-                                    }
-                                }
-                            }
-                        }
 
                         //Islands terrain:
                         if (biome == BiomeJurassicSandyIsland.biome
@@ -1128,6 +1097,37 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                                 }
                                 else if (rand.nextInt(4) == 0) {
                                     iblockstate = BlockCoarseSandyDirtBlack.block.getDefaultState();
+                                }
+                            }
+                        }
+                        //For the Taiga Hills biome, make hills a bit craggy:
+                        if (biome == BiomeJurassicSouthernTaigaHills.biome
+                        ) {
+                            //If it's over 80 blocks then start to fill in more as stone
+                            //up to 110
+                            int minHeight = 80;
+                            if (j1 >= minHeight) {
+                                int j2 = Math.max(0, 110 - j1);
+                                double stoneFactor = 4 * (double) j2 / (110D - (double) minHeight);
+                                if (Math.random() >= stoneFactor) {
+                                    if (Math.random() > 0.22) {
+                                        iblockstate = Blocks.STONE.getDefaultState();
+                                    } else {
+                                        iblockstate = Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0);
+                                        if (rand.nextInt(3) == 0) {
+                                            iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                                        } else if (rand.nextInt(8) == 0) {
+                                            iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                                        }
+                                    }
+                                }
+                                if (Math.random() >= stoneFactor) {
+                                    iblockstate1 = Blocks.STONE.getDefaultState();
+                                    if (rand.nextInt(8) == 0) {
+                                        iblockstate1 = Blocks.COBBLESTONE.getDefaultState();
+                                    } else if (rand.nextInt(8) == 0) {
+                                        iblockstate1 = Blocks.DIRT.getStateFromMeta(1);
+                                    }
                                 }
                             }
                         }
