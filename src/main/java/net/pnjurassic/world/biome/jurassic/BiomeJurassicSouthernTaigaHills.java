@@ -116,6 +116,8 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 		protected static final WorldGenPrehistoricGroundCover PREHISTORIC_GROUND_COVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 
 		private static final WorldGenBlockBlob FOREST_ROCK_GENERATOR = new WorldGenBlockBlob(Blocks.MOSSY_COBBLESTONE, 0);
+		private static final WorldGenBlockBlob FOREST_LAVA_GENERATOR = new WorldGenBlockBlob(BlockLavaCobbleMossy.block, 0);
+
 		protected static final WorldGenTreeLog PARARAUCARIA_LOG_GENERATOR = new WorldGenTreeLog(BlockMonkeyPuzzleAraucariaLog.block);
 		protected static final WorldGenTreeLog COLUMNARIS_LOG_GENERATOR = new WorldGenTreeLog(BlockColumnarisLog.block);
 		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
@@ -181,6 +183,16 @@ public class BiomeJurassicSouthernTaigaHills extends ElementsLepidodendronMod.Mo
 					int l = rand.nextInt(16) + 8;
 					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
 					FOREST_ROCK_GENERATOR.generate(worldIn, rand, blockpos);
+				}
+
+				i = rand.nextInt(2);
+
+				for (int j = 0; j < i; ++j)
+				{
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(16) + 8;
+					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+					FOREST_LAVA_GENERATOR.generate(worldIn, rand, blockpos);
 				}
 			}
 

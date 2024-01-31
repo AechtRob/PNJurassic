@@ -1066,7 +1066,13 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             || biome == BiomeJurassicSouthernTaigaHills.biome
                             || biome == BiomeJurassicCreekSouthernTaiga.biome) {
                             if (j1 >= i + 1) {
-                                iblockstate = Blocks.DIRT.getStateFromMeta(2); //Podzol
+                                if (!(biome == BiomeJurassicSouthernTaigaHills.biome && j1 > 74 + rand.nextInt(5))) {
+                                    iblockstate = Blocks.DIRT.getStateFromMeta(2); //Podzol
+                                }
+                                else {
+                                    iblockstate = BlockCoarseSandyDirtBlack.block.getDefaultState();
+                                }
+
                                 if (rand.nextInt(3) == 0) {
                                     iblockstate = BlockPrehistoricGroundLush.block.getDefaultState();
                                 }
