@@ -90,7 +90,7 @@ public class GenVanillaFossils extends ElementsPNJurassicMod.ModElement {
 				Rotation[] arotation = Rotation.values();
 				Rotation rotation = arotation[random.nextInt(arotation.length)];
 				Mirror mirror = Mirror.values()[random.nextInt(2)];
-				BlockPos spawnTo = new BlockPos(i, j + random.nextInt(4) - 3, k);
+				BlockPos spawnTo = new BlockPos(i, j + random.nextInt(4) - 10, k);
 				IBlockState iblockstate = world.getBlockState(spawnTo);
 				world.notifyBlockUpdate(spawnTo, iblockstate, iblockstate, 3);
 				template.addBlocksToWorldChunk(world, spawnTo, new PlacementSettings().setRotation(rotation).setMirror(mirror)

@@ -85,6 +85,7 @@ public class BiomeJurassicDesert extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenThinnfeldia THINNFELDIA_GENERATOR = new WorldGenThinnfeldia();
 
 		protected static final WorldGenRibCage RIBCAGE = new WorldGenRibCage();
+		protected static final WorldGenSauroSkelly SAUROSKELLY = new WorldGenSauroSkelly();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -266,6 +267,15 @@ public class BiomeJurassicDesert extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					RIBCAGE.generate(worldIn, rand, new BlockPos(pos.getX() + j, ChunkProviderJurassic.DESERT_SEA_LEVEL + 8, pos.getZ() + k), ChunkProviderJurassic.DESERT_SEA_LEVEL + 12);
+				}
+			}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS)) {
+				if (rand.nextInt(12) == 0)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					SAUROSKELLY.generate(worldIn, rand, new BlockPos(pos.getX() + j, ChunkProviderJurassic.DESERT_SEA_LEVEL + 8, pos.getZ() + k), ChunkProviderJurassic.DESERT_SEA_LEVEL + 14);
 				}
 			}
 
