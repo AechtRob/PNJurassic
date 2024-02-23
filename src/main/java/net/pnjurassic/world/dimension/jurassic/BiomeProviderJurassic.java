@@ -13,6 +13,7 @@ import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraft.world.storage.WorldInfo;
+import net.pnjurassic.world.biome.jurassic.BiomeJurassicOceanShore;
 import net.pnjurassic.world.dimension.jurassic.GenLayerJurassic.GenLayerJurassic;
 
 import javax.annotation.Nullable;
@@ -21,15 +22,68 @@ import java.util.Random;
 
 public class BiomeProviderJurassic extends BiomeProvider {
     public static List<Biome> allowedBiomes = Lists.newArrayList(
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_beach")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_woodland")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_cycad_thickets")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_beach_black")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_boulders")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_forest")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_hills")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_mountains")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_coastal")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_coniferous_forest")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_desert")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_fern_pasture")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_floodplain")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_garrigue")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_ginkgo_woodland")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_creek_southern_taiga")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_cycad_thickets")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_island")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim_desert_side")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim_helper")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_fern_pasture")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_floodplain")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_floodplain_forested")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_fern_pasture"))
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_garrigue")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_garrigue_copse")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_parkland")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ginkgo_woodland")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_glass_sponge_reef")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_creek")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_creek_fog")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_field")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_roost")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_scrub")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_wet")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lakes")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lake_shore")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire_helper")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire_lakes")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_helper")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_helper")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_outcrops_edge")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_outcrops")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_river")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_riverbank")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_rough_hills")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_forest")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_hills")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white_edge")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_basalt")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_forest")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_hills"))
     );
     public GenLayer genBiomes;
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */
@@ -62,7 +116,7 @@ public class BiomeProviderJurassic extends BiomeProvider {
 
     @Override
     public Biome getBiome(BlockPos pos, Biome defaultBiome) {
-        return this.biomeCache.getBiome(pos.getX(), pos.getZ(), defaultBiome);
+        return this.biomeCache.getBiome(pos.getX(), pos.getZ(), BiomeJurassicOceanShore.biome);
     }
 
     @Override
@@ -81,7 +135,7 @@ public class BiomeProviderJurassic extends BiomeProvider {
         {
             for (int i = 0; i < width * height; ++i)
             {
-                biomes[i] = Biome.getBiome(aint[i], Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean")));
+                biomes[i] = Biome.getBiome(aint[i], Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore")));
             }
 
             return biomes;
@@ -121,7 +175,7 @@ public class BiomeProviderJurassic extends BiomeProvider {
 
             for (int i = 0; i < width * length; ++i)
             {
-                listToReuse[i] = Biome.getBiome(aint[i], Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean")));
+                listToReuse[i] = Biome.getBiome(aint[i], Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore")));
             }
 
             return listToReuse;

@@ -86,6 +86,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         || state.getBlock() == biome.fillerBlock.getBlock()
                         || state.getMaterial() == Material.ROCK
                         || state.getMaterial() == Material.SAND
+                        || state.getMaterial() == Material.CORAL
                         || state.getMaterial() == Material.GROUND ) {
                     if (y - 1 < 10) {
                         data.setBlockState(x, y, z, FLOWING_LAVA);
