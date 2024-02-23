@@ -121,8 +121,7 @@ public class GenLayerSeperateIslands extends GenLayer
                 || biomeID == JURASSIC_ISLANDS_LARGE_RIM_ID
                 || biomeID == JURASSIC_ISLANDS_LARGE_SCRUB_ID
                 || biomeID == JURASSIC_ISLANDS_LARGE_WET_ID
-                || biomeID == JURASSIC_ISLANDS_LARGE_FIELD_ID
-                || biomeID == JURASSIC_BEACH_ID) {
+                || biomeID == JURASSIC_ISLANDS_LARGE_FIELD_ID) {
             return true;
         }
         return false;
