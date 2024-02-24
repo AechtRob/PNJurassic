@@ -112,6 +112,11 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 
+		protected static final WorldGenTreeRottenLog ROTTEN_LOG_GENERATOR = new WorldGenTreeRottenLog();
+		protected static final WorldGenTreeLogWater LOG_WATER_GENERATOR1 = new WorldGenTreeLogWater(BlockGinkgoLog.block);
+		protected static final WorldGenTreeLogWater LOG_WATER_GENERATOR2 = new WorldGenTreeLogWater(BlockScrubbyPineLog.block);
+
+
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
 			if (rand.nextInt(10) == 0) {
@@ -146,6 +151,39 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 				int k = rand.nextInt(16) + 8;
 				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 				CZEKANOWSKIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+			}
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS)) {
+				int i = rand.nextInt(6);
+
+				for (int j = 0; j < i; ++j) {
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(16) + 8;
+					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+					if (Math.random() > 0.5) {
+						ROTTEN_LOG_GENERATOR.generate(worldIn, rand, blockpos);
+					}
+				}
+
+				i = rand.nextInt(6);
+
+				for (int j = 0; j < i; ++j) {
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(16) + 8;
+					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+					if (Math.random() > 0.5) {
+						LOG_WATER_GENERATOR1.generate(worldIn, rand, blockpos);
+					}
+				}
+				for (int j = 0; j < i; ++j) {
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(16) + 8;
+					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+					if (Math.random() > 0.5) {
+						LOG_WATER_GENERATOR2.generate(worldIn, rand, blockpos);
+					}
+				}
+
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
