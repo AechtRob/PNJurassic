@@ -154,7 +154,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 			}
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS)) {
-				int i = rand.nextInt(6);
+				int i = rand.nextInt(18) + 18;
 
 				for (int j = 0; j < i; ++j) {
 					int k = rand.nextInt(16) + 8;
@@ -165,7 +165,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					}
 				}
 
-				i = rand.nextInt(6);
+				i = rand.nextInt(18);
 
 				for (int j = 0; j < i; ++j) {
 					int k = rand.nextInt(16) + 8;
