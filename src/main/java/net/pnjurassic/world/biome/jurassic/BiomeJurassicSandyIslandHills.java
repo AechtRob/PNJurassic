@@ -2,10 +2,7 @@
 package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
-import net.lepidodendron.block.BlockBrachyphyllumLeaves;
-import net.lepidodendron.block.BlockBrachyphyllumLog;
-import net.lepidodendron.block.BlockBrachyphyllumSapling;
-import net.lepidodendron.block.BlockDeadLog;
+import net.lepidodendron.block.*;
 import net.lepidodendron.entity.EntityPrehistoricFloraRhamphorhynchus;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
@@ -71,14 +68,14 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenSelaginella SELAGINELLA_GENERATOR = new WorldGenSelaginella();
 		protected static final WorldGenTreeLog LOG_GENERATOR = new WorldGenTreeLog(BlockDeadLog.block);
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
-		protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
-		protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
+		//protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
+		//protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
 		protected static final WorldGenZamites ZAMITES_GENERATOR = new WorldGenZamites();
 		protected static final WorldGenZamitesShoot ZAMITES_SHOOT_GENERATOR = new WorldGenZamitesShoot();
 		protected static final WorldGenCycadeoidea CYCADEOIDEA_GENERATOR = new WorldGenCycadeoidea();
-		protected static final WorldGenBaiera BAIERA_GENERATOR = new WorldGenBaiera();
-		protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
-		protected static final WorldGenFurcifolium FURCIFOLIUM_GENERATOR = new WorldGenFurcifolium();
+		//protected static final WorldGenBaiera BAIERA_GENERATOR = new WorldGenBaiera();
+		//protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
+		//protected static final WorldGenFurcifolium FURCIFOLIUM_GENERATOR = new WorldGenFurcifolium();
 		protected static final WorldGenFrenelopsis FRENELOPSIS_GENERATOR = new WorldGenFrenelopsis();
 
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
@@ -86,6 +83,8 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenCorallineAlgae CORALLINE_GENERATOR = new WorldGenCorallineAlgae();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
+		
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
 			if (rand.nextInt(10) == 0) {
@@ -165,7 +164,7 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					GRASS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+					PLANT_GENERATOR.generate(BlockGrassyHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -192,7 +191,7 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OTOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), worldIn.getSeaLevel() + 4, 255);
+					PLANT_GENERATOR.generate(BlockOtozamites.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), worldIn.getSeaLevel() + 4, 255);
 				}
 
 
@@ -202,7 +201,7 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					BAIERA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), worldIn.getSeaLevel() + 4, 255);
+					PLANT_GENERATOR.generate(BlockBaiera.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), worldIn.getSeaLevel() + 4, 255);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -220,7 +219,7 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 				int j = rand.nextInt(16) + 8;
 				int k = rand.nextInt(16) + 8;
 				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				FURCIFOLIUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				PLANT_GENERATOR.generate(BlockFurcifolium.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -238,7 +237,7 @@ public class BiomeJurassicSandyIslandHills extends ElementsLepidodendronMod.ModE
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					ARID_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockAridHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 

@@ -5,7 +5,7 @@ import net.minecraft.world.gen.layer.*;
 
 public class GenLayerJurassic {
 
-    private static boolean shouldDraw = false;
+    private static final boolean shouldDraw = false;
     protected GenLayer parent;
 
     public static GenLayer[] initializeAllBiomeGenerators(long seed, WorldType worldType, String options) {

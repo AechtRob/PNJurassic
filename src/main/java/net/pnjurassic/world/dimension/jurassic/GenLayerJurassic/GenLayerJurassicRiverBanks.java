@@ -81,7 +81,7 @@ public class GenLayerJurassicRiverBanks extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (!isAlreadyWater(k) && !hasNoBanks(k))
@@ -111,25 +111,19 @@ public class GenLayerJurassicRiverBanks extends GenLayer
     }
 
     private boolean isAlreadyWater(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+        return biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
                 || biomeID == JURASSIC_BEACH_ID || biomeID == JURASSIC_BEACH_BLACK_ID
                 || biomeID == JURASSIC_LAKE_ID || biomeID == JURASSIC_LAKE_SHORE_ID
                 || biomeID == JURASSIC_RIVER_ID || biomeID == JURASSIC_OCEAN_RAFTS_ID
-                || biomeID == JURASSIC_CORAL_ID ) {
-            return true;
-        }
-        return false;
+                || biomeID == JURASSIC_CORAL_ID;
     }
 
     private boolean isRiver(int biomeID) {
-    if (biomeID == JURASSIC_RIVER_ID || biomeID == JURASSIC_RIVERBANK_ID) {
-        return true;
+        return biomeID == JURASSIC_RIVER_ID || biomeID == JURASSIC_RIVERBANK_ID;
     }
-    return false;
-}
 
     private boolean hasNoBanks(int biomeID) {
-        if (biomeID == JURASSIC_REDWOOD_FOREST_ID
+        return biomeID == JURASSIC_REDWOOD_FOREST_ID
                 || biomeID == JURASSIC_REDWOOD_HILLS_ID
                 || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
                 || biomeID == JURASSIC_MUDFLATS_ID
@@ -141,10 +135,7 @@ public class GenLayerJurassicRiverBanks extends GenLayer
                 || biomeID == JURASSIC_ESTUARY_HELPER_ID
                 || biomeID == JURASSIC_LAKE_ID
                 || biomeID == JURASSIC_LAKE_SHORE_ID
-                || biomeID == JURASSIC_DESERT_ID) {
-            return true;
-        }
-        return false;
+                || biomeID == JURASSIC_DESERT_ID;
     }
 
 }

@@ -29,7 +29,7 @@ public class GenLayerAddHillsToRedwood extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
 
@@ -60,10 +60,7 @@ public class GenLayerAddHillsToRedwood extends GenLayer
     }
 
     private boolean isRedwood(int biomeID) {
-        if (biomeID == JURASSIC_REDWOOD_FOREST_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_REDWOOD_FOREST_ID;
     }
 
 }

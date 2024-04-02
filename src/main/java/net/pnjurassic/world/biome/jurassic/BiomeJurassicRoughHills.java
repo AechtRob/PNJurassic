@@ -68,8 +68,8 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 
 		protected static final WorldGenStiffCycad STIFF_CYCAD_GENERATOR = new WorldGenStiffCycad();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
-		protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
-		protected static final WorldGenHermanophyton HERMANOPHYTON_GENERATOR = new WorldGenHermanophyton();
+		//protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
+		//protected static final WorldGenHermanophyton HERMANOPHYTON_GENERATOR = new WorldGenHermanophyton();
 		protected static final WorldGenCzekanowskia CZEKANOWSKIA_GENERATOR = new WorldGenCzekanowskia();
 
 		protected static final WorldGenRedSandyDirt DIRT_GENERATOR = new WorldGenRedSandyDirt();
@@ -77,7 +77,7 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenPrehistoricGroundCoverSandy PREHISTORIC_SAND_COVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
 		protected static final WorldGenSahnioxylon SAHNIOXYLON_GENERATOR = new WorldGenSahnioxylon();
 		protected static final WorldGenCaytoniales CAYTONIALES_GENERATOR = new WorldGenCaytoniales();
-		protected static final WorldGenSchmeissneria SCHMEISSNERIA_GENERATOR = new WorldGenSchmeissneria();
+		//protected static final WorldGenSchmeissneria SCHMEISSNERIA_GENERATOR = new WorldGenSchmeissneria();
 
 		protected static final WorldGenDioon DIOON_GENERATOR = new WorldGenDioon();
 
@@ -88,7 +88,8 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenPtilophyllum PTILOPHYLLUM_GENERATOR = new WorldGenPtilophyllum();
 		protected static final WorldGenPtilophyllumShoot PTILOPHYLLUM_SHOOT_GENERATOR = new WorldGenPtilophyllumShoot();
 		protected static final WorldGenCycadeoidea CYCADEOIDEA_GENERATOR = new WorldGenCycadeoidea();
-		protected static final WorldGenLeptopteris LEPTOPTERIS_GENERATOR = new WorldGenLeptopteris();
+		//protected static final WorldGenLeptopteris LEPTOPTERIS_GENERATOR = new WorldGenLeptopteris();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 			if (rand.nextInt(2) != 0) {
@@ -186,7 +187,7 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					LEPTOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+					PLANT_GENERATOR.generate(BlockLeptopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -195,7 +196,7 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OTOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockOtozamites.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -249,7 +250,7 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					HERMANOPHYTON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockHermanophyton.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, false, false, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -312,7 +313,7 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SCHMEISSNERIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 0 , 110);
+					PLANT_GENERATOR.generate(BlockSchmeissneria.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 110);
 				}
 
 			super.decorate(worldIn, rand, pos);

@@ -44,7 +44,7 @@ public class GenLayerJurassicTryToJoinRiverToSea extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isBeach(k))
@@ -108,30 +108,22 @@ public class GenLayerJurassicTryToJoinRiverToSea extends GenLayer
         Biome biome = Biome.getBiome(biomeID);
         if (biome instanceof BiomeJurassic) {
             BiomeJurassic biomeJurassic = (BiomeJurassic) biome;
-            if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Ocean
+            return biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Ocean
                     && biomeID != JURASSIC_BEACH_ID
-                    && biomeID != JURASSIC_BLACK_BEACH_ID) {
-                return true;
-            }
+                    && biomeID != JURASSIC_BLACK_BEACH_ID;
         }
         return false;
     }
 
     private boolean isBeach(int biomeID) {
-        if (biomeID == JURASSIC_BEACH_ID
+        return biomeID == JURASSIC_BEACH_ID
                 || biomeID == JURASSIC_BLACK_BEACH_ID
                 || biomeID == JURASSIC_ESTUARY_ID
-                || biomeID == JURASSIC_ESTUARY_HELPER_ID) {
-            return true;
-        }
-        return false;
+                || biomeID == JURASSIC_ESTUARY_HELPER_ID;
     }
 
     private boolean isRiver(int biomeID) {
-        if (biomeID == JURASSIC_RIVER_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_RIVER_ID;
     }
 
 

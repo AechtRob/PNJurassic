@@ -49,7 +49,7 @@ public class GenLayerJurassicRiverBorderMudflats extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
 
@@ -104,30 +104,21 @@ public class GenLayerJurassicRiverBorderMudflats extends GenLayer
     }
 
     private boolean isOceanOrBeach(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+        return biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
                 || biomeID == JURASSIC_BEACH_ID || biomeID == JURASSIC_BEACH_BLACK_ID
                 || biomeID == JURASSIC_LAKE_ID
                 || biomeID == JURASSIC_LAKE_SHORE_ID
                 || biomeID == JURASSIC_RIVER_ID
                 || biomeID == JURASSIC_CORAL_ID
-                || biomeID == JURASSIC_OCEAN_RAFTS_ID) {
-            return true;
-        }
-        return false;
+                || biomeID == JURASSIC_OCEAN_RAFTS_ID;
     }
 
     private boolean isMudflats(int biomeID) {
-        if (biomeID == JURASSIC_MUDFLATS_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_MUDFLATS_ID;
     }
 
     private boolean isMudflatsHelper(int biomeID) {
-        if (biomeID == JURASSIC_MUDFLATS_HELPER_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_MUDFLATS_HELPER_ID;
     }
 
 }

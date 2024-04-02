@@ -25,7 +25,7 @@ public class GenLayerJurassicIslandLargeInterior extends GenLayer
         this.parent = genLayer;
     }
 
-    private final int CraterBiomes[] = new int[] {
+    private final int[] CraterBiomes = new int[] {
             JURASSIC_ISLANDS_LARGE_SCRUB_ID,
             JURASSIC_ISLANDS_LARGE_SCRUB_ID,
             JURASSIC_ISLANDS_LARGE_SCRUB_ID,
@@ -44,7 +44,7 @@ public class GenLayerJurassicIslandLargeInterior extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
 
@@ -75,12 +75,8 @@ public class GenLayerJurassicIslandLargeInterior extends GenLayer
     }
 
     private boolean isCraterWall(int biomeID) {
-        if (biomeID == JURASSIC_ISLANDS_LARGE_ID
-                || biomeID == JURASSIC_ISLANDS_LARGE_ROOST_ID
-        ) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_ISLANDS_LARGE_ID
+                || biomeID == JURASSIC_ISLANDS_LARGE_ROOST_ID;
     }
 
 }

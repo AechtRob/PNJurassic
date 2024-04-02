@@ -74,7 +74,7 @@ public class BiomeJurassicCreekDesert extends ElementsLepidodendronMod.ModElemen
 
 		//protected static final WorldGenWaterSideRedPrehistoricGround WATERSIDE_DIRT_GENERATOR = new WorldGenWaterSideRedPrehistoricGround();
 		protected static final WorldGenPangeanDirt DIRT_GENERATOR = new WorldGenPangeanDirt();
-		protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
+		//protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
 		protected static final WorldGenDeadBush DEAD_BUSH_GENERATOR = new WorldGenDeadBush();
 		protected static final net.lepidodendron.world.gen.WorldGenDeadBush DEAD_BUSH_PF_GENERATOR = new net.lepidodendron.world.gen.WorldGenDeadBush();
 		protected static final WorldGenPrehistoricGroundCoverSandy GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
@@ -84,11 +84,12 @@ public class BiomeJurassicCreekDesert extends ElementsLepidodendronMod.ModElemen
 		protected static final WorldGenThinnfeldia THINNFELDIA_GENERATOR = new WorldGenThinnfeldia();
 		protected static final WorldGenFrenelopsis FRENELOPSIS_GENERATOR = new WorldGenFrenelopsis();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
-		protected static final WorldGenProtognetum PROTOGNETUM_GENERATOR = new WorldGenProtognetum();
-		protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
+		//protected static final WorldGenProtognetum PROTOGNETUM_GENERATOR = new WorldGenProtognetum();
+		//protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
-		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.<BlockDoublePlant.EnumPlantType>create("variant", BlockDoublePlant.EnumPlantType.class);
+		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.create("variant", BlockDoublePlant.EnumPlantType.class);
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -207,7 +208,7 @@ public class BiomeJurassicCreekDesert extends ElementsLepidodendronMod.ModElemen
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					ARID_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), ChunkProviderJurassic.DESERT_SEA_LEVEL);
+					PLANT_GENERATOR.generate(BlockAridHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), ChunkProviderJurassic.DESERT_SEA_LEVEL, 255, true, false, false);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -271,7 +272,7 @@ public class BiomeJurassicCreekDesert extends ElementsLepidodendronMod.ModElemen
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OTOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), ChunkProviderJurassic.DESERT_SEA_LEVEL, ChunkProviderJurassic.DESERT_SEA_LEVEL + 4);
+					PLANT_GENERATOR.generate(BlockOtozamites.block.getDefaultState(), worldIn, rand, pos.add(j, l, k),  ChunkProviderJurassic.DESERT_SEA_LEVEL, ChunkProviderJurassic.DESERT_SEA_LEVEL + 4);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -289,7 +290,7 @@ public class BiomeJurassicCreekDesert extends ElementsLepidodendronMod.ModElemen
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PROTOGNETUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true, ChunkProviderJurassic.DESERT_SEA_LEVEL);
+					PLANT_GENERATOR.generate(BlockProtognetum.block.getDefaultState(), worldIn, rand, pos.add(j, l, k),  ChunkProviderJurassic.DESERT_SEA_LEVEL, 255, true, false, false);
 				}
 
 	        super.decorate(worldIn, rand, pos);

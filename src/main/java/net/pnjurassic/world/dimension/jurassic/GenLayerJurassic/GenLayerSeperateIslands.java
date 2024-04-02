@@ -58,7 +58,7 @@ public class GenLayerSeperateIslands extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
 
@@ -91,40 +91,27 @@ public class GenLayerSeperateIslands extends GenLayer
     }
 
     private boolean isOcean(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
-            || biomeID == JURASSIC_REEF_ID || biomeID == JURASSIC_RAFTS_ID
-            || biomeID == JURASSIC_CORAL_ID
-        ) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+                || biomeID == JURASSIC_REEF_ID || biomeID == JURASSIC_RAFTS_ID
+                || biomeID == JURASSIC_CORAL_ID;
     }
 
     private boolean isSandyIslands(int biomeID) {
-        if (biomeID == JURASSIC_ATOLLS_ID || biomeID == JURASSIC_ATOLLS2_ID
-            || biomeID == JURASSIC_ATOLLS3_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_ATOLLS_ID || biomeID == JURASSIC_ATOLLS2_ID
+                || biomeID == JURASSIC_ATOLLS3_ID;
     }
 
     private boolean isWhiteIslands(int biomeID) {
-        if (biomeID == JURASSIC_ISLANDS_SANDY_WHITE_ID
-            || biomeID == JURASSIC_ISLANDS_SANDY_WHITE_EDGE_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_ISLANDS_SANDY_WHITE_ID
+                || biomeID == JURASSIC_ISLANDS_SANDY_WHITE_EDGE_ID;
     }
 
     private boolean isLargeIslands(int biomeID) {
-        if (biomeID == JURASSIC_ISLANDS_LARGE_ID
+        return biomeID == JURASSIC_ISLANDS_LARGE_ID
                 || biomeID == JURASSIC_ISLANDS_LARGE_RIM_ID
                 || biomeID == JURASSIC_ISLANDS_LARGE_SCRUB_ID
                 || biomeID == JURASSIC_ISLANDS_LARGE_WET_ID
-                || biomeID == JURASSIC_ISLANDS_LARGE_FIELD_ID) {
-            return true;
-        }
-        return false;
+                || biomeID == JURASSIC_ISLANDS_LARGE_FIELD_ID;
     }
 
 }

@@ -17,7 +17,7 @@ public class GenLayerRandomiseRedwood extends GenLayer
     public Biome JURASSIC_REDWOOD_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_coniferous_mountains"));
     public int JURASSIC_REDWOOD_MOUNTAINS_ID =  Biome.getIdForBiome(JURASSIC_REDWOOD_MOUNTAINS);
 
-    private final int RedwoodBiomes[] = new int[] {
+    private final int[] RedwoodBiomes = new int[] {
             JURASSIC_REDWOOD_FOREST_ID,
             JURASSIC_REDWOOD_HILLS_ID,
             JURASSIC_REDWOOD_MOUNTAINS_ID
@@ -38,7 +38,7 @@ public class GenLayerRandomiseRedwood extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
                 int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
@@ -60,12 +60,9 @@ public class GenLayerRandomiseRedwood extends GenLayer
     }
 
     private boolean isRedwood(int biomeID) {
-        if (biomeID == JURASSIC_REDWOOD_FOREST_ID
-            || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
-            || biomeID == JURASSIC_REDWOOD_HILLS_ID ) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_REDWOOD_FOREST_ID
+                || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
+                || biomeID == JURASSIC_REDWOOD_HILLS_ID;
     }
 
 }

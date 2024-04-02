@@ -13,7 +13,7 @@ public class GenLayerJurassicRafts extends GenLayer {
     public Biome JURASSIC_OCEAN_RAFTS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_rafts"));
     public int JURASSIC_OCEAN_RAFTS_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_RAFTS);
 
-    private final int OceanBiomes[] = new int[] {
+    private final int[] OceanBiomes = new int[] {
             JURASSIC_OCEAN_ID,
             JURASSIC_OCEAN_ID,
             JURASSIC_OCEAN_ID,
@@ -39,7 +39,7 @@ public class GenLayerJurassicRafts extends GenLayer {
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isOcean(k))
@@ -69,11 +69,8 @@ public class GenLayerJurassicRafts extends GenLayer {
     }
 
     private boolean isOcean(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID
-            || biomeID == JURASSIC_OCEAN_RAFTS_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_OCEAN_ID
+                || biomeID == JURASSIC_OCEAN_RAFTS_ID;
     }
 
 }

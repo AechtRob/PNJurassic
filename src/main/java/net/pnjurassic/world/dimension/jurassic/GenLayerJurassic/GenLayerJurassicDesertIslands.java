@@ -28,7 +28,7 @@ public class GenLayerJurassicDesertIslands extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isDesert(k) && nextInt(14) == 0)
@@ -62,18 +62,12 @@ public class GenLayerJurassicDesertIslands extends GenLayer
     }
 
     private boolean isDesert(int biomeID) {
-        if (biomeID == DESERT_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == DESERT_ID;
     }
 
     private boolean isIslandable(int biomeID) {
-        if (biomeID == DESERT_ID
-            || biomeID == DESERT_ISLANDS_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == DESERT_ID
+                || biomeID == DESERT_ISLANDS_ID;
     }
 
 }

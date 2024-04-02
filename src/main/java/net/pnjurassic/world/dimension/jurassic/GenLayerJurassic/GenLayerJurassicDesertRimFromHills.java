@@ -45,7 +45,7 @@ public class GenLayerJurassicDesertRimFromHills extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isHillsBiome(k))
@@ -79,24 +79,18 @@ public class GenLayerJurassicDesertRimFromHills extends GenLayer
     }
 
     private boolean isDesert(int biomeID) {
-        if (biomeID == DESERT_ID
+        return biomeID == DESERT_ID
                 || biomeID == DESERT_TRANSITION_DESERT_SIDE_ID
-                || biomeID == DESERT_TRANSITION_ID) {
-            return true;
-        }
-        return false;
+                || biomeID == DESERT_TRANSITION_ID;
     }
 
     private boolean isHillsBiome(int biomeID) {
-        if (biomeID == JURASSIC_BOULDERS_ID
+        return biomeID == JURASSIC_BOULDERS_ID
                 || biomeID == JURASSIC_CONIFEROUS_HILLS_ID
                 || biomeID == JURASSIC_CONIFEROUS_MTS_ID
                 || biomeID == JURASSIC_ROUGH_HILLS_ID
                 || biomeID == JURASSIC_OUTCROPS_ID
-                || biomeID == JURASSIC_OUTCROPS_EDGE_ID) {
-            return true;
-        }
-        return false;
+                || biomeID == JURASSIC_OUTCROPS_EDGE_ID;
     }
 
 }

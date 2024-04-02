@@ -66,25 +66,25 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenSphenobaieraTree SPHENOBAIERA_TREE = new WorldGenSphenobaieraTree(false);
 		protected static final WorldGenScrubbyPineTree PINE_TREE = new WorldGenScrubbyPineTree(false);
 
-		protected static final WorldGenUmaltolepis UMALTOLESPIS_GENERATOR = new WorldGenUmaltolepis();
-		protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
+		//protected static final WorldGenUmaltolepis UMALTOLESPIS_GENERATOR = new WorldGenUmaltolepis();
+		//protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
 
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
-		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.<BlockDoublePlant.EnumPlantType>create("variant", BlockDoublePlant.EnumPlantType.class);
-		protected static final WorldGenClaytosmunda CLAYTOSMUNDA_GENERATOR = new WorldGenClaytosmunda();
-		protected static final WorldGenOsmunda OSMUNDA_GENERATOR = new WorldGenOsmunda();
-		protected static final WorldGenCinnamon CINNAMON_GENERATOR = new WorldGenCinnamon();
+		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.create("variant", BlockDoublePlant.EnumPlantType.class);
+		//protected static final WorldGenClaytosmunda CLAYTOSMUNDA_GENERATOR = new WorldGenClaytosmunda();
+		//protected static final WorldGenOsmunda OSMUNDA_GENERATOR = new WorldGenOsmunda();
+		//protected static final WorldGenCinnamon CINNAMON_GENERATOR = new WorldGenCinnamon();
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
 		protected static final WorldGenPachypteris PACHYPTERIS_GENERATOR = new WorldGenPachypteris();
-		protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
-		protected static final WorldGenCladophlebis CLADOPHLEBIS_GENERATOR = new WorldGenCladophlebis();
-		protected static final WorldGenClathropteris CLATHROPTERIS_GENERATOR = new WorldGenClathropteris();
-		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
+		//protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
+		//protected static final WorldGenCladophlebis CLADOPHLEBIS_GENERATOR = new WorldGenCladophlebis();
+		//protected static final WorldGenClathropteris CLATHROPTERIS_GENERATOR = new WorldGenClathropteris();
+		//protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
 		protected static final WorldGenSwampHorsetail SWAMP_HORSETAIL_GENERATOR = new WorldGenSwampHorsetail();
 		protected static final WorldGenPterophyllum PTEROPHYLLUM_GENERATOR = new WorldGenPterophyllum();
-		protected static final WorldGenTyrmia TYRMIA_GENERATOR = new WorldGenTyrmia();
+		//protected static final WorldGenTyrmia TYRMIA_GENERATOR = new WorldGenTyrmia();
 		protected static final WorldGenPtilophyllum PTILOPHYLLUM_GENERATOR = new WorldGenPtilophyllum();
 		protected static final WorldGenAnomozamites ANOMOZAMITES_GENERATOR = new WorldGenAnomozamites();
 		protected static final WorldGenZamites ZAMITES_GENERATOR = new WorldGenZamites();
@@ -109,13 +109,14 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenLushPrehistoricGround LUSH_GENERATOR = new WorldGenLushPrehistoricGround();
 		protected static final WorldGenPrehistoricGroundCoverLush PREHISTORIC_GROUND_GENERATOR = new WorldGenPrehistoricGroundCoverLush();
 		protected static final WorldGenDriedMud MUD_GENERATOR = new WorldGenDriedMud();
-		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
+		//protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 
 		protected static final WorldGenTreeRottenLog ROTTEN_LOG_GENERATOR = new WorldGenTreeRottenLog();
 		protected static final WorldGenTreeLogWater LOG_WATER_GENERATOR1 = new WorldGenTreeLogWater(BlockGinkgoLog.block);
 		protected static final WorldGenTreeLogWater LOG_WATER_GENERATOR2 = new WorldGenTreeLogWater(BlockScrubbyPineLog.block);
 
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -389,7 +390,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					TYRMIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockTyrmia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -398,7 +399,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CLATHROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockClathropteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -407,7 +408,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CLUBMOSS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockClubmoss.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -452,7 +453,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					UMALTOLESPIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockUmaltolepis.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -461,7 +462,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CLAYTOSMUNDA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockClaytosmunda.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -470,7 +471,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OSMUNDA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockOsmunda.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -479,7 +480,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSphenopterisFern.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -497,7 +498,7 @@ public class BiomeJurassicLake extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					GRASS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockGrassyHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

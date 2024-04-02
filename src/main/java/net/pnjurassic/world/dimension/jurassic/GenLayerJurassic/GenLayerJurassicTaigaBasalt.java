@@ -20,7 +20,7 @@ public class GenLayerJurassicTaigaBasalt extends GenLayer {
     public Biome JURASSIC_TAIGA_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga_forest"));
     public int JURASSIC_TAIGA_FOREST_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_FOREST);
 
-    private final int TaigaBiomes[] = new int[] {
+    private final int[] TaigaBiomes = new int[] {
         JURASSIC_TAIGA_ID,
         JURASSIC_TAIGA_ID,
         JURASSIC_TAIGA_ID,
@@ -28,7 +28,7 @@ public class GenLayerJurassicTaigaBasalt extends GenLayer {
         JURASSIC_TAIGA_BASALT_ID
     };
 
-    private final int TaigaHillBiomes[] = new int[] {
+    private final int[] TaigaHillBiomes = new int[] {
             JURASSIC_TAIGA_HILLS_ID,
             JURASSIC_TAIGA_HILLS_ID,
             JURASSIC_TAIGA_HILLS_ID,
@@ -36,7 +36,7 @@ public class GenLayerJurassicTaigaBasalt extends GenLayer {
             JURASSIC_TAIGA_BASALT_ID
     };
 
-    private final int TaigaForestBiomes[] = new int[] {
+    private final int[] TaigaForestBiomes = new int[] {
             JURASSIC_TAIGA_FOREST_ID,
             JURASSIC_TAIGA_FOREST_ID,
             JURASSIC_TAIGA_FOREST_ID,
@@ -55,8 +55,8 @@ public class GenLayerJurassicTaigaBasalt extends GenLayer {
     }
 
     private int[] diversify(int x, int z, int width, int height) {
-        int input[] = this.parent.getInts(x, z, width, height);
-        int output[] = IntCache.getIntCache(width * height);
+        int[] input = this.parent.getInts(x, z, width, height);
+        int[] output = IntCache.getIntCache(width * height);
         EnumBiomeTypePermian type;
         for (int zOut = 0; zOut < height; zOut++) {
             for (int xOut = 0; xOut < width; xOut++) {

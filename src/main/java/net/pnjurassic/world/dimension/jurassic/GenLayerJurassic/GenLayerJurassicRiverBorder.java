@@ -102,7 +102,7 @@ public class GenLayerJurassicRiverBorder extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
 
@@ -196,7 +196,7 @@ public class GenLayerJurassicRiverBorder extends GenLayer
     }
 
     private boolean isOceanOrBeach(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID
+        return biomeID == JURASSIC_OCEAN_ID
                 || biomeID == JURASSIC_OCEAN_SHORE_ID
                 || biomeID == JURASSIC_BEACH_ID
                 || biomeID == JURASSIC_BEACH_BLACK_ID
@@ -209,39 +209,27 @@ public class GenLayerJurassicRiverBorder extends GenLayer
                 || biomeID == JURASSIC_DESERT_ID
                 || biomeID == JURASSIC_DESERT_RIM_ID
                 || biomeID == JURASSIC_DESERT_RIM_HELPER_ID
-                || biomeID == JURASSIC_DESERT_RIM_DESERT_SIDE_ID) {
-            return true;
-        }
-        return false;
+                || biomeID == JURASSIC_DESERT_RIM_DESERT_SIDE_ID;
     }
 
     private boolean isRedwood(int biomeID) {
-        if (biomeID == JURASSIC_REDWOOD_FOREST_ID
-            || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
-            || biomeID == JURASSIC_REDWOOD_HILLS_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_REDWOOD_FOREST_ID
+                || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
+                || biomeID == JURASSIC_REDWOOD_HILLS_ID;
     }
 
     private boolean isMudflats(int biomeID) {
-        if (biomeID == JURASSIC_MUDFLATS_ID
-            || biomeID == JURASSIC_MUDFLATS_HELPER_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_MUDFLATS_ID
+                || biomeID == JURASSIC_MUDFLATS_HELPER_ID;
     }
 
     private boolean isMire(int biomeID) {
-        if (biomeID == JURASSIC_MIRE_ID
-                || biomeID == JURASSIC_MIRE_HELPER_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_MIRE_ID
+                || biomeID == JURASSIC_MIRE_HELPER_ID;
     }
 
     private boolean isMireBordered(int biomeID) {
-        if (biomeID == JURASSIC_FLOODPLAIN_ID
+        return biomeID == JURASSIC_FLOODPLAIN_ID
                 || biomeID == JURASSIC_FLOODPLAIN_FORESTED_ID
                 || biomeID == JURASSIC_TAIGA_ID
                 || biomeID == JURASSIC_TAIGA_HILLS_ID
@@ -251,36 +239,26 @@ public class GenLayerJurassicRiverBorder extends GenLayer
                 || biomeID == JURASSIC_GINKGO_WOODLAND_ID
                 || biomeID == JURASSIC_GINKGO_PARKLAND_ID
                 || biomeID == JURASSIC_LAKE_ID
-                || biomeID == JURASSIC_LAKE_SHORE_ID
-        ) {
-            return true;
-        }
-        return false;
+                || biomeID == JURASSIC_LAKE_SHORE_ID;
     }
 
     private boolean isGarrigue(int biomeID) {
-        if (biomeID == JURASSIC_GARRIGUE_ID
-            || biomeID == JURASSIC_COPSE_ID
-            || biomeID == JURASSIC_CYCAD_THICKETS_ID
-            || biomeID == JURASSIC_BOULDERS_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_GARRIGUE_ID
+                || biomeID == JURASSIC_COPSE_ID
+                || biomeID == JURASSIC_CYCAD_THICKETS_ID
+                || biomeID == JURASSIC_BOULDERS_ID;
     }
 
     private boolean isGarrigueBordered(int biomeID) {
-        if (biomeID == JURASSIC_GARRIGUE_ID
-            || biomeID == JURASSIC_CYCAD_THICKETS_ID
-            || biomeID == JURASSIC_COPSE_ID
-            || biomeID == JURASSIC_BOULDERS_ID
-            || biomeID == JURASSIC_GINKGO_WOODLAND_ID
-            || biomeID == JURASSIC_GINKGO_PARKLAND_ID
-            || biomeID == JURASSIC_LAKE_ID
-            || biomeID == JURASSIC_LAKE_SHORE_ID
-            || biomeID == JURASSIC_FLOODPLAIN_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_GARRIGUE_ID
+                || biomeID == JURASSIC_CYCAD_THICKETS_ID
+                || biomeID == JURASSIC_COPSE_ID
+                || biomeID == JURASSIC_BOULDERS_ID
+                || biomeID == JURASSIC_GINKGO_WOODLAND_ID
+                || biomeID == JURASSIC_GINKGO_PARKLAND_ID
+                || biomeID == JURASSIC_LAKE_ID
+                || biomeID == JURASSIC_LAKE_SHORE_ID
+                || biomeID == JURASSIC_FLOODPLAIN_ID;
     }
 
 }

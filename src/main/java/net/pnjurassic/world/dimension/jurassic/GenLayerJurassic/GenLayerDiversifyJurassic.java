@@ -30,31 +30,31 @@ public class GenLayerDiversifyJurassic extends GenLayer {
     public int JURASSIC_TAIGA_ID =  Biome.getIdForBiome(JURASSIC_TAIGA);
 
 
-    private final int PastureBiomes[] = new int[] {
+    private final int[] PastureBiomes = new int[] {
         JURASSIC_FERN_PASTURE_ID
     };
 
-    private final int TaigaBiomes[] = new int[] {
+    private final int[] TaigaBiomes = new int[] {
         JURASSIC_TAIGA_ID
     };
 
-    private final int GarrigueBiomes[] = new int[] {
+    private final int[] GarrigueBiomes = new int[] {
          JURASSIC_GARRIGUE_ID
     };
-    private final int FloodplainBiomes[] = new int[] {
+    private final int[] FloodplainBiomes = new int[] {
         JURASSIC_FLOODPLAIN_FORESTED_ID,
         JURASSIC_FLOODPLAIN_ID
     };
-    private final int GinkgoBiomes[] = new int[] {
+    private final int[] GinkgoBiomes = new int[] {
         JURASSIC_GINKGO_WOODLAND_ID
     };
-    private final int RedwoodBiomes[] = new int[] {
+    private final int[] RedwoodBiomes = new int[] {
         JURASSIC_REDWOOD_FOREST_ID
     };
-    private final int MudflatsBiomes[] = new int[] {
+    private final int[] MudflatsBiomes = new int[] {
         JURASSIC_MUDFLATS_ID
     };
-    private final int HillsBiomes[] = new int[] {
+    private final int[] HillsBiomes = new int[] {
         JURASSIC_ROUGH_HILLS_ID
     };
 
@@ -69,8 +69,8 @@ public class GenLayerDiversifyJurassic extends GenLayer {
     }
 
     private int[] diversify(int x, int z, int width, int height) {
-        int input[] = this.parent.getInts(x, z, width, height);
-        int output[] = IntCache.getIntCache(width * height);
+        int[] input = this.parent.getInts(x, z, width, height);
+        int[] output = IntCache.getIntCache(width * height);
         EnumBiomeTypePermian type;
         for (int zOut = 0; zOut < height; zOut++) {
             for (int xOut = 0; xOut < width; xOut++) {

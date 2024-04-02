@@ -41,11 +41,11 @@ public class ChunkProviderJurassic implements IChunkGenerator {
     public static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
     public static final int SEALEVEL = 63;
     public final Random random;
-    private NoiseGeneratorOctaves perlin1;
-    private NoiseGeneratorOctaves perlin2;
-    private NoiseGeneratorOctaves perlin;
-    private NoiseGeneratorPerlin height;
-    private NoiseGeneratorOctaves depth;
+    private final NoiseGeneratorOctaves perlin1;
+    private final NoiseGeneratorOctaves perlin2;
+    private final NoiseGeneratorOctaves perlin;
+    private final NoiseGeneratorPerlin height;
+    private final NoiseGeneratorOctaves depth;
     public final World world;
     public final WorldType terrainType;
     public final MapGenBase caveGenerator;
@@ -308,15 +308,15 @@ public class ChunkProviderJurassic implements IChunkGenerator {
     }
 
     public void generateHeightmap(int p_185978_1_, int p_185978_2_, int p_185978_3_) {
-        this.depthReg = this.depth.generateNoiseOctaves(this.depthReg, p_185978_1_, p_185978_3_, 5, 5, (double) 200, (double) 200, (double) 0.5f);
+        this.depthReg = this.depth.generateNoiseOctaves(this.depthReg, p_185978_1_, p_185978_3_, 5, 5, 200, 200, 0.5f);
         float f = 684.412f;
         float f1 = 684.412f;
         this.noiseRegMain = this.perlin.generateNoiseOctaves(this.noiseRegMain, p_185978_1_, p_185978_2_, p_185978_3_, 5, 33, 5,
-                (double) (f / 80), (double) (f1 / 160), (double) (f / 80));
-        this.limitRegMin = this.perlin1.generateNoiseOctaves(this.limitRegMin, p_185978_1_, p_185978_2_, p_185978_3_, 5, 33, 5, (double) f,
-                (double) f1, (double) f);
-        this.limitRegMax = this.perlin2.generateNoiseOctaves(this.limitRegMax, p_185978_1_, p_185978_2_, p_185978_3_, 5, 33, 5, (double) f,
-                (double) f1, (double) f);
+                f / 80, f1 / 160, f / 80);
+        this.limitRegMin = this.perlin1.generateNoiseOctaves(this.limitRegMin, p_185978_1_, p_185978_2_, p_185978_3_, 5, 33, 5, f,
+                f1, f);
+        this.limitRegMax = this.perlin2.generateNoiseOctaves(this.limitRegMax, p_185978_1_, p_185978_2_, p_185978_3_, 5, 33, 5, f,
+                f1, f);
         int i = 0;
         int j = 0;
         for (int k = 0; k < 5; ++k) {
@@ -367,8 +367,8 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                     d7 = d7 / 8.0D;
                 }
                 ++j;
-                double d8 = (double) f3;
-                double d9 = (double) f2;
+                double d8 = f3;
+                double d9 = f2;
                 d8 = d8 + d7 * 0.2D;
                 d8 = d8 * (double) 8.5f / 8.0D;
                 double d0 = (double) 8.5f + d8 * 4.0D;
@@ -390,7 +390,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
 
                     double d5 = MathHelper.clampedLerp(d2, d3, d4) - d1;
                     if (l1 > 29) {
-                        double d6 = (double) ((float) (l1 - 29) / 3.0F);
+                        double d6 = (float) (l1 - 29) / 3.0F;
                         d5 = d5 * (1.0D - d6) + -10.0D * d6;
                     }
                     this.heightMap[i] = d5;
@@ -401,7 +401,7 @@ public class ChunkProviderJurassic implements IChunkGenerator {
     }
 
     public void replaceBiomeBlocks(int x, int z, ChunkPrimer primer, Biome[] biomesIn) {
-        this.depthbuff = this.height.getRegion(this.depthbuff, (double) (x * 16), (double) (z * 16), 16, 16, 0.0625, 0.0625, 1);
+        this.depthbuff = this.height.getRegion(this.depthbuff, x * 16, z * 16, 16, 16, 0.0625, 0.0625, 1);
         for (int i = 0; i < 16; i++)
             for (int j = 0; j < 16; j++)
                 generateBiomeTerrain(this.world, this.random, primer, x * 16 + i, z * 16 + j, this.depthbuff[j + i * 16], biomesIn[j + i * 16]);

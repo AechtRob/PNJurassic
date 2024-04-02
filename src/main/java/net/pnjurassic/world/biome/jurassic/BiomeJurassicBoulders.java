@@ -2,10 +2,7 @@
 package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
-import net.lepidodendron.block.BlockBrachyphyllumLog;
-import net.lepidodendron.block.BlockPodocarpLeaves;
-import net.lepidodendron.block.BlockPodocarpLog;
-import net.lepidodendron.block.BlockPodocarpSapling;
+import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.*;
@@ -71,13 +68,14 @@ public class BiomeJurassicBoulders extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenAnomozamitesShoot ANOMOZAMITES_SHOOT_GENERATOR = new WorldGenAnomozamitesShoot();
 		protected static final WorldGenPtilophyllumShoot PTILOPHYLLUM_SHOOT_GENERATOR = new WorldGenPtilophyllumShoot();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
-		protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
-		protected static final WorldGenHermanophyton HERMANOPHYTON_GENERATOR = new WorldGenHermanophyton();
+		//protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
+		//protected static final WorldGenHermanophyton HERMANOPHYTON_GENERATOR = new WorldGenHermanophyton();
 
 		protected static final WorldGenRedSandyDirt DIRT_GENERATOR = new WorldGenRedSandyDirt();
 		protected static final WorldGenPrehistoricGroundCover PREHISTORIC_GROUND_COVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenPrehistoricGroundCoverSandy PREHISTORIC_SAND_COVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
 
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -149,7 +147,7 @@ public class BiomeJurassicBoulders extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OTOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockOtozamites.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -158,7 +156,7 @@ public class BiomeJurassicBoulders extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					HERMANOPHYTON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockHermanophyton.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, false, false, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

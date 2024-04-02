@@ -24,11 +24,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.Supplier;
 
-@Mod(modid = PNJurassicMod.MODID, name = PNJurassicMod.NAME, version = PNJurassicMod.VERSION, dependencies = "required-after:lepidodendron@[59.0,)")
+@Mod(modid = PNJurassicMod.MODID, name = PNJurassicMod.NAME, version = PNJurassicMod.VERSION, dependencies = "required-after:lepidodendron@[60.0,)")
 public class PNJurassicMod {
     public static final String MODID = "pnjurassic";
     public static final String NAME = "Prehistoric Nature Jurassic Dimension";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "1.01";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("pnjurassic:a");
     @SidedProxy(clientSide = "net.pnjurassic.ClientProxyPNJurassicMod", serverSide = "net.pnjurassic.ServerProxyPNJurassicMod")
     public static IProxyPNJurassicMod proxy;

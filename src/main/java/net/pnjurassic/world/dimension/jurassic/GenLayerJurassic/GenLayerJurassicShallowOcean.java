@@ -39,7 +39,7 @@ public class GenLayerJurassicShallowOcean extends GenLayer
         {
             for (int j1 = 0; j1 < p_151626_3_; ++j1)
             {
-                this.initChunkSeed((long)(j1 + p_151626_1_), (long)(i1 + p_151626_2_));
+                this.initChunkSeed(j1 + p_151626_1_, i1 + p_151626_2_);
                 int k1 = aint[j1 + 1 + (i1 + 1) * k];
 
                 if (k1 == JURASSIC_OCEAN_ID || k1 == JURASSIC_OCEAN_RAFTS_ID)
@@ -68,12 +68,8 @@ public class GenLayerJurassicShallowOcean extends GenLayer
     }
 
     private boolean hasDeepSea(int biomeID) {
-        if (
-            biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
-                    || biomeID == JURASSIC_OCEAN_RAFTS_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+                || biomeID == JURASSIC_OCEAN_RAFTS_ID;
     }
     
 }

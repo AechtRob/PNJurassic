@@ -105,16 +105,16 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenLushPrehistoricGround LUSH_GROUND_GENERATOR = new WorldGenLushPrehistoricGround();
 		protected static final WorldGenPrehistoricGroundCoverLush GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverLush();
 		protected static final WorldGenTodites TODITES_GENERATOR = new WorldGenTodites();
-		protected static final WorldGenCladophlebis CLADOPHLEBIS_GENERATOR = new WorldGenCladophlebis();
+		//protected static final WorldGenCladophlebis CLADOPHLEBIS_GENERATOR = new WorldGenCladophlebis();
 		protected static final WorldGenPachypteris PACHYPTERIS_GENERATOR = new WorldGenPachypteris();
 		protected static final WorldGenPachypterisShoot PACHYPTERIS_SHOOT_GENERATOR = new WorldGenPachypterisShoot();
-		protected static final WorldGenClaytosmunda CLAYTOSMUNDA_GENERATOR = new WorldGenClaytosmunda();
+		//protected static final WorldGenClaytosmunda CLAYTOSMUNDA_GENERATOR = new WorldGenClaytosmunda();
 		protected static final WorldGenConiopteris CONIOPTERIS_GENERATOR = new WorldGenConiopteris();
-		protected static final WorldGenOsmunda OSMUNDA_GENERATOR = new WorldGenOsmunda();
-		protected static final WorldGenCinnamon CINNAMON_GENERATOR = new WorldGenCinnamon();
+		//protected static final WorldGenOsmunda OSMUNDA_GENERATOR = new WorldGenOsmunda();
+		//protected static final WorldGenCinnamon CINNAMON_GENERATOR = new WorldGenCinnamon();
 		protected static final WorldGenMatonia MATONIA_GENERATOR = new WorldGenMatonia();
-		protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
-		protected static final WorldGenDicksoniaShoot DICKSONIA_SHOOT_GENERATOR = new WorldGenDicksoniaShoot();
+		//protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
+		//protected static final WorldGenDicksoniaShoot DICKSONIA_SHOOT_GENERATOR = new WorldGenDicksoniaShoot();
 		protected static final WorldGenAnomozamitesShoot ANOMOZAMITES_SHOOT_GENERATOR = new WorldGenAnomozamitesShoot();
 		protected static final WorldGenPtilophyllumShoot PTILOPHYLLUM_SHOOT_GENERATOR = new WorldGenPtilophyllumShoot();
 
@@ -129,13 +129,14 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenCycas CYCAS_GENERATOR = new WorldGenCycas();
 		protected static final WorldGenCycadeoidea CYCADEOIDEA_GENERATOR = new WorldGenCycadeoidea();
 
-		protected static final WorldGenDictyophyllum DICTYOPHYLLUM_GENERATOR = new WorldGenDictyophyllum();
-		protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
+		//protected static final WorldGenDictyophyllum DICTYOPHYLLUM_GENERATOR = new WorldGenDictyophyllum();
+		//protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
 		protected static final WorldGenNilssonia NILSSONIA_GENERATOR = new WorldGenNilssonia();
-		protected static final WorldGenSanmiguelia SANMIGUELIA_GENERATOR = new WorldGenSanmiguelia();
+		//protected static final WorldGenSanmiguelia SANMIGUELIA_GENERATOR = new WorldGenSanmiguelia();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
-		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.<BlockDoublePlant.EnumPlantType>create("variant", BlockDoublePlant.EnumPlantType.class);
+		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.create("variant", BlockDoublePlant.EnumPlantType.class);
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
 			if (rand.nextInt(2) == 0) {
@@ -238,7 +239,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					this.SILT_PATCH_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					SILT_PATCH_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 			}
 
@@ -293,7 +294,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CLADOPHLEBIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockCladophlebis.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 
@@ -358,7 +359,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SANMIGUELIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSanmiguelia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -367,7 +368,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					DICTYOPHYLLUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockDictyophyllum.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -376,7 +377,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CLAYTOSMUNDA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockClaytosmunda.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -385,7 +386,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OSMUNDA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockOsmunda.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -394,7 +395,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CINNAMON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockCinnamonFern.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -439,7 +440,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OTOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockOtozamites.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.FERN);
@@ -521,7 +522,7 @@ public class BiomeJurassicRiver extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					GRASS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockGrassyHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 

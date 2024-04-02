@@ -2,13 +2,14 @@
 package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockAridHorsetail;
 import net.lepidodendron.block.BlockCoral;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
-import net.lepidodendron.world.gen.WorldGenAridHorsetail;
 import net.lepidodendron.world.gen.WorldGenCordaites;
 import net.lepidodendron.world.gen.WorldGenPrehistoricGroundCoverSandy;
 import net.lepidodendron.world.gen.WorldGenReef;
+import net.lepidodendron.world.gen.WorldGenSinglePlantOptionalWater;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -63,9 +64,10 @@ public class BiomeJurassicOceanShore extends ElementsLepidodendronMod.ModElement
 		}
 
 		protected static final WorldGenCordaites CORDAITES = new WorldGenCordaites(false);
-		protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
+		//protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
 		protected static final WorldGenPrehistoricGroundCoverSandy SANDY_GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
 		protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -87,7 +89,7 @@ public class BiomeJurassicOceanShore extends ElementsLepidodendronMod.ModElement
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					ARID_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockAridHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

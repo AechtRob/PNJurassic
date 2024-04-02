@@ -17,7 +17,7 @@ public class GenLayerJurassicBoulders extends GenLayer {
     public  Biome JURASSIC_CYCAD_THICKETS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_cycad_thickets"));
     public  int JURASSIC_CYCAD_THICKETS_ID =  Biome.getIdForBiome(JURASSIC_CYCAD_THICKETS);
 
-    private final int GarrigueBiomes[] = new int[] {
+    private final int[] GarrigueBiomes = new int[] {
         JURASSIC_GARRIGUE_ID,
         JURASSIC_GARRIGUE_ID,
         JURASSIC_GARRIGUE_ID,
@@ -39,8 +39,8 @@ public class GenLayerJurassicBoulders extends GenLayer {
     }
 
     private int[] diversify(int x, int z, int width, int height) {
-        int input[] = this.parent.getInts(x, z, width, height);
-        int output[] = IntCache.getIntCache(width * height);
+        int[] input = this.parent.getInts(x, z, width, height);
+        int[] output = IntCache.getIntCache(width * height);
         EnumBiomeTypeDevonian type;
         for (int zOut = 0; zOut < height; zOut++) {
             for (int xOut = 0; xOut < width; xOut++) {

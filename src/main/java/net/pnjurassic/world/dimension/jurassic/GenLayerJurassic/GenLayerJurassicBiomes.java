@@ -26,7 +26,7 @@ public class GenLayerJurassicBiomes extends GenLayer {
     public Biome JURASSIC_DESERT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_desert_rim_desert_side"));
     public int JURASSIC_DESERT_ID =  Biome.getIdForBiome(JURASSIC_DESERT);
 
-    private final int JurassicBiomes[] = new int[] {
+    private final int[] JurassicBiomes = new int[] {
         JURASSIC_FERN_PASTURE_ID,
         JURASSIC_FERN_PASTURE_ID,
 
@@ -65,7 +65,7 @@ public class GenLayerJurassicBiomes extends GenLayer {
 
     @Override
     public int[] getInts(int x, int z, int width, int height) {
-        int dest[] = IntCache.getIntCache(width * height);
+        int[] dest = IntCache.getIntCache(width * height);
         for (int dz = 0; dz < height; dz++) {
             for (int dx = 0; dx < width; dx++) {
                 initChunkSeed(dx + x, dz + z);

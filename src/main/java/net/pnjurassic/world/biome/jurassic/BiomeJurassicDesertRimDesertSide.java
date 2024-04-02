@@ -2,6 +2,9 @@
 package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockDayvaultia;
+import net.lepidodendron.block.BlockProtognetum;
+import net.lepidodendron.block.BlockPtilozamites;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.*;
@@ -62,14 +65,15 @@ public class BiomeJurassicDesertRimDesertSide extends ElementsLepidodendronMod.M
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
 
-		protected static final WorldGenDayvaultia DAYVAULTIA_GENERATOR = new WorldGenDayvaultia();
-		protected static final WorldGenProtognetum PROTOGNETUM_GENERATOR = new WorldGenProtognetum();
+		//protected static final WorldGenDayvaultia DAYVAULTIA_GENERATOR = new WorldGenDayvaultia();
+		//protected static final WorldGenProtognetum PROTOGNETUM_GENERATOR = new WorldGenProtognetum();
 
 		protected static final WorldGenSandyDirt SANDY_DIRT_GENERATOR = new WorldGenSandyDirt();
 		protected static final WorldGenCoarseDirt DIRT_GENERATOR = new WorldGenCoarseDirt();
 		protected static final WorldGenPrehistoricGroundCoverSandy PREHISTORIC_SAND_COVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
-		protected static final WorldGenPtilozamites PTILOZAMITES_GENERATOR = new WorldGenPtilozamites();
+		//protected static final WorldGenPtilozamites PTILOZAMITES_GENERATOR = new WorldGenPtilozamites();
 		protected static final WorldGenWilliamsonia WILLIAMSONIA_GENERATOR = new WorldGenWilliamsonia();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -162,7 +166,7 @@ public class BiomeJurassicDesertRimDesertSide extends ElementsLepidodendronMod.M
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PTILOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockPtilozamites.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -171,7 +175,7 @@ public class BiomeJurassicDesertRimDesertSide extends ElementsLepidodendronMod.M
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					DAYVAULTIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockDayvaultia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -180,7 +184,7 @@ public class BiomeJurassicDesertRimDesertSide extends ElementsLepidodendronMod.M
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PROTOGNETUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockProtognetum.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			super.decorate(worldIn, rand, pos);

@@ -37,7 +37,7 @@ public class GenLayerJurassicEstuary2 extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (k == JURASSIC_ESTUARY_HELPER_ID)
@@ -67,11 +67,8 @@ public class GenLayerJurassicEstuary2 extends GenLayer
     }
 
     private boolean isOcean(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
-                || biomeID == JURASSIC_OCEAN_RAFTS_ID || biomeID == JURASSIC_CORAL_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+                || biomeID == JURASSIC_OCEAN_RAFTS_ID || biomeID == JURASSIC_CORAL_ID;
     }
 
 }

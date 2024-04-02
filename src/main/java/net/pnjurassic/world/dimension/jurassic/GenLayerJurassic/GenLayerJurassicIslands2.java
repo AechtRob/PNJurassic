@@ -15,7 +15,7 @@ public class GenLayerJurassicIslands2 extends GenLayer {
     public int JURASSIC_SANDBANKS_SOLID_ID =  Biome.getIdForBiome(JURASSIC_SANDBANKS_SOLID);
 
 
-    private final int SandbanksBiomes[] = new int[] {
+    private final int[] SandbanksBiomes = new int[] {
             JURASSIC_SANDBANKS_ID,
             JURASSIC_SANDBANKS_ID,
             JURASSIC_SANDBANKS_ID,
@@ -38,7 +38,7 @@ public class GenLayerJurassicIslands2 extends GenLayer {
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isSandbank(k))
@@ -68,10 +68,7 @@ public class GenLayerJurassicIslands2 extends GenLayer {
     }
 
     private boolean isSandbank(int biomeID) {
-        if (biomeID == JURASSIC_SANDBANKS_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_SANDBANKS_ID;
     }
 
 }

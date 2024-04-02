@@ -17,7 +17,7 @@ public class GenLayerJurassicTaiga extends GenLayer {
     public int JURASSIC_TAIGA_FOREST_ID =  Biome.getIdForBiome(JURASSIC_TAIGA_FOREST);
 
 
-    private final int TaigaBiomes[] = new int[] {
+    private final int[] TaigaBiomes = new int[] {
             JURASSIC_TAIGA_ID,
             JURASSIC_TAIGA_ID,
             JURASSIC_TAIGA_ID,
@@ -39,8 +39,8 @@ public class GenLayerJurassicTaiga extends GenLayer {
     }
 
     private int[] diversify(int x, int z, int width, int height) {
-        int input[] = this.parent.getInts(x, z, width, height);
-        int output[] = IntCache.getIntCache(width * height);
+        int[] input = this.parent.getInts(x, z, width, height);
+        int[] output = IntCache.getIntCache(width * height);
         EnumBiomeTypePermian type;
         for (int zOut = 0; zOut < height; zOut++) {
             for (int xOut = 0; xOut < width; xOut++) {

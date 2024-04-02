@@ -15,7 +15,7 @@ public class GenLayerJurassicOutcropHighlands extends GenLayer {
     public Biome JURASSIC_OUTCROP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_outcrops"));
     public int JURASSIC_OUTCROP_ID =  Biome.getIdForBiome(JURASSIC_OUTCROP);
 
-    private final int HighlandBiomes[] = new int[] {
+    private final int[] HighlandBiomes = new int[] {
         JURASSIC_ROUGH_HILLS_ID,
         JURASSIC_ROUGH_HILLS_ID,
         JURASSIC_ROUGH_HILLS_ID,
@@ -36,8 +36,8 @@ public class GenLayerJurassicOutcropHighlands extends GenLayer {
     }
 
     private int[] diversify(int x, int z, int width, int height) {
-        int input[] = this.parent.getInts(x, z, width, height);
-        int output[] = IntCache.getIntCache(width * height);
+        int[] input = this.parent.getInts(x, z, width, height);
+        int[] output = IntCache.getIntCache(width * height);
         EnumBiomeTypeDevonian type;
         for (int zOut = 0; zOut < height; zOut++) {
             for (int xOut = 0; xOut < width; xOut++) {

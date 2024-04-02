@@ -127,8 +127,8 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 	}
 
 	public static class TeleporterDimensionMod extends Teleporter {
-		private Vec3d lastPortalVec;
-		private EnumFacing teleportDirection;
+		private final Vec3d lastPortalVec;
+		private final EnumFacing teleportDirection;
 		public TeleporterDimensionMod(WorldServer worldServer, Vec3d lastPortalVec, EnumFacing teleportDirection) {
 			super(worldServer);
 			this.lastPortalVec = lastPortalVec;
@@ -319,7 +319,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 			BlockPos blockpos = BlockPos.ORIGIN;
 			long l = ChunkPos.asLong(j, k);
 			if (this.destinationCoordinateCache.containsKey(l)) {
-				PortalPosition teleporter$portalposition = (PortalPosition) this.destinationCoordinateCache.get(l);
+				PortalPosition teleporter$portalposition = this.destinationCoordinateCache.get(l);
 				d0 = 0.0D;
 				blockpos = teleporter$portalposition;
 				teleporter$portalposition.lastUpdateTime = this.world.getTotalWorldTime();
@@ -572,9 +572,9 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 				for (int j1 = -2; j1 <= 2; ++j1) {
 					for (int k1 = -2; k1 <= 2; ++k1) {
 						for (int l1 = -1; l1 < 3; ++l1) {
-							int i2 = i + k1 * 1 + j1 * 0;
+							int i2 = i + k1 + 0;
 							int j2 = j + l1;
-							int k2 = k + k1 * 0 - j1 * 1;
+							int k2 = k + 0 - j1;
 							boolean flag = l1 < 0;
 							this.world.setBlockState(new BlockPos(i2, j2, k2),
 									flag
@@ -583,7 +583,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 						}
 					}
 				}
-				entityIn.setLocationAndAngles((double) i, (double) j, (double) k, entityIn.rotationYaw, 0.0F);
+				entityIn.setLocationAndAngles(i, j, k, entityIn.rotationYaw, 0.0F);
 				entityIn.motionX = 0.0D;
 				entityIn.motionY = 0.0D;
 				entityIn.motionZ = 0.0D;
@@ -600,7 +600,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 			BlockPos blockpos = BlockPos.ORIGIN;
 			long l = ChunkPos.asLong(j, k);
 			if (this.destinationCoordinateCache.containsKey(l)) {
-				PortalPosition teleporter$portalposition = (PortalPosition) this.destinationCoordinateCache.get(l);
+				PortalPosition teleporter$portalposition = this.destinationCoordinateCache.get(l);
 				d0 = 0.0D;
 				blockpos = teleporter$portalposition;
 				teleporter$portalposition.lastUpdateTime = this.world.getTotalWorldTime();
@@ -766,7 +766,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 					 * etc.
 					 */
 		public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-			EnumFacing.Axis enumfacing$axis = (EnumFacing.Axis) state.getValue(AXIS);
+			EnumFacing.Axis enumfacing$axis = state.getValue(AXIS);
 			if (enumfacing$axis == EnumFacing.Axis.X) {
 				Size blockportal$size = new Size(worldIn, pos, EnumFacing.Axis.X);
 				if (!blockportal$size.isValid() || blockportal$size.portalBlockCount < blockportal$size.width * blockportal$size.height) {
@@ -786,16 +786,16 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 
 			if (random.nextInt(110) == 0)
 				world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
-						(net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY
+						net.minecraft.util.SoundEvent.REGISTRY
 								.getObject(new ResourceLocation(("block.portal.ambient"))),
 						SoundCategory.BLOCKS, 0.5f, random.nextFloat() * 0.4F + 0.8F, false);
 
 
 			for (int i = 0; i < 4; ++i)
 			{
-				double d0 = (double)((float)pos.getX() + random.nextFloat());
-				double d1 = (double)((float)pos.getY() + random.nextFloat());
-				double d2 = (double)((float)pos.getZ() + random.nextFloat());
+				double d0 = (float)pos.getX() + random.nextFloat();
+				double d1 = (float)pos.getY() + random.nextFloat();
+				double d2 = (float)pos.getZ() + random.nextFloat();
 				double d3 = ((double)random.nextFloat() - 0.5D) * 0.5D;
 				double d4 = ((double)random.nextFloat() - 0.5D) * 0.5D;
 				double d5 = ((double)random.nextFloat() - 0.5D) * 0.5D;
@@ -804,12 +804,12 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 				if (world.getBlockState(pos.west()).getBlock() != this && world.getBlockState(pos.east()).getBlock() != this)
 				{
 					d0 = (double)pos.getX() + 0.5D + 0.25D * (double)j;
-					d3 = (double)(random.nextFloat() * 2.0F * (float)j);
+					d3 = random.nextFloat() * 2.0F * (float)j;
 				}
 				else
 				{
 					d2 = (double)pos.getZ() + 0.5D + 0.25D * (double)j;
-					d5 = (double)(random.nextFloat() * 2.0F * (float)j);
+					d5 = random.nextFloat() * 2.0F * (float)j;
 				}
 
 				Minecraft.getMinecraft().effectRenderer.addEffect(ParticlePNPortal.PortalParticleFactory.createParticle(world, d0, d1, d2, d3, d4, d5, 0.3203F, 0.5781F, 0.7656F));
@@ -839,7 +839,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 							spawnPos = new BlockPos(thePlayer.posX, thePlayer.posY, thePlayer.posZ);
 						}
 						thePlayer.setSpawnPoint(spawnPos, true);
-						ModTriggers.ENTER_JURASSIC.trigger((EntityPlayerMP)thePlayer);
+						ModTriggers.ENTER_JURASSIC.trigger(thePlayer);
 					}
 				} else {
 					thePlayer.timeUntilPortal = 10;
@@ -905,7 +905,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 			IBlockState portalBlockState = Functions.getPortalBlockState(lastDimension);
 			IBlockState portalState = Functions.getPortalState(lastDimension);
 
-			if (false && entityIn.dimension == -1)
+			if (false)
 			{
 				d0 = MathHelper.clamp(d0 / 8.0D, toWorldIn.getWorldBorder().minX() + 16.0D, toWorldIn.getWorldBorder().maxX() - 16.0D);
 				d1 = MathHelper.clamp(d1 / 8.0D, toWorldIn.getWorldBorder().minZ() + 16.0D, toWorldIn.getWorldBorder().maxZ() - 16.0D);
@@ -916,7 +916,7 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 					oldWorldIn.updateEntityWithOptionalForce(entityIn, false);
 				}
 			}
-			else if (false && entityIn.dimension == 0)
+			else if (false)
 			{
 				d0 = MathHelper.clamp(d0 * 8.0D, toWorldIn.getWorldBorder().minX() + 16.0D, toWorldIn.getWorldBorder().maxX() - 16.0D);
 				d1 = MathHelper.clamp(d1 * 8.0D, toWorldIn.getWorldBorder().minZ() + 16.0D, toWorldIn.getWorldBorder().maxZ() - 16.0D);
@@ -940,9 +940,9 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 					blockpos = toWorldIn.getSpawnCoordinate();
 				}
 
-				d0 = (double)blockpos.getX();
-				entityIn.posY = (double)blockpos.getY();
-				d1 = (double)blockpos.getZ();
+				d0 = blockpos.getX();
+				entityIn.posY = blockpos.getY();
+				d1 = blockpos.getZ();
 				entityIn.setLocationAndAngles(d0, entityIn.posY, d1, 90.0F, 0.0F);
 
 				if (entityIn.isEntityAlive())
@@ -956,8 +956,8 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 			if (lastDimension != 1 || !teleporter.isVanilla())
 			{
 				oldWorldIn.profiler.startSection("placing");
-				d0 = (double)MathHelper.clamp((int)d0, -29999872, 29999872);
-				d1 = (double)MathHelper.clamp((int)d1, -29999872, 29999872);
+				d0 = MathHelper.clamp((int)d0, -29999872, 29999872);
+				d1 = MathHelper.clamp((int)d1, -29999872, 29999872);
 
 				if (entityIn.isEntityAlive())
 				{
@@ -982,8 +982,8 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 			double d1 = bph.getForwards().getAxis() == EnumFacing.Axis.X ? entity.posZ : entity.posX;
 			d1 = Math.abs(MathHelper.pct(d1 - (double) (bph.getForwards().rotateY().getAxisDirection() == EnumFacing.AxisDirection.NEGATIVE ? 1 : 0),
 					d0, d0 - (double) bph.getWidth()));
-			double d2 = MathHelper.pct(entity.posY - 1, (double) bph.getFrontTopLeft().getY(),
-					(double) (bph.getFrontTopLeft().getY() - bph.getHeight()));
+			double d2 = MathHelper.pct(entity.posY - 1, bph.getFrontTopLeft().getY(),
+					bph.getFrontTopLeft().getY() - bph.getHeight());
 			return new TeleporterDimensionMod(entity.getServer().getWorld(dimid), new Vec3d(d1, d2, 0), bph.getForwards());
 		}
 		public static class Size {
@@ -1007,7 +1007,6 @@ public class WorldJurassic extends ElementsLepidodendronMod.ModElement {
 				}
 				for (BlockPos blockpos = p_i45694_2_; p_i45694_2_.getY() > blockpos.getY() - 21 && p_i45694_2_.getY() > 0
 						&& this.isEmptyBlock(worldIn.getBlockState(p_i45694_2_.down()).getBlock()); p_i45694_2_ = p_i45694_2_.down()) {
-					;
 				}
 				int i = this.getDistanceUntilEdge(p_i45694_2_, this.leftDir) - 1;
 				if (i >= 0) {

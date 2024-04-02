@@ -38,7 +38,7 @@ public class GenLayerJoinRiversJurassic extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isMudflats(k) || isBeach(k))
@@ -72,25 +72,16 @@ public class GenLayerJoinRiversJurassic extends GenLayer
     }
 
     private boolean isRiver(int biomeID) {
-        if (biomeID == JURASSIC_RIVER_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_RIVER_ID;
     }
 
     private boolean isMudflats(int biomeID) {
-        if (biomeID == JURASSIC_MUDFLATS_ID || biomeID == JURASSIC_MUDFLATS_HELPER_ID
-            || biomeID == JURASSIC_MIRE_ID || biomeID == JURASSIC_MIRE_HELPER_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_MUDFLATS_ID || biomeID == JURASSIC_MUDFLATS_HELPER_ID
+                || biomeID == JURASSIC_MIRE_ID || biomeID == JURASSIC_MIRE_HELPER_ID;
     }
 
     private boolean isBeach(int biomeID) {
-        if (biomeID == JURASSIC_BEACH_ID || biomeID == JURASSIC_BEACH_BLACK_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_BEACH_ID || biomeID == JURASSIC_BEACH_BLACK_ID;
     }
 
 }

@@ -31,7 +31,7 @@ public class GenLayerJurassicOutcropBlend2 extends GenLayer {
         this.parent = genlayer;
     }
 
-    private final int HighlandBiomes[] = new int[] {
+    private final int[] HighlandBiomes = new int[] {
             JURASSIC_OUTCROP_ID,
             JURASSIC_OUTCROP_EDGE_ID,
             JURASSIC_OUTCROP_EDGE_ID,
@@ -49,7 +49,7 @@ public class GenLayerJurassicOutcropBlend2 extends GenLayer {
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
 
@@ -86,10 +86,7 @@ public class GenLayerJurassicOutcropBlend2 extends GenLayer {
     }
 
     private boolean isOutcropEdge(int biomeID) {
-        if (biomeID == JURASSIC_OUTCROP_EDGE_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_OUTCROP_EDGE_ID;
     }
 
 }

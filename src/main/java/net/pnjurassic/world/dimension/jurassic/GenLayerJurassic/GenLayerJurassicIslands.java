@@ -22,7 +22,7 @@ public class GenLayerJurassicIslands extends GenLayer {
     public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
     public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
 
-    private final int OceanBiomes[] = new int[] {
+    private final int[] OceanBiomes = new int[] {
         JURASSIC_OCEAN_SHORE_ID,
         JURASSIC_OCEAN_SHORE_ID,
         JURASSIC_OCEAN_SHORE_ID,
@@ -57,7 +57,7 @@ public class GenLayerJurassicIslands extends GenLayer {
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isAlreadyWater(k))
@@ -87,11 +87,8 @@ public class GenLayerJurassicIslands extends GenLayer {
     }
 
     private boolean isAlreadyWater(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
-                || biomeID == JURASSIC_OCEAN_RAFTS_ID || biomeID == JURASSIC_CORAL_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+                || biomeID == JURASSIC_OCEAN_RAFTS_ID || biomeID == JURASSIC_CORAL_ID;
     }
 
 }

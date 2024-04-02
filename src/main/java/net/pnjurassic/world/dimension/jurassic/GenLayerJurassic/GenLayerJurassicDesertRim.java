@@ -32,7 +32,7 @@ public class GenLayerJurassicDesertRim extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
 
@@ -69,19 +69,13 @@ public class GenLayerJurassicDesertRim extends GenLayer
     }
 
     private boolean isDesertRim(int biomeID) {
-        if (biomeID == DESERT_TRANSITION_DESERT_SIDE_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == DESERT_TRANSITION_DESERT_SIDE_ID;
     }
 
     private boolean isRimmed(int biomeID) {
-        if (biomeID == DESERT_TRANSITION_DESERT_SIDE_ID
+        return biomeID == DESERT_TRANSITION_DESERT_SIDE_ID
                 || biomeID == DESERT_ID
-                || biomeID == DESERT_ISLANDS_ID) {
-            return true;
-        }
-        return false;
+                || biomeID == DESERT_ISLANDS_ID;
     }
 
 }

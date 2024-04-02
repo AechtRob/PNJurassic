@@ -15,7 +15,7 @@ public class GenLayerJurassicRoosts extends GenLayer {
     public Biome JURASSIC_ROOST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_roost"));
     public int JURASSIC_CALDERA_ROOST_ID =  Biome.getIdForBiome(JURASSIC_ROOST);
 
-    private final int CalderaRoostBiomes[] = new int[] {
+    private final int[] CalderaRoostBiomes = new int[] {
             JURASSIC_RIM_ID,
             JURASSIC_RIM_ID,
             JURASSIC_RIM_ID,
@@ -36,8 +36,8 @@ public class GenLayerJurassicRoosts extends GenLayer {
     }
 
     private int[] diversify(int x, int z, int width, int height) {
-        int input[] = this.parent.getInts(x, z, width, height);
-        int output[] = IntCache.getIntCache(width * height);
+        int[] input = this.parent.getInts(x, z, width, height);
+        int[] output = IntCache.getIntCache(width * height);
         EnumBiomeTypePermian type;
         for (int zOut = 0; zOut < height; zOut++) {
             for (int xOut = 0; xOut < width; xOut++) {

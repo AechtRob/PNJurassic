@@ -2,9 +2,7 @@
 package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
-import net.lepidodendron.block.BlockBrachyphyllumLeaves;
-import net.lepidodendron.block.BlockBrachyphyllumLog;
-import net.lepidodendron.block.BlockBrachyphyllumSapling;
+import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.*;
@@ -91,11 +89,12 @@ public class BiomeJurassicCreekBeach extends ElementsLepidodendronMod.ModElement
 
 		protected static final WorldGenHirmeriellaTree HIRMERIELLA_TREE = new WorldGenHirmeriellaTree(false);
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
-		protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
+		//protected static final WorldGenAridHorsetail ARID_HORSETAIL_GENERATOR = new WorldGenAridHorsetail();
 		protected static final WorldGenPrehistoricGroundCoverSandy SANDY_GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
 		protected static final WorldGenLeafblock LEAFBLOCK_GENERATOR = new WorldGenLeafblock();
-		protected static final WorldGenFurcifolium FURCIFOLIUM_GENERATOR = new WorldGenFurcifolium();
+		//protected static final WorldGenFurcifolium FURCIFOLIUM_GENERATOR = new WorldGenFurcifolium();
 		protected static final WorldGenFrenelopsis FRENELOPSIS_GENERATOR = new WorldGenFrenelopsis();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -116,7 +115,7 @@ public class BiomeJurassicCreekBeach extends ElementsLepidodendronMod.ModElement
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					ARID_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockAridHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -125,7 +124,7 @@ public class BiomeJurassicCreekBeach extends ElementsLepidodendronMod.ModElement
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					FURCIFOLIUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockFurcifolium.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

@@ -73,7 +73,7 @@ public class GenLayerJurassicBeach extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 //Biome biome = Biome.getBiome(k);
 
@@ -121,50 +121,36 @@ public class GenLayerJurassicBeach extends GenLayer
     }
 
     private boolean isOcean(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
-            || biomeID == JURASSIC_REEF_ID || biomeID == JURASSIC_OCEAN_RAFTS_ID
-                //|| biomeID == JURASSIC_CORAL_ID
-        ) {
-            return true;
-        }
-        return false;
+        //|| biomeID == JURASSIC_CORAL_ID
+        return biomeID == JURASSIC_OCEAN_ID || biomeID == JURASSIC_OCEAN_SHORE_ID
+                || biomeID == JURASSIC_REEF_ID || biomeID == JURASSIC_OCEAN_RAFTS_ID;
     }
 
     private boolean hasBlackBeach(int biomeID) {
-        if (biomeID == JURASSIC_TAIGA_ID || biomeID == JURASSIC_TAIGA_HILLS_ID
-            || biomeID == JURASSIC_TAIGA_BASALT_ID || biomeID == JURASSIC_TAIGA_FOREST_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_TAIGA_ID || biomeID == JURASSIC_TAIGA_HILLS_ID
+                || biomeID == JURASSIC_TAIGA_BASALT_ID || biomeID == JURASSIC_TAIGA_FOREST_ID;
     }
 
     private boolean hasWhiteBeach(int biomeID) {
-        if (biomeID == JURASSIC_ISLANDS_WHITE_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_ISLANDS_WHITE_ID;
     }
 
     private boolean hasNoBeach(int biomeID) {
-        if (biomeID == JURASSIC_MUDFLATS_ID
-            ||biomeID == JURASSIC_MUDFLATS_HELPER_ID
-            || biomeID == JURASSIC_REDWOOD_FOREST_ID
-            || biomeID == JURASSIC_SANDBANKS_ID
-        //    || biomeID == JURASSIC_ISLANDS_WHITE_ID
-            || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
-            || biomeID == JURASSIC_ESTUARY_ID
-            || biomeID == JURASSIC_ESTUARY_HELPER_ID
-            || biomeID == JURASSIC_DESERT_ID
         //    || biomeID == TRIASSIC_RIVERBANK_ID
         //    || biomeID == TRIASSIC_VOLCANIC_ISLANDS_ID
         //    || biomeID == TRIASSIC_LOWLANDS_FLOODPLAIN_ID
         //    || biomeID == TRIASSIC_WETLANDS_UNWOODED_ID
         //    || biomeID == TRIASSIC_MOUNTAINS_ID
         //    || biomeID == TRIASSIC_FLOODBASALT_ID
-            ) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_MUDFLATS_ID
+                || biomeID == JURASSIC_MUDFLATS_HELPER_ID
+                || biomeID == JURASSIC_REDWOOD_FOREST_ID
+                || biomeID == JURASSIC_SANDBANKS_ID
+                //    || biomeID == JURASSIC_ISLANDS_WHITE_ID
+                || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
+                || biomeID == JURASSIC_ESTUARY_ID
+                || biomeID == JURASSIC_ESTUARY_HELPER_ID
+                || biomeID == JURASSIC_DESERT_ID;
     }
 
 }

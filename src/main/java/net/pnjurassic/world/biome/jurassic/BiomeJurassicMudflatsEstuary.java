@@ -63,13 +63,13 @@ public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModEl
 
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
-		protected static final WorldGenClaytosmunda CLAYTOSMUNDA_GENERATOR = new WorldGenClaytosmunda();
+		//protected static final WorldGenClaytosmunda CLAYTOSMUNDA_GENERATOR = new WorldGenClaytosmunda();
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
-		protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
-		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
+		//protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
+		//protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
 		protected static final WorldGenSelaginella SELAGINELLA_GENERATOR = new WorldGenSelaginella();
-		protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
+		//protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
 		protected static final WorldGenTreeLog LOG_GENERATOR = new WorldGenTreeLog(BlockCzekanowskiaLog.block);
 		protected static final WorldGenGravelPatch SAND_PATCH_GENERATOR = new WorldGenGravelPatch(BlockCoarseSiltyDirt.block, 8);
 
@@ -82,6 +82,7 @@ public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModEl
 		protected static final WorldGenRedSandyDirt DIRT_GENERATOR = new WorldGenRedSandyDirt();
 		protected static final WorldGenDriedMud MUD_GENERATOR = new WorldGenDriedMud();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -99,7 +100,7 @@ public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModEl
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					this.SAND_PATCH_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					SAND_PATCH_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 			}
 
@@ -212,7 +213,7 @@ public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModEl
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					GRASS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockGrassyHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 

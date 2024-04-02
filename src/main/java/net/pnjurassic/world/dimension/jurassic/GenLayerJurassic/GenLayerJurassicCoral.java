@@ -13,7 +13,7 @@ public class GenLayerJurassicCoral extends GenLayer {
     public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
     public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
 
-    private final int OceanBiomes[] = new int[] {
+    private final int[] OceanBiomes = new int[] {
             JURASSIC_OCEAN_SHORE_ID,
             JURASSIC_OCEAN_SHORE_ID,
             JURASSIC_OCEAN_SHORE_ID,
@@ -40,7 +40,7 @@ public class GenLayerJurassicCoral extends GenLayer {
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isShallowOcean(k))
@@ -70,10 +70,7 @@ public class GenLayerJurassicCoral extends GenLayer {
     }
 
     private boolean isShallowOcean(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_SHORE_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_OCEAN_SHORE_ID;
     }
 
 }

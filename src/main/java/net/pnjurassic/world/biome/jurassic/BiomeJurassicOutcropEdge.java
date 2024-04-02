@@ -67,14 +67,14 @@ public class BiomeJurassicOutcropEdge extends ElementsLepidodendronMod.ModElemen
 
 		protected static final WorldGenStiffCycad STIFF_CYCAD_GENERATOR = new WorldGenStiffCycad();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
-		protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
+		//protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
 		protected static final WorldGenPentoxylales PENTOXYLALES_GENERATOR = new WorldGenPentoxylales();
 		protected static final WorldGenPhoenicopsis PHOENICOPSIS_GENERATOR = new WorldGenPhoenicopsis();
 
 		protected static final WorldGenRedSandyDirt DIRT_GENERATOR = new WorldGenRedSandyDirt();
 		protected static final WorldGenPrehistoricGroundCover PREHISTORIC_GROUND_COVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenPrehistoricGroundCoverSandy PREHISTORIC_SAND_COVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
-		protected static final WorldGenLeptopteris LEPTOPTERIS_GENERATOR = new WorldGenLeptopteris();
+		//protected static final WorldGenLeptopteris LEPTOPTERIS_GENERATOR = new WorldGenLeptopteris();
 		protected static final WorldGenCaytoniales CAYTONIALES_GENERATOR = new WorldGenCaytoniales();
 		protected static final WorldGenDichopterisShoot DICHOPTERIS_GENERATOR_SHOOT = new WorldGenDichopterisShoot();
 
@@ -89,6 +89,7 @@ public class BiomeJurassicOutcropEdge extends ElementsLepidodendronMod.ModElemen
 		protected static final WorldGenCycadeoidea CYCADEOIDEA_GENERATOR = new WorldGenCycadeoidea();
 
 		protected static final WorldGenDichopteris DICHOPTERIS_TREE = new WorldGenDichopteris(false);
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
@@ -171,7 +172,7 @@ public class BiomeJurassicOutcropEdge extends ElementsLepidodendronMod.ModElemen
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OTOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockOtozamites.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -306,7 +307,7 @@ public class BiomeJurassicOutcropEdge extends ElementsLepidodendronMod.ModElemen
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					LEPTOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockLeptopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			super.decorate(worldIn, rand, pos);

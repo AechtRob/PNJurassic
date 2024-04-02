@@ -67,10 +67,10 @@ public class BiomeJurassicGarrigue extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
-		protected static final WorldGenDictyophyllum DICTYOPHYLLUM_GENERATOR = new WorldGenDictyophyllum();
+		//protected static final WorldGenDictyophyllum DICTYOPHYLLUM_GENERATOR = new WorldGenDictyophyllum();
 		protected static final WorldGenCycadeoidea CYCADEOIDEA_GENERATOR = new WorldGenCycadeoidea();
-		protected static final WorldGenTyrmia TYRMIA_GENERATOR = new WorldGenTyrmia();
-		protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
+		//protected static final WorldGenTyrmia TYRMIA_GENERATOR = new WorldGenTyrmia();
+		//protected static final WorldGenOtozamites OTOZAMITES_GENERATOR = new WorldGenOtozamites();
 		protected static final WorldGenPterophyllum PTEROPHYLLUM_GENERATOR = new WorldGenPterophyllum();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
 
@@ -79,8 +79,8 @@ public class BiomeJurassicGarrigue extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenAnomozamitesShoot ANOMOZAMITES_SHOOT_GENERATOR = new WorldGenAnomozamitesShoot();
 		protected static final WorldGenPtilophyllumShoot PTILOPHYLLUM_SHOOT_GENERATOR = new WorldGenPtilophyllumShoot();
 
-		protected static final WorldGenDayvaultia DAYVAULTIA_GENERATOR = new WorldGenDayvaultia();
-		protected static final WorldGenProtognetum PROTOGNETUM_GENERATOR = new WorldGenProtognetum();
+		//protected static final WorldGenDayvaultia DAYVAULTIA_GENERATOR = new WorldGenDayvaultia();
+		//protected static final WorldGenProtognetum PROTOGNETUM_GENERATOR = new WorldGenProtognetum();
 
 		protected static final WorldGenCzekanowskia CZEKANOWSKIA_GENERATOR = new WorldGenCzekanowskia();
 
@@ -91,6 +91,7 @@ public class BiomeJurassicGarrigue extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenPrehistoricGroundCover PREHISTORIC_GROUND_COVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenPrehistoricGroundCoverSandy PREHISTORIC_SAND_COVER_GENERATOR = new WorldGenPrehistoricGroundCoverSandy();
 		protected static final WorldGenDriedMud MUD_GENERATOR = new WorldGenDriedMud();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -221,7 +222,7 @@ public class BiomeJurassicGarrigue extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					DICTYOPHYLLUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockDictyophyllum.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -239,7 +240,7 @@ public class BiomeJurassicGarrigue extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					TYRMIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockTyrmia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -257,7 +258,7 @@ public class BiomeJurassicGarrigue extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					OTOZAMITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockOtozamites.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -302,7 +303,7 @@ public class BiomeJurassicGarrigue extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					DAYVAULTIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+					PLANT_GENERATOR.generate(BlockDayvaultia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -311,7 +312,7 @@ public class BiomeJurassicGarrigue extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PROTOGNETUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockProtognetum.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			super.decorate(worldIn, rand, pos);

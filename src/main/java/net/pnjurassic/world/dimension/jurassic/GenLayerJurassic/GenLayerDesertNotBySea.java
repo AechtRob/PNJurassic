@@ -34,7 +34,7 @@ public class GenLayerDesertNotBySea extends GenLayer
         this.parent = genLayer;
     }
 
-    private final int JurassicBiomes[] = new int[] {
+    private final int[] JurassicBiomes = new int[] {
             JURASSIC_FERN_PASTURE_ID,
             JURASSIC_GARRIGUE_ID,
             JURASSIC_FLOODPLAIN_FORESTED_ID,
@@ -53,7 +53,7 @@ public class GenLayerDesertNotBySea extends GenLayer
         {
             for (int j = 0; j < areaWidth; ++j)
             {
-                this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
+                this.initChunkSeed(j + areaX, i + areaY);
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
 
                 if (isDesert(k))
@@ -86,17 +86,11 @@ public class GenLayerDesertNotBySea extends GenLayer
     }
 
     private boolean isDesert(int biomeID) {
-        if (biomeID == JURASSIC_DESERT_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_DESERT_ID;
     }
 
     private boolean isSea(int biomeID) {
-        if (biomeID == JURASSIC_OCEAN_SHORE_ID) {
-            return true;
-        }
-        return false;
+        return biomeID == JURASSIC_OCEAN_SHORE_ID;
     }
 
 }

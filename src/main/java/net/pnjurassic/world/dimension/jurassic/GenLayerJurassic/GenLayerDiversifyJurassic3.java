@@ -20,7 +20,7 @@ public class GenLayerDiversifyJurassic3 extends GenLayer {
     public Biome JURASSIC_LAKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lakes"));
     public int JURASSIC_LAKES_ID =  Biome.getIdForBiome(JURASSIC_LAKES);
 
-    private final int GarrigueBiomes[] = new int[] {
+    private final int[] GarrigueBiomes = new int[] {
         JURASSIC_COPSE_ID,
         JURASSIC_GARRIGUE_ID,
         JURASSIC_GARRIGUE_ID,
@@ -36,7 +36,7 @@ public class GenLayerDiversifyJurassic3 extends GenLayer {
         JURASSIC_GARRIGUE_ID
     };
 
-    private final int GinkgoBiomes[] = new int[] {
+    private final int[] GinkgoBiomes = new int[] {
             JURASSIC_LAKES_ID,
             JURASSIC_GINKGO_ID,
             JURASSIC_GINKGO_ID,
@@ -55,8 +55,8 @@ public class GenLayerDiversifyJurassic3 extends GenLayer {
     }
 
     private int[] diversify(int x, int z, int width, int height) {
-        int input[] = this.parent.getInts(x, z, width, height);
-        int output[] = IntCache.getIntCache(width * height);
+        int[] input = this.parent.getInts(x, z, width, height);
+        int[] output = IntCache.getIntCache(width * height);
         EnumBiomeTypePermian type;
         for (int zOut = 0; zOut < height; zOut++) {
             for (int xOut = 0; xOut < width; xOut++) {

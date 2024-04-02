@@ -78,9 +78,7 @@ public class GenVanillaFossils extends ElementsPNJurassicMod.ModElement {
 				}
 
 				int j = height;
-				boolean blockCriteria = false;
-				if ((world.getBlockState(new BlockPos(i, j, k))).getMaterial() == Material.SAND)
-					blockCriteria = true;
+				boolean blockCriteria = (world.getBlockState(new BlockPos(i, j, k))).getMaterial() == Material.SAND;
 				if (!blockCriteria)
 					continue;
 
@@ -94,7 +92,7 @@ public class GenVanillaFossils extends ElementsPNJurassicMod.ModElement {
 				IBlockState iblockstate = world.getBlockState(spawnTo);
 				world.notifyBlockUpdate(spawnTo, iblockstate, iblockstate, 3);
 				template.addBlocksToWorldChunk(world, spawnTo, new PlacementSettings().setRotation(rotation).setMirror(mirror)
-						.setChunk((ChunkPos) null).setReplacedBlock((Block) null).setIgnoreStructureBlock(false).setIgnoreEntities(false).setIntegrity(0.9F));
+						.setChunk(null).setReplacedBlock(null).setIgnoreStructureBlock(false).setIgnoreEntities(false).setIntegrity(0.9F));
 			}
 		}
 	}
