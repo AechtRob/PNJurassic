@@ -837,6 +837,17 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             iblockstate = BlockCoralBleached.block.getDefaultState();
                         }
 
+                        //Forested island:
+                        if ((biome == BiomeJurassicIslandForested.biome) && rand.nextInt(5) != 0) {
+                            iblockstate = BlockCoarseSandyDirt.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicIslandForested.biome) && rand.nextInt(8) == 0) {
+                            iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                        }
+                        if ((biome == BiomeJurassicIslandForested.biome) && rand.nextInt(8) == 0) {
+                            iblockstate = Blocks.DIRT.getStateFromMeta(2);
+                        }
+
                         //Add some moss and ferns generally:
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
                                 && biome == BiomeJurassicGinkgoWoodland.biome && rand.nextInt(12) == 0) {

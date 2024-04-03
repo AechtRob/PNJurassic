@@ -58,6 +58,7 @@ public class BiomeProviderJurassic extends BiomeProvider {
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_roost")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_scrub")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large_wet")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_forested")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lakes")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_lake_shore")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mire")),

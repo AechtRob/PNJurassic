@@ -54,6 +54,8 @@ public class GenLayerJurassicRiverMix extends GenLayer
     public  int JURASSIC_ATOLLS_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS);
     public  Biome JURASSIC_ATOLLS2 = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_forest"));
     public  int JURASSIC_ATOLLS2_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS2);
+    public  Biome JURASSIC_FORESTED_ISLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_forested"));
+    public  int JURASSIC_FORESTED_ISLAND_ID =  Biome.getIdForBiome(JURASSIC_FORESTED_ISLAND);
     public  Biome JURASSIC_ISLANDS_SANDY_WHITE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white"));
     public  int JURASSIC_ISLANDS_SANDY_WHITE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_SANDY_WHITE);
     public  Biome JURASSIC_ISLANDS_SANDY_WHITE_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white_edge"));
@@ -158,6 +160,9 @@ public class GenLayerJurassicRiverMix extends GenLayer
                         }
                         else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.Desert) {
                             aint2[i] = JURASSIC_CREEK_DESERT_ID;
+                        }
+                        else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.ForestIsland) {
+                            aint2[i] = JURASSIC_OCEAN_SHORE_ID;
                         }
                         else if (biomeJurassic.getBiomeType() == EnumBiomeTypeJurassic.IslandRock) {
                             if (biomeJurassic == BiomeJurassicIslandLargeWet.biome) {

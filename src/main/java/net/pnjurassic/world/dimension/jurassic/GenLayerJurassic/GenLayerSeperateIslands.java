@@ -27,6 +27,8 @@ public class GenLayerSeperateIslands extends GenLayer
     public int JURASSIC_ISLANDS_SANDY_WHITE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_SANDY_WHITE);
     public Biome JURASSIC_ISLANDS_SANDY_WHITE_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white_edge"));
     public int JURASSIC_ISLANDS_SANDY_WHITE_EDGE_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_SANDY_WHITE_EDGE);
+    public Biome JURASSIC_ISLANDS_FORESTED = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_forested"));
+    public int JURASSIC_ISLANDS_FORESTED_ID =  Biome.getIdForBiome(JURASSIC_ISLANDS_FORESTED);
     public Biome JURASSIC_ATOLLS3 = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_hills"));
     public int JURASSIC_ATOLLS3_ID =  Biome.getIdForBiome(JURASSIC_ATOLLS3);
     public Biome JURASSIC_ISLANDS_LARGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large"));
@@ -104,6 +106,10 @@ public class GenLayerSeperateIslands extends GenLayer
     private boolean isWhiteIslands(int biomeID) {
         return biomeID == JURASSIC_ISLANDS_SANDY_WHITE_ID
                 || biomeID == JURASSIC_ISLANDS_SANDY_WHITE_EDGE_ID;
+    }
+
+    private boolean isForestedIslands(int biomeID) {
+        return biomeID == JURASSIC_ISLANDS_FORESTED_ID;
     }
 
     private boolean isLargeIslands(int biomeID) {

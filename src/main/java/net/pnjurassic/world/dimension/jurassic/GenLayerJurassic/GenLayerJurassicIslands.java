@@ -11,8 +11,8 @@ public class GenLayerJurassicIslands extends GenLayer {
     public int JURASSIC_ISLAND_ID =  Biome.getIdForBiome(JURASSIC_ISLAND);
     public Biome JURASSIC_ISLAND_WHITE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_sandy_white"));
     public int JURASSIC_ISLAND_WHITE_ID =  Biome.getIdForBiome(JURASSIC_ISLAND_WHITE);
-    public Biome JURASSIC_ISLAND_LARGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_large"));
-    public int JURASSIC_ISLAND_LARGE_ID =  Biome.getIdForBiome(JURASSIC_ISLAND_LARGE);
+    public Biome JURASSIC_ISLAND_FORESTED = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_island_forested"));
+    public int JURASSIC_ISLAND_FORESTED_ID =  Biome.getIdForBiome(JURASSIC_ISLAND_FORESTED);
     public Biome JURASSIC_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_shore"));
     public int JURASSIC_OCEAN_SHORE_ID =  Biome.getIdForBiome(JURASSIC_OCEAN_SHORE);
     public Biome JURASSIC_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean"));
@@ -23,23 +23,53 @@ public class GenLayerJurassicIslands extends GenLayer {
     public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
 
     private final int[] OceanBiomes = new int[] {
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_ISLAND_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_ISLAND_ID,
+            JURASSIC_ISLAND_ID,
 
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_OCEAN_SHORE_ID,
-        JURASSIC_ISLAND_WHITE_ID
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_ISLAND_WHITE_ID,
+            JURASSIC_ISLAND_WHITE_ID,
+
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_OCEAN_SHORE_ID,
+            JURASSIC_ISLAND_FORESTED_ID,
+            JURASSIC_ISLAND_FORESTED_ID
     };
 
     public GenLayerJurassicIslands(long seed, GenLayer genlayer) {
