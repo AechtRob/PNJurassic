@@ -59,6 +59,8 @@ public class GenLayerJurassicRiverBorder extends GenLayer
     public  int JURASSIC_ESTUARY_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY);
     public  Biome JURASSIC_ESTUARY_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_helper"));
     public  int JURASSIC_ESTUARY_HELPER_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY_HELPER);
+    public Biome JURASSIC_ESTUARY_FLAT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_flat"));
+    public int JURASSIC_ESTUARY_FLAT_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY_FLAT);
 
     public Biome JURASSIC_TAIGA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_southern_taiga"));
     public int JURASSIC_TAIGA_ID =  Biome.getIdForBiome(JURASSIC_TAIGA);
@@ -202,6 +204,7 @@ public class GenLayerJurassicRiverBorder extends GenLayer
                 || biomeID == JURASSIC_BEACH_BLACK_ID
                 || biomeID == JURASSIC_ESTUARY_ID
                 || biomeID == JURASSIC_ESTUARY_HELPER_ID
+                || biomeID == JURASSIC_ESTUARY_FLAT_ID
                 || biomeID == JURASSIC_LAKE_ID
                 || biomeID == JURASSIC_LAKE_SHORE_ID
                 || biomeID == JURASSIC_CORAL_ID

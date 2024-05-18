@@ -53,6 +53,8 @@ public class GenLayerJurassicBeach extends GenLayer
     public int JURASSIC_ESTUARY_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY);
     public Biome JURASSIC_ESTUARY_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_helper"));
     public int JURASSIC_ESTUARY_HELPER_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY_HELPER);
+    public Biome JURASSIC_ESTUARY_FLAT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_flat"));
+    public int JURASSIC_ESTUARY_FLAT_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY_FLAT);
 
     public Biome JURASSIC_CORAL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_ocean_coral"));
     public int JURASSIC_CORAL_ID =  Biome.getIdForBiome(JURASSIC_CORAL);
@@ -161,6 +163,7 @@ public class GenLayerJurassicBeach extends GenLayer
                 || biomeID == JURASSIC_REDWOOD_MOUNTAINS_ID
                 || biomeID == JURASSIC_ESTUARY_ID
                 || biomeID == JURASSIC_ESTUARY_HELPER_ID
+                || biomeID == JURASSIC_ESTUARY_FLAT_ID
                 || biomeID == JURASSIC_DESERT_ID;
     }
 

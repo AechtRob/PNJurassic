@@ -63,6 +63,7 @@ public class GenLayerJurassic {
         biomes = new GenLayerJurassicIslands2(1333L, biomes);
 
         biomes = new GenLayerJurassicEstuary2(1000L, biomes);
+        biomes = new GenLayerJurassicEstuaryDiversify(1430L, biomes);
 
         biomes = new GenLayerJurassicOutcropBlend(1088L, biomes);
         biomes = new GenLayerSmooth(703L, biomes);

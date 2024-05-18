@@ -7,6 +7,7 @@ import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.WorldGenJurassicVolcanos;
 import net.lepidodendron.world.gen.WorldGenPangaeanDryLakes;
 import net.lepidodendron.world.gen.WorldGenPrehistoricLakes;
+import net.lepidodendron.world.gen.WorldGenPrehistoricLakesFull;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -157,16 +158,18 @@ public class ChunkProviderJurassic implements IChunkGenerator {
         if (biome == BiomeJurassicMudflatsEstuary.biome) //Many extra lakes in the estuary
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
-                for (int lake = 0; lake < 12; ++lake) {
+                for (int lake = 0; lake < 3; ++lake) {
                     int i1 = this.random.nextInt(16) + 8;
                     int j1 = this.random.nextInt(256);
                     int k1 = this.random.nextInt(16) + 8;
-                    (new WorldGenPrehistoricLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+                    (new WorldGenPrehistoricLakesFull(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
                 }
             }
 
 
-        if (biome == BiomeJurassicMire.biome || biome == BiomeJurassicMireHelper.biome) //Many extra lakes in the estuary
+        if (biome == BiomeJurassicMire.biome
+//                || biome == BiomeJurassicMireHelper.biome
+        ) //Many extra lakes in the estuary
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                 for (int lake = 0; lake < 2; ++lake) {
@@ -381,8 +384,9 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                     double d3 = this.limitRegMax[i] / (double) 512;
                     double d4 = (this.noiseRegMain[i] / 10.0D + 1.0D) / 2.0D;
 
-                    if (biome == BiomeJurassicMudflatsEstuary.biome) {
-                        //Flatten these out somewhat:
+                    if (biome == BiomeJurassicMudflatsEstuary.biome
+                        || biome == BiomeJurassicMudflatsEstuaryFlat.biome) {
+                        //Flatten these out:
                         d4 = 1.0F;
                         d2 = d4;
                         d3 = d4;
@@ -835,6 +839,16 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         }
                         if ((biome == BiomeJurassicDesert.biome) && rand.nextInt(500) == 0) {
                             iblockstate = BlockCoralBleached.block.getDefaultState();
+                        }
+
+                        if ((biome == BiomeJurassicMudflatsEstuaryFlat.biome) && rand.nextInt(8) != 0) {
+                            iblockstate = BlockCarboniferousMud.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuary.biome) && rand.nextInt(3) != 0) {
+                            iblockstate = BlockCarboniferousMud.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryHelper.biome) && rand.nextInt(6) != 0) {
+                            iblockstate = BlockCarboniferousMud.block.getDefaultState();
                         }
 
                         //Forested island:

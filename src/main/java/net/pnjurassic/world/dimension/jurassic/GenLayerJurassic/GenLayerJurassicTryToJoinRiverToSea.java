@@ -17,6 +17,8 @@ public class GenLayerJurassicTryToJoinRiverToSea extends GenLayer
     public  int JURASSIC_ESTUARY_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY);
     public  Biome JURASSIC_ESTUARY_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_helper"));
     public  int JURASSIC_ESTUARY_HELPER_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY_HELPER);
+    public Biome JURASSIC_ESTUARY_FLAT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_mudflats_estuary_flat"));
+    public int JURASSIC_ESTUARY_FLAT_ID =  Biome.getIdForBiome(JURASSIC_ESTUARY_FLAT);
 
     public  Biome JURASSIC_RIVER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:jurassic_river"));
     public  int JURASSIC_RIVER_ID =  Biome.getIdForBiome(JURASSIC_RIVER);
@@ -119,6 +121,7 @@ public class GenLayerJurassicTryToJoinRiverToSea extends GenLayer
         return biomeID == JURASSIC_BEACH_ID
                 || biomeID == JURASSIC_BLACK_BEACH_ID
                 || biomeID == JURASSIC_ESTUARY_ID
+                || biomeID == JURASSIC_ESTUARY_FLAT_ID
                 || biomeID == JURASSIC_ESTUARY_HELPER_ID;
     }
 

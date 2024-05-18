@@ -18,10 +18,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:jurassic_mudflats_estuary")
+public class BiomeJurassicMudflatsEstuaryFlat extends ElementsLepidodendronMod.ModElement {
+	@GameRegistry.ObjectHolder("lepidodendron:jurassic_mudflats_estuary_flat")
 	public static final BiomeGenCustom biome = null;
-	public BiomeJurassicMudflatsEstuary(ElementsLepidodendronMod instance) {
+	public BiomeJurassicMudflatsEstuaryFlat(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -41,7 +41,7 @@ public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModEl
 		public BiomeGenCustom() {
 			//was height 0.001
 			super(new BiomeProperties("Jurassic Mudflats").setBaseHeight(0.0F).setHeightVariation(0F).setTemperature(1.25F).setRainfall(0.4F));
-			setRegistryName("lepidodendron:jurassic_mudflats_estuary");
+			setRegistryName("lepidodendron:jurassic_mudflats_estuary_flat");
 			topBlock = BlockCoarseSiltyDirt.block.getDefaultState();
 			fillerBlock = BlockBrownstone.block.getDefaultState();
 			decorator.treesPerChunk = -999;
@@ -69,7 +69,7 @@ public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModEl
 		//protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
 		protected static final WorldGenLeafblock LEAVES_GENERATOR = new WorldGenLeafblock();
 		protected static final WorldGenSelaginella SELAGINELLA_GENERATOR = new WorldGenSelaginella();
-		//protected static final WorldGenGrassyHorsetail GRASS_GENERATOR = new WorldGenGrassyHorsetail();
+		protected static final WorldGenParadoxopteris PARADOXOPTERIS_GENERATOR = new WorldGenParadoxopteris();
 		protected static final WorldGenTreeLog LOG_GENERATOR = new WorldGenTreeLog(BlockCzekanowskiaLog.block);
 		protected static final WorldGenGravelPatch SAND_PATCH_GENERATOR = new WorldGenGravelPatch(BlockCoarseSiltyDirt.block, 8);
 
@@ -127,7 +127,7 @@ public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModEl
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 56; ++i)
+				for (int i = 0; i < 12; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -168,7 +168,16 @@ public class BiomeJurassicMudflatsEstuary extends ElementsLepidodendronMod.ModEl
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					LEAVES_GENERATOR.generate((BlockBush) BlockPhoenicopsisSapling.block, BlockPhoenicopsisLeaves.block.getDefaultState(), BlockPhoenicopsisLog.block.getDefaultState().withProperty(BlockPhoenicopsisLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 68, 90);
+					LEAVES_GENERATOR.generate((BlockBush) BlockPhoenicopsisSapling.block, BlockPhoenicopsisLeaves.block.getDefaultState(), BlockPhoenicopsisLog.block.getDefaultState().withProperty(BlockPhoenicopsisLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 90);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				if (rand.nextInt(9) == 0)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					PARADOXOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
