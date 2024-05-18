@@ -851,6 +851,46 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                             iblockstate = BlockCarboniferousMud.block.getDefaultState();
                         }
 
+                        if ((biome == BiomeJurassicMudflatsEstuaryFlat.biome) && rand.nextInt(8) == 0) {
+                            iblockstate = BlockCoarseSandyDirtBlack.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuary.biome) && rand.nextInt(15) == 0) {
+                            iblockstate = BlockCoarseSandyDirtBlack.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryHelper.biome) && rand.nextInt(8) == 0) {
+                            iblockstate = BlockCoarseSandyDirtBlack.block.getDefaultState();
+                        }
+
+
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(2) == 0) {
+                            iblockstate = BlockPrehistoricGroundFern.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(2) == 0) {
+                            iblockstate = BlockPrehistoricGroundBasic.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(8) == 0) {
+                            iblockstate = BlockDriedMud.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(12) == 0) {
+                            iblockstate = Blocks.DIRT.getStateFromMeta(2);
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(4) == 0) {
+                            iblockstate = BlockPrehistoricGroundLush.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(16) == 0) {
+                            iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(8) == 0) {
+                            iblockstate = BlockCarboniferousMud.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(10) == 0) {
+                            iblockstate = Blocks.GRAVEL.getDefaultState();
+                        }
+
+                        if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(3) == 0) {
+                            iblockstate1 = Blocks.STONE.getDefaultState();
+                        }
+
                         //Forested island:
                         if ((biome == BiomeJurassicIslandForested.biome) && rand.nextInt(5) != 0) {
                             iblockstate = BlockCoarseSandyDirt.block.getDefaultState();

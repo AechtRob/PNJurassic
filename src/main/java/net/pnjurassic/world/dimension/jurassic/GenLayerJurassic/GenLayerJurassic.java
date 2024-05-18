@@ -57,6 +57,9 @@ public class GenLayerJurassic {
         biomes = new GenLayerJurassicCoral(439L, biomes);
         biomes = new GenLayerJurassicIslandLargeInterior(143L, biomes);
         biomes = new GenLayerDesertTransitionDesertSide(144L, biomes);
+
+        biomes = new GenLayerJurassicEstuaryCopse(1420L, biomes);
+
         biomes = new GenLayerZoom(1004L, biomes);
 
         biomes = new GenLayerAddMountainsToRedwoodRare(1001L, biomes);
@@ -71,6 +74,8 @@ public class GenLayerJurassic {
         biomes = new GenLayerDiversifyJurassic3(1001L, biomes);
         biomes = new GenLayerSeperateIslands(1555L, biomes);
         biomes = new GenLayerJurassicDesertIslands(1563L, biomes);
+
+        //biomes = new GenLayerJurassicEstuaryCopse(1420L, biomes);
 
         biomes = new GenLayerFuzzyZoom(1000L, biomes);
 
