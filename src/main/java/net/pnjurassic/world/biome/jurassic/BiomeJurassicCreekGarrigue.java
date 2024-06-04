@@ -60,7 +60,7 @@ public class BiomeJurassicCreekGarrigue extends ElementsLepidodendronMod.ModElem
 
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		protected static final WorldGenMonkeyPuzzleAraucariaTree PARARAUCARIA_TREE = new WorldGenMonkeyPuzzleAraucariaTree(false);
-		protected static final WorldGenPodocarpTree PODOCARP_TREE = new WorldGenPodocarpTree(false);
+		protected static final WorldGenScarburgiaTree PODOCARP_TREE = new WorldGenScarburgiaTree(false);
 		protected static final WorldGenTallAraucariaTree TALL_ARAUCARIA_TREE = new WorldGenTallAraucariaTree(false);
 		protected static final WorldGenBunyaTree BUNYA_TREE = new WorldGenBunyaTree(false);
 
@@ -182,7 +182,7 @@ public class BiomeJurassicCreekGarrigue extends ElementsLepidodendronMod.ModElem
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					LEAVES_GENERATOR.generate((BlockBush) BlockPodocarpSapling.block, BlockPodocarpLeaves.block.getDefaultState(), BlockPodocarpLog.block.getDefaultState().withProperty(BlockBrachyphyllumLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
+					LEAVES_GENERATOR.generate((BlockBush) BlockPodocarpSapling.block, BlockScarburgiaLeaves.block.getDefaultState(), BlockPodocarpLog.block.getDefaultState().withProperty(BlockBrachyphyllumLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

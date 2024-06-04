@@ -169,7 +169,7 @@ public class BiomeJurassicDesertRim extends ElementsLepidodendronMod.ModElement 
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					LEAVES_GENERATOR.generate((BlockBush) BlockPodocarpSapling.block, BlockPodocarpLeaves.block.getDefaultState(), BlockPodocarpLog.block.getDefaultState().withProperty(BlockPodocarpLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
+					LEAVES_GENERATOR.generate((BlockBush) BlockPodocarpSapling.block, BlockScarburgiaLeaves.block.getDefaultState(), BlockPodocarpLog.block.getDefaultState().withProperty(BlockPodocarpLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

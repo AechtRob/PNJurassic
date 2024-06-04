@@ -39,6 +39,7 @@ public class BiomeJurassicConiferousMountains extends ElementsLepidodendronMod.M
 	public void init(FMLInitializationEvent event) {
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.FOREST);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.CONIFEROUS);
+		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.MOUNTAIN);
 	}
 
 	static class BiomeGenCustom extends BiomeJurassic {

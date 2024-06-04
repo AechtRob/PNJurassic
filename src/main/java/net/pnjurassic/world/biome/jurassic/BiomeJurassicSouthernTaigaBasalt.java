@@ -34,6 +34,7 @@ public class BiomeJurassicSouthernTaigaBasalt extends ElementsLepidodendronMod.M
 	public void init(FMLInitializationEvent event) {
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.HILLS);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.DRY);
+		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.COLD);
 	}
 
 	static class BiomeGenCustom extends BiomeJurassic {

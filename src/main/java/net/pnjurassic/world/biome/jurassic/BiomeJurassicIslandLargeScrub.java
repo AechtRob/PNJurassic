@@ -91,7 +91,7 @@ public class BiomeJurassicIslandLargeScrub extends ElementsLepidodendronMod.ModE
 
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		protected static final WorldGenMonkeyPuzzleAraucariaTree PARARAUCARIA_TREE = new WorldGenMonkeyPuzzleAraucariaTree(false);
-		protected static final WorldGenPodocarpTree PODOCARP_TREE = new WorldGenPodocarpTree(false);
+		protected static final WorldGenScarburgiaTree PODOCARP_TREE = new WorldGenScarburgiaTree(false);
 		protected static final WorldGenHoopTree HOOP_ARAUCARIA_TREE = new WorldGenHoopTree(false);
 		protected static final WorldGenBunyaTree BUNYA_TREE = new WorldGenBunyaTree(false);
 

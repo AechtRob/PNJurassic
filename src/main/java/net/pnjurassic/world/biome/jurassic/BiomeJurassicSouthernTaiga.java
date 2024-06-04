@@ -38,8 +38,8 @@ public class BiomeJurassicSouthernTaiga extends ElementsLepidodendronMod.ModElem
 
 	@Override
 	public void init(FMLInitializationEvent event) {
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.WET);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.LUSH);
+		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.COLD);
 	}
 
 	static class BiomeGenCustom extends BiomeJurassic {
@@ -92,7 +92,7 @@ public class BiomeJurassicSouthernTaiga extends ElementsLepidodendronMod.ModElem
 
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		protected static final WorldGenCypressTreeWater CYPRESS_TREE = new WorldGenCypressTreeWater(false);
-		protected static final WorldGenPodocarpTree PODOCARP_TREE = new WorldGenPodocarpTree(false);
+		protected static final WorldGenScarburgiaTree PODOCARP_TREE = new WorldGenScarburgiaTree(false);
 		protected static final WorldGenBrachyphyllumTree BRACHYPHYLLUM_TREE = new WorldGenBrachyphyllumTree(false);
 		protected static final WorldGenColumnarisTree COLUMNARIS_TREE = new WorldGenColumnarisTree(false);
 		protected static final WorldGenSilverTreefernTree SILVER_TREEFERNS = new WorldGenSilverTreefernTree(false);
@@ -245,7 +245,7 @@ public class BiomeJurassicSouthernTaiga extends ElementsLepidodendronMod.ModElem
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockPodocarpSapling.block, BlockPodocarpLeaves.block.getDefaultState(), BlockPodocarpLog.block.getDefaultState().withProperty(BlockPodocarpLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
+					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockPodocarpSapling.block, BlockScarburgiaLeaves.block.getDefaultState(), BlockPodocarpLog.block.getDefaultState().withProperty(BlockPodocarpLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
