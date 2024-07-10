@@ -3,7 +3,9 @@ package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
 import net.lepidodendron.block.*;
+import net.lepidodendron.entity.EntityPrehistoricFloraRhamphorhynchus;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
+import net.lepidodendron.world.biome.ChunkGenSpawner;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.*;
 import net.minecraft.block.BlockBush;
@@ -77,6 +79,8 @@ public class BiomeJurassicDesertIsland extends ElementsLepidodendronMod.ModEleme
 		protected static final WorldGenCycadeoidea CYCADEOIDEA_GENERATOR = new WorldGenCycadeoidea();
 		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
+		protected static final WorldGenNestExtra NEST_GENERATOR = new WorldGenNestExtra();
+
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
 			return NULL_TREE;
@@ -123,6 +127,31 @@ public class BiomeJurassicDesertIsland extends ElementsLepidodendronMod.ModEleme
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					COBBLE_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
+				{
+//					int i = rand.nextInt(36) + 24;
+//
+//					for (int j = 0; j < i; ++j) {
+//						int k = rand.nextInt(16) + 8;
+//						int l = rand.nextInt(16) + 8;
+//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+//						blockpos = ChunkGenSpawner.getTopSolidBlock(blockpos, worldIn).up();
+//						NEST_GENERATOR.generate(worldIn, rand, blockpos, 136, new EntityPrehistoricFloraKepodactylus(worldIn));
+//					}
+//
+//					i = rand.nextInt(36) + 24;
+//
+//					for (int j = 0; j < i; ++j)
+//					{
+//						int k = rand.nextInt(16) + 8;
+//						int l = rand.nextInt(16) + 8;
+//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+//						blockpos = ChunkGenSpawner.getTopSolidBlock(blockpos, worldIn).up();
+//						NEST_GENERATOR.generate(worldIn, rand, blockpos, 136, new EntityPrehistoricFloraHarpactognathus(worldIn));
+//					}
+				}
+			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 24; ++i)

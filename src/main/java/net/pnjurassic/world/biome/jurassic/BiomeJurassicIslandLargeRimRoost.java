@@ -3,6 +3,7 @@ package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
 import net.lepidodendron.block.*;
+import net.lepidodendron.entity.EntityPrehistoricFloraPterodactylus;
 import net.lepidodendron.entity.EntityPrehistoricFloraRhamphorhynchus;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
@@ -149,14 +150,24 @@ public class BiomeJurassicIslandLargeRimRoost extends ElementsLepidodendronMod.M
 				{
 					int i = rand.nextInt(36) + 24;
 
-					for (int j = 0; j < i; ++j)
-					{
+					for (int j = 0; j < i; ++j) {
 						int k = rand.nextInt(16) + 8;
 						int l = rand.nextInt(16) + 8;
 						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
 						blockpos = ChunkGenSpawner.getTopSolidBlock(blockpos, worldIn).up();
 						NEST_GENERATOR.generate(worldIn, rand, blockpos, 136, new EntityPrehistoricFloraRhamphorhynchus(worldIn));
 					}
+
+//					i = rand.nextInt(36) + 24;
+//
+//					for (int j = 0; j < i; ++j)
+//					{
+//						int k = rand.nextInt(16) + 8;
+//						int l = rand.nextInt(16) + 8;
+//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+//						blockpos = ChunkGenSpawner.getTopSolidBlock(blockpos, worldIn).up();
+//						NEST_GENERATOR.generate(worldIn, rand, blockpos, 136, new EntityPrehistoricFloraNormannognathus(worldIn));
+//					}
 				}
 			}
 

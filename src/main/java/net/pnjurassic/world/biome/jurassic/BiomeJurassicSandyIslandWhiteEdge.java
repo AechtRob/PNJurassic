@@ -3,6 +3,7 @@ package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
 import net.lepidodendron.block.*;
+import net.lepidodendron.entity.EntityPrehistoricFloraPterodactylus;
 import net.lepidodendron.entity.EntityPrehistoricFloraRhamphorhynchus;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
@@ -80,6 +81,9 @@ public class BiomeJurassicSandyIslandWhiteEdge extends ElementsLepidodendronMod.
 
 		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
+		protected static final WorldGenGuano GUANO_GENERATOR = new WorldGenGuano();
+		protected static final WorldGenNestExtra NEST_GENERATOR = new WorldGenNestExtra();
+
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
 			return NULL_TREE;
@@ -140,6 +144,20 @@ public class BiomeJurassicSandyIslandWhiteEdge extends ElementsLepidodendronMod.
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					LEAVES_GENERATOR.generate((BlockBush) BlockHirmeriellaSapling.block, BlockHirmeriellaLeaves.block.getDefaultState(), BlockHirmeriellaLog.block.getDefaultState().withProperty(BlockBrachyphyllumLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 63, 90);
 				}
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
+				{
+					//int i = rand.nextInt(32);
+
+					for (int j = 0; j < 8; ++j)
+					{
+						int k = rand.nextInt(16) + 8;
+						int l = rand.nextInt(16) + 8;
+						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+						GUANO_GENERATOR.generate(worldIn, rand, blockpos, 62);
+					}
+				}
+			}
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 56; ++i) {
