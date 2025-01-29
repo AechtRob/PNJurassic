@@ -3,7 +3,6 @@ package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
 import net.lepidodendron.block.*;
-import net.lepidodendron.entity.EntityPrehistoricFloraPterodactylus;
 import net.lepidodendron.entity.EntityPrehistoricFloraRhamphorhynchus;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
 import net.lepidodendron.world.biome.ChunkGenSpawner;

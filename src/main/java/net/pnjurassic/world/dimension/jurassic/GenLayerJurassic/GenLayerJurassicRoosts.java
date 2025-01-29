@@ -6,7 +6,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.pnjurassic.world.biome.jurassic.BiomeJurassicIslandLargeRim;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicSandyIslandHills;
 
 public class GenLayerJurassicRoosts extends GenLayer {
 

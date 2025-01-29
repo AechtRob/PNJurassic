@@ -1,7 +1,6 @@
 package net.pnjurassic.world.dimension.jurassic;
 
 import com.google.common.collect.Lists;
-import net.lepidodendron.world.biome.devonian.BiomeDevonian;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;

@@ -5,7 +5,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.pnjurassic.world.biome.jurassic.*;
+import net.pnjurassic.world.biome.jurassic.BiomeJurassicSouthernTaiga;
 
 public class GenLayerJurassicTaiga extends GenLayer {
 

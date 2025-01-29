@@ -1,11 +1,9 @@
 package net.pnjurassic.world.dimension.jurassic.GenLayerJurassic;
 
-import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.pnjurassic.world.biome.jurassic.BiomeJurassicMudflatsEstuary;
 
 public class GenLayerJurassicEstuaryCopse extends GenLayer {
 

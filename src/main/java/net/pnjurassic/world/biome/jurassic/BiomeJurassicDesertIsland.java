@@ -2,15 +2,13 @@
 package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
-import net.lepidodendron.block.*;
-import net.lepidodendron.entity.EntityPrehistoricFloraRhamphorhynchus;
+import net.lepidodendron.block.BlockDayvaultia;
+import net.lepidodendron.block.BlockProtognetum;
+import net.lepidodendron.block.BlockPtilozamites;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
-import net.lepidodendron.world.biome.ChunkGenSpawner;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.*;
-import net.minecraft.block.BlockBush;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;

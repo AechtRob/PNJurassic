@@ -4,13 +4,8 @@ package net.pnjurassic.world.biome.jurassic;
 import net.lepidodendron.ElementsLepidodendronMod;
 import net.lepidodendron.block.BlockCoral;
 import net.lepidodendron.block.BlockGlassSpongeReef;
-import net.lepidodendron.block.BlockSandPangaean;
-import net.lepidodendron.block.BlockSpongeReef;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
-import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
-import net.lepidodendron.world.biome.permian.BiomePermian;
-import net.lepidodendron.world.gen.GlassSpongeReefGenerator;
 import net.lepidodendron.world.gen.WorldGenNullTree;
 import net.lepidodendron.world.gen.WorldGenReef;
 import net.minecraft.block.material.Material;
@@ -21,8 +16,6 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 

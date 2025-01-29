@@ -3,16 +3,16 @@
     "modid": "pnjurassic",
     "name": "Prehistoric Nature Jurassic",
     "description": "Adds the Prehistoric Nature Jurassic dimension",
-    "version": "1.02",
+    "version": "2.0",
     "mcversion": "1.12.2",
     "url": "",
     "updateUrl": "",
     "authorList": ["Aecht_Rob"],
     "credits": "Prehistoric Nature",
-    "requiredMods": ["lepidodendron@[60.0,)","jeid@[2.0.6,)"],
+    "requiredMods": ["lepidodendron@[62.0,)","jeid@[2.0.6,)"],
     "logoFile": "",
     "screenshots": [],
-    "dependencies": ["lepidodendron@[60.0,)","jeid@[2.0.6,)"],
+    "dependencies": ["lepidodendron@[62.0,)","jeid@[2.0.6,)"],
     "useDependencyInformation": "true"
   }
 ]
