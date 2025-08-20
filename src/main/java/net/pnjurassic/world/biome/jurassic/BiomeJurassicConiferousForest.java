@@ -64,7 +64,7 @@ public class BiomeJurassicConiferousForest extends ElementsLepidodendronMod.ModE
 		}
 
 		protected static final WorldGenDicksonia DICKSONIA_TREE = new WorldGenDicksonia(false);
-		protected static final WorldGenSciadopitysTree SCIADOPITYS_TREE = new WorldGenSciadopitysTree(false);
+		protected static final WorldGenMiroviaTree MIROVIA_TREE = new WorldGenMiroviaTree(false);
 		protected static final WorldGenRedwoodTree REDWOOD_TREE = new WorldGenRedwoodTree(false);
 		protected static final WorldGenCunninghamiaTree CUNNINGHAMIA_TREE = new WorldGenCunninghamiaTree(false);
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
@@ -77,6 +77,7 @@ public class BiomeJurassicConiferousForest extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenHirmeriellaTree HIRMERIELLA_TREE = new WorldGenHirmeriellaTree(false);
 		protected static final WorldGenPagiophyllumTree PAGIOPHYLLUM_TREE = new WorldGenPagiophyllumTree(false);
 		protected static final WorldGenBushyAraucariaTree MONKEYPUZZLE_TREE = new WorldGenBushyAraucariaTree(false);
+		protected static final WorldGenDesmiophyllumTree DESMIOPHYLLUM_TREE = new WorldGenDesmiophyllumTree(false);
 
 		//protected static final WorldGenUmaltolepis UMALTOLESPIS_GENERATOR = new WorldGenUmaltolepis();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
@@ -130,7 +131,7 @@ public class BiomeJurassicConiferousForest extends ElementsLepidodendronMod.ModE
 			if (rand.nextInt(22) == 0) {
 				return DICKSONIA_TREE;
 			}
-			int selector = rand.nextInt(12);
+			int selector = rand.nextInt(13);
 			switch (selector) {
 				case 0:
 					if (Math.random() > 0.4) {
@@ -164,7 +165,7 @@ public class BiomeJurassicConiferousForest extends ElementsLepidodendronMod.ModE
 				case 4:
 					return NULL_TREE;
 				case 5:
-					return SCIADOPITYS_TREE;
+					return MIROVIA_TREE;
 				case 6:
 					return CEPHALOTAXUS_TREE;
 				case 7:
@@ -185,6 +186,8 @@ public class BiomeJurassicConiferousForest extends ElementsLepidodendronMod.ModE
 					}
 				case 11:
 					return CYPRESS_TREE;
+				case 12:
+					return DESMIOPHYLLUM_TREE;
 			}
 			return ELATOCLADUS_TREE;
 		}

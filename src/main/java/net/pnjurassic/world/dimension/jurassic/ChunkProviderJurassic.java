@@ -857,6 +857,14 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         }
 
 
+                        if ((biome == BiomeJurassicFernPasture.biome) && rand.nextInt(15) == 0) {
+                            iblockstate = BlockPrehistoricGroundHorsetail.block.getDefaultState();
+                        }
+                        if ((biome == BiomeJurassicCreekFernPasture.biome) && rand.nextInt(8) == 0) {
+                            iblockstate = BlockPrehistoricGroundHorsetail.block.getDefaultState();
+                        }
+
+
                         if ((biome == BiomeJurassicMudflatsEstuaryCopse.biome) && rand.nextInt(2) == 0) {
                             iblockstate = BlockPrehistoricGroundFern.block.getDefaultState();
                         }

@@ -99,7 +99,7 @@ public class BiomeJurassicSouthernTaigaForest extends ElementsLepidodendronMod.M
 		protected static final WorldGenWalchiaTreeDead DEAD_TREE = new WorldGenWalchiaTreeDead(false);
 		protected static final WorldGenDicroidiumFTree DICROIDIUM_TREE = new WorldGenDicroidiumFTree(false);
 		protected static final WorldGenCephalotaxusTree CEPHALOTAXUS_TREE = new WorldGenCephalotaxusTree(false);
-		protected static final WorldGenSciadopitysTree SCIADOPITYS_TREE = new WorldGenSciadopitysTree(false);
+		protected static final WorldGenMiroviaTree MIROVIA_TREE = new WorldGenMiroviaTree(false);
 
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
@@ -159,7 +159,7 @@ public class BiomeJurassicSouthernTaigaForest extends ElementsLepidodendronMod.M
 				case 10:
 					return CYPRESS_TREE;
 				case 11:
-					return SCIADOPITYS_TREE;
+					return MIROVIA_TREE;
 				case 12:
 					return SILVER_TREEFERNS;
 				case 13:

@@ -56,7 +56,7 @@ public class BiomeJurassicOutcrops extends ElementsLepidodendronMod.ModElement {
 			this.spawnableCaveCreatureList.clear();
 		}
 
-		protected static final WorldGenSciadopitysTree SCIADOPITYS_TREE = new WorldGenSciadopitysTree(false);
+		protected static final WorldGenMiroviaTree MIROVIA_TREE = new WorldGenMiroviaTree(false);
 		protected static final WorldGenAraucaritesTree ARAUCARITES_TREE = new WorldGenAraucaritesTree(false);
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 

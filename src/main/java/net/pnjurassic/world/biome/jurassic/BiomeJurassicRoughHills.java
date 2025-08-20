@@ -57,7 +57,7 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 			this.spawnableCaveCreatureList.clear();
 		}
 
-		protected static final WorldGenSciadopitysTree SCIADOPITYS_TREE = new WorldGenSciadopitysTree(false);
+		protected static final WorldGenMiroviaTree MIROVIA_TREE = new WorldGenMiroviaTree(false);
 		protected static final WorldGenAraucaritesTree ARAUCARITES_TREE = new WorldGenAraucaritesTree(false);
 		protected static final WorldGenSilverTreefernTree SILVER_TREEFERNS = new WorldGenSilverTreefernTree(false);
 		protected static final WorldGenBlackTreefernTree BLACK_TREEFERNS = new WorldGenBlackTreefernTree(false);
@@ -99,7 +99,7 @@ public class BiomeJurassicRoughHills extends ElementsLepidodendronMod.ModElement
 				return BLACK_TREEFERNS;
 			}
 			else if (rand.nextInt(5) != 0) {
-				return SCIADOPITYS_TREE;
+				return MIROVIA_TREE;
 			}
 			return ARAUCARITES_TREE;
 		}

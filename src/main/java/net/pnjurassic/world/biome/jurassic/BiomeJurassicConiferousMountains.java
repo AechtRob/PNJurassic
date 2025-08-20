@@ -65,7 +65,7 @@ public class BiomeJurassicConiferousMountains extends ElementsLepidodendronMod.M
 		}
 
 		protected static final WorldGenDicksonia DICKSONIA_TREE = new WorldGenDicksonia(false);
-		protected static final WorldGenSciadopitysTree SCIADOPITYS_TREE = new WorldGenSciadopitysTree(false);
+		protected static final WorldGenMiroviaTree MIROVIA_TREE = new WorldGenMiroviaTree(false);
 		protected static final WorldGenCephalotaxusTree CEPHALOTAXUS_TREE = new WorldGenCephalotaxusTree(false);
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		protected static final WorldGenAraucaritesTree ARAUCARITES_TREE = new WorldGenAraucaritesTree(false);
@@ -134,7 +134,7 @@ public class BiomeJurassicConiferousMountains extends ElementsLepidodendronMod.M
 				case 4:
 					return NULL_TREE;
 				case 5:
-					return SCIADOPITYS_TREE;
+					return MIROVIA_TREE;
 				case 6:
 					return CEPHALOTAXUS_TREE;
 				case 7:

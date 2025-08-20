@@ -65,7 +65,7 @@ public class BiomeJurassicConiferousHills extends ElementsLepidodendronMod.ModEl
 		}
 
 		protected static final WorldGenDicksonia DICKSONIA_TREE = new WorldGenDicksonia(false);
-		protected static final WorldGenSciadopitysTree SCIADOPITYS_TREE = new WorldGenSciadopitysTree(false);
+		protected static final WorldGenMiroviaTree MIROVIA_TREE = new WorldGenMiroviaTree(false);
 		protected static final WorldGenRedwoodTree REDWOOD_TREE = new WorldGenRedwoodTree(false);
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		protected static final WorldGenCunninghamiaTree CUNNINGHAMIA_TREE = new WorldGenCunninghamiaTree(false);
@@ -157,7 +157,7 @@ public class BiomeJurassicConiferousHills extends ElementsLepidodendronMod.ModEl
 				case 4:
 					return NULL_TREE;
 				case 5:
-					return SCIADOPITYS_TREE;
+					return MIROVIA_TREE;
 				case 6:
 					return CEPHALOTAXUS_TREE;
 				case 7:
@@ -178,7 +178,7 @@ public class BiomeJurassicConiferousHills extends ElementsLepidodendronMod.ModEl
 				case 12:
 					return NULL_TREE;
 				case 13:
-					return SCIADOPITYS_TREE;
+					return MIROVIA_TREE;
 				case 14:
 					return CEPHALOTAXUS_TREE;
 				case 15:

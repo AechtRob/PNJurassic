@@ -148,7 +148,6 @@ public class BiomeJurassicIslandLargeRimRoost extends ElementsLepidodendronMod.M
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
 				{
 					int i = rand.nextInt(36) + 24;
-
 					for (int j = 0; j < i; ++j) {
 						int k = rand.nextInt(16) + 8;
 						int l = rand.nextInt(16) + 8;
