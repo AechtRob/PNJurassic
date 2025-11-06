@@ -2,12 +2,16 @@
 package net.pnjurassic.world.biome.jurassic;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockCladophlebis;
 import net.lepidodendron.block.BlockCoral;
+import net.lepidodendron.block.BlockGlassSponge;
 import net.lepidodendron.block.BlockGlassSpongeReef;
 import net.lepidodendron.util.EnumBiomeTypeJurassic;
+import net.lepidodendron.world.biome.ChunkGenSpawner;
 import net.lepidodendron.world.biome.jurassic.BiomeJurassic;
 import net.lepidodendron.world.gen.WorldGenNullTree;
 import net.lepidodendron.world.gen.WorldGenReef;
+import net.lepidodendron.world.gen.WorldGenSingleStaticInWater;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -62,6 +66,7 @@ public class BiomeJurassicGlassSpongeReef extends ElementsLepidodendronMod.ModEl
 
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
+		protected static final WorldGenSingleStaticInWater STATIC_GENERATOR = new WorldGenSingleStaticInWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -90,7 +95,7 @@ public class BiomeJurassicGlassSpongeReef extends ElementsLepidodendronMod.ModEl
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ROCK))
-				for (int i = 0; i < 3; ++i)
+				for (int i = 0; i < 16; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -107,7 +112,7 @@ public class BiomeJurassicGlassSpongeReef extends ElementsLepidodendronMod.ModEl
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ROCK))
-				for (int i = 0; i < 3; ++i)
+				for (int i = 0; i < 10; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -121,6 +126,15 @@ public class BiomeJurassicGlassSpongeReef extends ElementsLepidodendronMod.ModEl
 					) {
 						REEF_GENERATOR.generate(worldIn, rand, pos1, 6, BlockGlassSpongeReef.block.getDefaultState());
 					}
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 24; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = ChunkGenSpawner.getTopSolidBlock(pos.add(j, 0, k), worldIn).getY() + 1;
+					STATIC_GENERATOR.generate(BlockGlassSponge.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 1, 255, true, false, false);
 				}
 
 	        super.decorate(worldIn, rand, pos);
