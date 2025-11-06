@@ -387,6 +387,13 @@ public class ChunkProviderJurassic implements IChunkGenerator {
                         d3 = d4;
                     }
 
+                    if (biome == BiomeJurassicFloodplain.biome) {
+                        //Flatten these out:
+                        d4 = 1.0F;
+                        d2 = d4;
+                        d3 = d4;
+                    }
+
                     double d5 = MathHelper.clampedLerp(d2, d3, d4) - d1;
                     if (l1 > 29) {
                         double d6 = (float) (l1 - 29) / 3.0F;
